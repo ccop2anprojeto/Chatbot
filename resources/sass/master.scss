@@ -1,0 +1,32 @@
+//--------------------------------------------------------------------------------
+// Master - 10/03/2017 - Criado por: Jan Nicolas e Kathlyn Ferreira 
+//--------------------------------------------------------------------------------
+
+//---------------------------------Indice----------------------------------------
+
+// 1 - _vars.scss 
+// ---- Fontes, variáveis e mixins
+// 2 - _base.scss
+// ---- Regras básicas e resets de tags comuns ou muito usadas
+// 3 - _componentes.scss
+// ---- Arquivo que agrupa os componentes utilizados no projeto
+// 4 - _fonts.scss
+// ---- Arquivo que agrupa as fontes utilizadas no projeto
+// 5 - _normalize.scss
+// ---- Arquivo que reseta e normaliza as propriedades de navegador
+// 6 - _hub.scss
+// ---- Arquivo que agrupa as estilos dos arquivos separados, não editar
+// 7 - master.scss
+// ---- Arquivo que agrupa as regras dos arquivos separados, não editar
+
+//-------------------------------------------------------------------------------
+
+
+// Imports
+
+@import 'componentes/_base.scss';
+@import 'componentes/_vars.scss';
+@import 'componentes/_normalize.scss';
+@import 'componentes/_componentes.scss';
+@import 'componentes/_fonts.scss';
+@import '_hub.scss';
