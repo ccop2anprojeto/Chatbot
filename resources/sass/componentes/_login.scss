@@ -10,6 +10,13 @@
         min-height: 100%;
         width: 100%;
         background: rgba(darken($primary,40%), 0.85);
+
+        .password-remember{
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+        }
+
   
         .login {
             border-radius: 2px 2px 5px 5px;
@@ -22,7 +29,7 @@
             box-shadow: 0px 1px 5px rgba(0,0,0,0.3);
 
             .login-title {
-                color: #444;
+                color: darken($primary, 5);
                 font-size: 1.2em;
                 font-weight: bold;
                 margin: 10px 0 30px 0;
@@ -51,13 +58,19 @@
                     border-left-width: 35px;
                 }
             }
+            
+            .login-checkbox {
+                float: left;
+                margin: 0 2px 0 0;
+            }
 
-            .remember, 
-            .password-remember {
+
+            .remember {
                 display: inherit;
                 font-size: 0.8em;   
                 color: $primary;
                 text-decoration: none;
+                margin: 0 0 10px 0;
             }
 
             .login-button {
@@ -77,4 +90,3 @@
         }
     }    
 }
-
