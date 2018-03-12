@@ -1,7 +1,68 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
-/* line 3, ../../resources/sass/componentes/_base.scss */
-body {
-  background: url("../images/intersection.png");
+/* line 3, ../../resources/sass/componentes/_funcionario.scss */
+.column_main {
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  background-color: #00b89c;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* line 11, ../../resources/sass/componentes/_funcionario.scss */
+.box_info {
+  padding: 8% 8% 0 8%;
+  background-color: #00cfaf;
+  overflow: hidden;
+}
+
+/* line 16, ../../resources/sass/componentes/_funcionario.scss */
+.image_fun {
+  max-width: 150px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+/* line 21, ../../resources/sass/componentes/_funcionario.scss */
+.image_fun img {
+  border-radius: 50%;
+  width: 100%;
+  height: 150px;
+  background-color: #fff;
+}
+
+/* line 28, ../../resources/sass/componentes/_funcionario.scss */
+.image_fun img:hover {
+  opacity: 0.5;
+}
+
+/* line 32, ../../resources/sass/componentes/_funcionario.scss */
+.column_main ul {
+  padding-top: 10px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* line 38, ../../resources/sass/componentes/_funcionario.scss */
+.column_main ul li {
+  border-bottom: 1px solid;
+  padding: 15px;
+}
+
+/* line 42, ../../resources/sass/componentes/_funcionario.scss */
+.column_main ul li a {
+  display: block;
+  color: #fff;
+}
+
+/* line 47, ../../resources/sass/componentes/_funcionario.scss */
+.column_main i {
+  width: 20px;
+  height: 20px;
+  display: block;
+  z-index: 1;
+  color: #fff;
+  font-size: 20px;
 }
 
 @media (min-width: 960px) {
@@ -623,7 +684,7 @@ template {
   cursor: pointer;
 }
 
-@media (min-width: 1248px) {
+@media (min-width: 1024px) {
   /* line 50, ../../resources/sass/componentes/_header.scss */
   .navbar .nav-list {
     font-size: 18px;
