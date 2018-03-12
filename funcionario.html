@@ -10,6 +10,8 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
 </head>
 <body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+	
 	<section class="column_main">
 		<nav class="nav_main">
 			<div class="box_info">
@@ -30,5 +32,36 @@
 			</ul>
 		</nav>
 	</section>
+	<section class="column_principal">
+			<h1 class="title is-4">Dashboard do Funcionário</h1>
+			<div class="content_chart">
+					<canvas id="myChart" width="300" height="300"></canvas>
+					<canvas id="myChart2" width="300" height="300"></canvas>
+			</div>
+	</section>
+	<div class="container_chat">
+		<header>
+			<span>Maria Perreira</span>
+			<span class="item_id">ID: 4X8383</span>
+			<div class="icon_close">
+				<a href="#"><i class="fa fa-times"></i></a>
+			</div>
+		</header>
+		<div class="content_messages">
+			<div class="box_view">
+				<div class="message received">
+					<span>Olá, estou com uma dúvida.</span>
+				</div>
+				<div class="message sent">
+					<span>Olá, estou com uma dúvida.</span>
+				</div>
+			</div>			
+		</div>
+		<div class="content_area">
+			<textarea placeholder="Digite..."></textarea>
+		</div>
+	</div>
+
+	<script src="assets/scripts/funcionario.js"></script>
 </body>
 </html>
