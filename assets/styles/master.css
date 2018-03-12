@@ -55,16 +55,6 @@
   color: #fff;
 }
 
-/* line 47, ../../resources/sass/componentes/_funcionario.scss */
-.column_main i {
-  width: 20px;
-  height: 20px;
-  display: block;
-  z-index: 1;
-  color: #fff;
-  font-size: 20px;
-}
-
 @media (min-width: 960px) {
   /* line 24, ../../resources/sass/componentes/_vars.scss */
   .only-tablet {
