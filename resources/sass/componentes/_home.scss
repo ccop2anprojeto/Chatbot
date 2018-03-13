@@ -1,31 +1,4 @@
 
- .l-box {
-    padding: 1em;
-}
-
-.l-box-lrg {
-    padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.is-center {
-    text-align: center;
-}
-
-.pure-form label {
-    margin: 1em 0 0;
-    font-weight: bold;
-    font-size: 100%;
-}
-
-.pure-form input[type] {
-    border: 2px solid #ddd;
-    box-shadow: none;
-    font-size: 100%;
-    width: 100%;
-    margin-bottom: 1em;
-}
-
 .home-menu {
     line-height: 3em;
     text-align: center;
@@ -140,6 +113,33 @@
     color: #aaa;
 }
 
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+.pure-form label {
+    margin: 1em 0 0;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.pure-form input[type] {
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
 
 //---------------------------------
 // Pure Media Queries
@@ -194,6 +194,7 @@
 // Desktop
 @media (min-width: 78em) {
     .pure-menu.pure-menu-fixed {
+        display: inline-block;
         border-bottom: none;
         z-index: 4;
         padding: 0px 20px 0 20px;

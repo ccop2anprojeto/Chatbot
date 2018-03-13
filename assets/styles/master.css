@@ -633,69 +633,37 @@ template {
 }
 
 /* line 2, ../../resources/sass/componentes/_home.scss */
-.l-box {
-  padding: 1em;
-}
-
-/* line 6, ../../resources/sass/componentes/_home.scss */
-.l-box-lrg {
-  padding: 2em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-/* line 11, ../../resources/sass/componentes/_home.scss */
-.is-center {
-  text-align: center;
-}
-
-/* line 15, ../../resources/sass/componentes/_home.scss */
-.pure-form label {
-  margin: 1em 0 0;
-  font-weight: bold;
-  font-size: 100%;
-}
-
-/* line 21, ../../resources/sass/componentes/_home.scss */
-.pure-form input[type] {
-  border: 2px solid #ddd;
-  box-shadow: none;
-  font-size: 100%;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-/* line 29, ../../resources/sass/componentes/_home.scss */
 .home-menu {
   line-height: 3em;
   text-align: center;
   font: 20px "Montserrat";
   font-weight: bolder;
 }
-/* line 35, ../../resources/sass/componentes/_home.scss */
+/* line 8, ../../resources/sass/componentes/_home.scss */
 .home-menu li a:hover,
 .home-menu li a:focus {
   background-color: transparent;
   color: #05c263;
   height: 100%;
 }
-/* line 42, ../../resources/sass/componentes/_home.scss */
+/* line 15, ../../resources/sass/componentes/_home.scss */
 .home-menu a {
   color: white;
 }
-/* line 47, ../../resources/sass/componentes/_home.scss */
+/* line 20, ../../resources/sass/componentes/_home.scss */
 .home-menu .pure-menu-heading {
   color: white;
   font-weight: 400;
   font-size: 120%;
 }
 
-/* line 54, ../../resources/sass/componentes/_home.scss */
+/* line 27, ../../resources/sass/componentes/_home.scss */
 .pure-menu.pure-menu-fixed {
   border-bottom: none;
   z-index: 4;
 }
 
-/* line 61, ../../resources/sass/componentes/_home.scss */
+/* line 34, ../../resources/sass/componentes/_home.scss */
 .container-header {
   background-image: url("../images/mobile.jpeg");
   background-repeat: no-repeat;
@@ -709,7 +677,7 @@ template {
   left: 0;
   position: fixed !important;
 }
-/* line 74, ../../resources/sass/componentes/_home.scss */
+/* line 47, ../../resources/sass/componentes/_home.scss */
 .container-header .hero {
   width: 80%;
   height: 50%;
@@ -722,7 +690,7 @@ template {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 83, ../../resources/sass/componentes/_home.scss */
+/* line 56, ../../resources/sass/componentes/_home.scss */
 .container-header .hero .hero-head {
   font-family: 'Oswald', sans-serif;
   font-size: 40px;
@@ -731,18 +699,18 @@ template {
   font-weight: 100;
   line-height: 1em;
 }
-/* line 92, ../../resources/sass/componentes/_home.scss */
+/* line 65, ../../resources/sass/componentes/_home.scss */
 .container-header .hero .hero-subhead {
   color: white;
   letter-spacing: 0.05em;
   opacity: 0.8;
 }
-/* line 97, ../../resources/sass/componentes/_home.scss */
+/* line 70, ../../resources/sass/componentes/_home.scss */
 .container-header .hero .hero-subhead .hero-subhead-strong {
   color: re;
 }
 
-/* line 104, ../../resources/sass/componentes/_home.scss */
+/* line 77, ../../resources/sass/componentes/_home.scss */
 .content-wrapper {
   position: absolute;
   top: 87%;
@@ -752,12 +720,12 @@ template {
   background: white;
 }
 
-/* line 114, ../../resources/sass/componentes/_home.scss */
+/* line 87, ../../resources/sass/componentes/_home.scss */
 .content {
   padding: 1em 1em 3em;
 }
 
-/* line 118, ../../resources/sass/componentes/_home.scss */
+/* line 91, ../../resources/sass/componentes/_home.scss */
 .content-head {
   font-weight: 400;
   text-transform: uppercase;
@@ -765,24 +733,56 @@ template {
   margin: 2em 0 1em;
 }
 
-/* line 126, ../../resources/sass/componentes/_home.scss */
+/* line 99, ../../resources/sass/componentes/_home.scss */
 .content-head-ribbon {
   color: white;
 }
 
-/* line 130, ../../resources/sass/componentes/_home.scss */
+/* line 103, ../../resources/sass/componentes/_home.scss */
 .content-subhead {
   color: #181312;
 }
-/* line 133, ../../resources/sass/componentes/_home.scss */
+/* line 106, ../../resources/sass/componentes/_home.scss */
 .content-subhead i {
   margin-right: 7px;
 }
 
-/* line 138, ../../resources/sass/componentes/_home.scss */
+/* line 111, ../../resources/sass/componentes/_home.scss */
 .ribbon {
   background: #05cc68;
   color: #aaa;
+}
+
+/* line 116, ../../resources/sass/componentes/_home.scss */
+.l-box {
+  padding: 1em;
+}
+
+/* line 120, ../../resources/sass/componentes/_home.scss */
+.l-box-lrg {
+  padding: 2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* line 125, ../../resources/sass/componentes/_home.scss */
+.is-center {
+  text-align: center;
+}
+
+/* line 129, ../../resources/sass/componentes/_home.scss */
+.pure-form label {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+/* line 135, ../../resources/sass/componentes/_home.scss */
+.pure-form input[type] {
+  border: 2px solid #ddd;
+  box-shadow: none;
+  font-size: 100%;
+  width: 100%;
+  margin-bottom: 1em;
 }
 
 @media (min-width: 20em) {
@@ -835,12 +835,13 @@ template {
 @media (min-width: 78em) {
   /* line 196, ../../resources/sass/componentes/_home.scss */
   .pure-menu.pure-menu-fixed {
+    display: inline-block;
     border-bottom: none;
     z-index: 4;
     padding: 0px 20px 0 20px;
   }
 
-  /* line 202, ../../resources/sass/componentes/_home.scss */
+  /* line 203, ../../resources/sass/componentes/_home.scss */
   .pure-menu-horizontal .pure-menu-list {
     padding: 4px;
   }
