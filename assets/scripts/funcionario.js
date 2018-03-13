@@ -1,6 +1,64 @@
 
 console.log("funcionou caralhooooo, seus merda de machista opressor");
 
+
+
+$(".icon_close a").on('click', function(){
+  $(".container_chat").removeClass("active");
+  $(".icon_chat").addClass("active");
+});
+
+
+$(".icon_chat a").on('click', function(){
+  $(".container_chat").addClass("active");
+  $(".icon_chat").removeClass("active");
+});
+
+$(".container_chat header").on('click', function(){
+  console.log($(".content_messages").hasClass("expand"));
+  if($(".content_messages").hasClass("expand")){
+
+    $(".content_messages").removeClass("expand");
+    $(".content_area").removeClass("expand");
+    $(".container_chat").removeClass("expand");
+  }
+  else{
+    $(".content_messages").addClass("expand");
+    $(".content_area").addClass("expand");
+    $(".container_chat").addClass("expand");
+  }
+  
+});
+
+
+$(".icon_main a").on('click', function(){
+
+  if($(".column_main").hasClass("active")){
+    $(".column_main").removeClass("active");
+    $(".overlay").removeClass("active");
+  }
+    
+  else{
+    $(".column_main").addClass("active");
+    $(".overlay").addClass("active");
+  }
+  
+});
+
+$(".overlay").on('click', function(){
+  
+   // if($(".column_main").hasClass("active")){
+      $(".column_main").removeClass("active");
+      $(".overlay").removeClass("active");
+  //  }
+      
+    // else{
+    //   $(".column_main").addClass("active");
+    //   $(".overlay").addClass("active");
+    // }
+    
+  });
+
 var ctx = document.getElementById('myChart');
 console.log(ctx);
 ctx.getContext('2d');
