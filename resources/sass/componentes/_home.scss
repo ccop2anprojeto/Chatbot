@@ -29,14 +29,13 @@
 .home-menu {
     line-height: 3em;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.30);
-    background: $primary;
-    
+    font: 20px $n-regular;
+    font-weight: bolder;
+        
     li a:hover,
     li a:focus {
-        background-color: darken($primary, 10);
-        border: none;
-        color: $nav-font-hover;
+        background-color: transparent;
+        color: darken($primary, 2);
         height: 100%;
     }
     
@@ -60,7 +59,7 @@
 
 
 .container-header {
-    background-image: url("../images/user.jpg");
+    background-image: url("../images/mobile.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;  
@@ -175,7 +174,9 @@
 
 // Desktop
 @media (min-width: 78em) {
-    .splash-head {
-        font-size: 300%;
+    .pure-menu.pure-menu-fixed {
+        border-bottom: none;
+        z-index: 4;
+        padding: 10px 20px 0 20px;
     }
 }
