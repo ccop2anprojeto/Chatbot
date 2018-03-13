@@ -11,11 +11,14 @@ $(".icon_close a").on('click', function(){
 
 $(".icon_chat a").on('click', function(){
   $(".container_chat").addClass("active");
+  $(".content_messages").addClass("expand");
+  $(".content_area").addClass("expand");
+  $(".container_chat").addClass("expand");
   $(".icon_chat").removeClass("active");
 });
 
 $(".container_chat header").on('click', function(){
-  console.log($(".content_messages").hasClass("expand"));
+
   if($(".content_messages").hasClass("expand")){
 
     $(".content_messages").removeClass("expand");
@@ -45,18 +48,14 @@ $(".icon_main a").on('click', function(){
   
 });
 
+$(".icon_closeMain a").on('click', function(){
+  $(".column_main").removeClass("active");
+  $(".overlay").removeClass("active");
+});
+
 $(".overlay").on('click', function(){
-  
-   // if($(".column_main").hasClass("active")){
-      $(".column_main").removeClass("active");
-      $(".overlay").removeClass("active");
-  //  }
-      
-    // else{
-    //   $(".column_main").addClass("active");
-    //   $(".overlay").addClass("active");
-    // }
-    
+    $(".column_main").removeClass("active");
+    $(".overlay").removeClass("active");
   });
 
 var ctx = document.getElementById('myChart');
