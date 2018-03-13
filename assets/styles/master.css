@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+/* line 2, ../../resources/sass/componentes/_funcionario.scss */
+.fixed {
+  overflow-y: hidden !important;
+  position: relative;
+}
+
 /* line 6, ../../resources/sass/componentes/_funcionario.scss */
 #container {
   overflow: hidden;

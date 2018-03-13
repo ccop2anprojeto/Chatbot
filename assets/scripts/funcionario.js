@@ -19,13 +19,14 @@ $(".icon_chat a").on('click', function(){
 
 $(".container_chat header").on('click', function(){
 
-  if($(".content_messages").hasClass("expand")){
-
+  if($(".content_messages").hasClass("expand")){   
+    $("html").removeClass("fixed");
     $(".content_messages").removeClass("expand");
     $(".content_area").removeClass("expand");
     $(".container_chat").removeClass("expand");
   }
   else{
+    $("html").addClass("fixed");
     $(".content_messages").addClass("expand");
     $(".content_area").addClass("expand");
     $(".container_chat").addClass("expand");
