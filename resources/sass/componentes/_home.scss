@@ -1,0 +1,181 @@
+
+ .l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.is-center {
+    text-align: center;
+}
+
+.pure-form label {
+    margin: 1em 0 0;
+    font-weight: bold;
+    font-size: 100%;
+}
+
+.pure-form input[type] {
+    border: 2px solid #ddd;
+    box-shadow: none;
+    font-size: 100%;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.home-menu {
+    line-height: 3em;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.30);
+    background: $primary;
+    
+    li a:hover,
+    li a:focus {
+        background-color: darken($primary, 10);
+        border: none;
+        color: $nav-font-hover;
+        height: 100%;
+    }
+    
+    a{
+        color: white;
+    }
+    
+
+    .pure-menu-heading {
+        color: white;
+        font-weight: 400;
+        font-size: 120%;
+    }
+}
+
+.pure-menu.pure-menu-fixed {
+    border-bottom: none;
+    z-index: 4;
+}
+
+
+
+.container-header {
+    background-image: url("../images/user.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;  
+    z-index: 1;
+    overflow: hidden;
+    width: 100%;
+    height: 88%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
+    
+    .hero {
+        width: 80%;
+        height: 50%;
+        margin: auto;
+        position: absolute;
+        top: 100px; left: 0; bottom: 0; right: 0;
+        text-align: center;
+        text-transform: uppercase;
+
+        .hero-head {
+            font-family: 'Oswald', sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #ffae00;
+            font-weight: 100;
+            line-height: 1em;
+        }
+        
+        .hero-subhead {
+            color: white;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+    }
+}
+
+.content-wrapper {
+    position: absolute;
+    top: 87%;
+    width: 100%;
+    min-height: 12%;
+    z-index: 2;
+    background: white;
+
+}
+
+.content {
+    padding: 1em 1em 3em;
+}
+
+.content-head {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2em 0 1em;
+}
+
+
+.content-head-ribbon {
+    color: white;
+}
+
+.content-subhead {
+    color: $secondary;
+    
+    i {
+        margin-right: 7px;
+    }
+}
+
+.ribbon {
+    background: $primary;
+    color: #aaa;
+}
+
+
+//---------------------------------
+// Pure Media Queries
+//---------------------------------
+
+
+// Tablet
+@media (min-width: 48em) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .home-menu {
+        text-align: left;
+        
+        ul {
+            float: right;
+        }
+    }
+
+    .splash {
+        width: 50%;
+        height: 50%;
+    }
+
+    .splash-head {
+        font-size: 250%;
+    }
+
+    .l-box-lrg {
+        border: none;
+    }
+
+}
+
+// Desktop
+@media (min-width: 78em) {
+    .splash-head {
+        font-size: 300%;
+    }
+}
