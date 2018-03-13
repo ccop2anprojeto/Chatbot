@@ -93,6 +93,10 @@
             color: white;
             letter-spacing: 0.05em;
             opacity: 0.8;
+
+            .hero-subhead-strong{
+                color: re;
+            }
         }
     }
 }
@@ -141,6 +145,21 @@
 // Pure Media Queries
 //---------------------------------
 
+// Mobile
+@media (min-width: 20em) {
+    .pure-menu.pure-menu-fixed {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        opacity: 1;
+    }
+
+    .pure-menu-horizontal .pure-menu-list{
+        padding: 4px;
+    }
+}
 
 // Tablet
 @media (min-width: 48em) {
