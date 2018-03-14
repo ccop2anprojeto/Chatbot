@@ -1002,7 +1002,7 @@ template {
 .navbar,
 .nav-list,
 .navbar.solid {
-  transition: background-color 1s ease-in-out 0s;
+  transition: background-color 1s ease-out;
 }
 
 /* line 9, ../../resources/sass/componentes/_header.scss */
