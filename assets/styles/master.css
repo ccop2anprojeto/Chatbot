@@ -998,19 +998,20 @@ template {
   border-bottom-width: 8px;
 }
 
-/* line 2, ../../resources/sass/componentes/_header.scss */
+/* line 3, ../../resources/sass/componentes/_header.scss */
 .navbar,
 .nav-list,
 .navbar.solid {
   transition: background-color 1s ease-out;
+  will-change: background-color;
 }
 
-/* line 9, ../../resources/sass/componentes/_header.scss */
+/* line 11, ../../resources/sass/componentes/_header.scss */
 .navbar .nav-logo {
   vertical-align: middle;
 }
 
-/* line 14, ../../resources/sass/componentes/_header.scss */
+/* line 16, ../../resources/sass/componentes/_header.scss */
 .navbar.solid {
   background-color: #1f1c1c;
   opacity: .8;
