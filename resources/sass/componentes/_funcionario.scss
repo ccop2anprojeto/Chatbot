@@ -3,6 +3,7 @@
     overflow-y: hidden !important; 
     position: relative;  
 }
+
 #container{
     overflow: hidden;
     height: 100%;
@@ -17,14 +18,14 @@
     bottom:0;
     left: 0;
     max-width: 300px;
-    background-color: #00b89c;
+    background-color: #00a552;
     color: #fff;
 
 }
 
 .box_info{
     padding: 8% 8% 0 8%;
-    background-color: #00cfaf;
+    background-color: #05cc68;
     overflow: hidden;    
 }
 	.image_fun{
@@ -50,7 +51,7 @@
 		top: 15px;
 	}
 	.icon_closeMain a{
-		color: darken(#00b89c, 10);
+		color: darken(#00a552, 10);
 	}
 .column_main ul{    
     padding-top: 10px;
@@ -120,7 +121,7 @@
 }
     .container_chat header{
         padding: 2.5%;
-        background-color: #00b89c;
+        background-color: #00a552;
         color: #fff;
         cursor: pointer;
     }
@@ -214,10 +215,10 @@
     
 }
     .icon_chat a{
-        color: #00b89c;
+        color: #00a552;
     }
     .icon_chat a:hover{
-        color:darken(#00b89c, 10);
+        color:darken(#00a552, 10);
     }
 
 .icon_chat.active{
@@ -247,7 +248,7 @@
         //z-index: 999;
         // top: 13px;
 				// left: 20px;
-				background-color: #00b89c;
+				background-color: #00a552;
 				padding: 2.5% 5%;
     }
     .icon_main a{
@@ -256,7 +257,7 @@
     }
     .icon_main a:hover{
         font-size: 26px;
-        color: darken(#00b89c, 10);
+        color: darken(#00a552, 10);
     }
     .overlay.active{
         position: absolute;
@@ -290,12 +291,9 @@
 		font-size: 1.5rem;
 		text-align: center;
 		font-weight: 600;
-		padding-bottom: 10px;
-	}
-	#line{
-		// width: 100%;
-		// height: 2px;
-	}
+        padding-bottom: 10px;
+        color: #4a4a4a;
+	}	
 	#line::before {
 		content: '';
 		position: absolute;
@@ -304,6 +302,6 @@
 		bottom:0;
 		left: 0;
 		right: -100px;
-		background-color: #00b89c;
+		background-color: #00a552;
 		z-index: 4;
 	}
