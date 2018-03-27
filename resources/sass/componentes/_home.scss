@@ -109,9 +109,19 @@
 }
 
 .ribbon {
-    background: $primary;
-    color: #aaa;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("/var/www/Chatbot/assets/images/accounting_banner.jpg");
 }
+
+
+
+
+
+
+
+
 
 .l-box {
     padding: 1em;
