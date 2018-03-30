@@ -2,7 +2,8 @@
 .navbar,
 .nav-list,
 .navbar.solid{
-    transition: background-color 1s ease-in-out 0s;    
+    transition: background-color 1s ease-out;
+    will-change: background-color;    
 }
 
 .navbar{
@@ -15,18 +16,3 @@
     background-color: #1f1c1c;
     opacity: .8;
 }
-//-----------------
-// Laptop
-//-----------------
-// @media (min-width: 1024px) {
-
-//     .navbar{
-//         .nav-list{
-//             font-size: 18px;
-//             background-color: rgba(27, 24, 24, 0.685);
-//             .nav-item{
-//                 width: 140px;
-//             }
-//         }
-//     }  
-// } 
