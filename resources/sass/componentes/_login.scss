@@ -36,7 +36,7 @@
                 border-bottom: 1px solid #cacaca;
                 padding-bottom: 20px;
                 text-align: center;
-            }
+                }
 
             .login-input {
                 display: block;
@@ -46,25 +46,17 @@
                 border: 1px solid #ddd;
                 transition: border-width 0.2s ease;
                 border-radius: 2px;
-                color: #ccc;
+                color: #fff;
 
                 &:focus {
                     opacity: 1;
-                    left: 30px;
                     transition: all 0.25s ease-out;
                     outline: none;
-                    color: #444;
+                    color: #fff;
                     border-color: $primary;
-                    border-left-width: 35px;
                 }
             }
             
-            .login-checkbox {
-                float: left;
-                margin: 0 2px 0 0;
-            }
-
-
             .remember {
                 display: inherit;
                 font-size: 0.8em;   
