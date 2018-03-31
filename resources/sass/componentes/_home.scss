@@ -118,6 +118,42 @@
     margin-bottom: 1em;
 }
 
+.footer{
+    border-top: 20px solid $primary;
+    background-color: #1f1c1c;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    .footer-box{
+        display: inline-block;
+        margin: 30px 20px 0 20px;
+        text-align: center;
+        width: 20%;
+
+        .footer-info-box{
+            display: inline-block;
+            text-align: left;
+
+            .info span{
+                color: #fff;
+            }
+        }
+
+        .social-box .icon{
+            width: 40px;
+            height: 40px;
+            margin: 20px 10px 0 10px;
+        }
+    }
+    
+    .nav-footer{
+        list-style: none;
+        padding: 0;
+    }
+}
+
 
 //---------------------------------
 // Pure Media Queries
