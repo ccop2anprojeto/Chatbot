@@ -907,6 +907,16 @@ template {
   display: none;
 }
 
+/* line 6, ../../resources/sass/componentes/_componentes.scss */
+.container-header .hero .hero-head, .content-head {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
 /* line 1, ../../resources/sass/componentes/_login.scss */
 .login-field {
   font-family: 'Questrial', sans-serif;
@@ -1041,21 +1051,16 @@ template {
   z-index: 4;
 }
 
-/* line 34, ../../resources/sass/componentes/_home.scss */
+/* line 32, ../../resources/sass/componentes/_home.scss */
 .container-header {
   background-image: url("../images/mobile.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  z-index: 1;
-  overflow: hidden;
   width: 100%;
-  height: 88%;
-  top: 0;
-  left: 0;
-  position: fixed !important;
+  height: 614px;
 }
-/* line 47, ../../resources/sass/componentes/_home.scss */
+/* line 40, ../../resources/sass/componentes/_home.scss */
 .container-header .hero {
   width: 80%;
   height: 50%;
@@ -1068,27 +1073,18 @@ template {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 56, ../../resources/sass/componentes/_home.scss */
+/* line 49, ../../resources/sass/componentes/_home.scss */
 .container-header .hero .hero-head {
-  font-family: 'Oswald', sans-serif;
-  font-size: 40px;
-  font-weight: bold;
   color: #ffae00;
-  font-weight: 100;
-  line-height: 1em;
 }
-/* line 65, ../../resources/sass/componentes/_home.scss */
+/* line 54, ../../resources/sass/componentes/_home.scss */
 .container-header .hero .hero-subhead {
   color: white;
   letter-spacing: 0.05em;
   opacity: 0.8;
 }
-/* line 70, ../../resources/sass/componentes/_home.scss */
-.container-header .hero .hero-subhead .hero-subhead-strong {
-  color: re;
-}
 
-/* line 77, ../../resources/sass/componentes/_home.scss */
+/* line 62, ../../resources/sass/componentes/_home.scss */
 .content-wrapper {
   position: absolute;
   top: 87%;
@@ -1098,65 +1094,54 @@ template {
   background: white;
 }
 
-/* line 87, ../../resources/sass/componentes/_home.scss */
+/* line 72, ../../resources/sass/componentes/_home.scss */
 .content {
   padding: 1em 1em 3em;
 }
 
-/* line 91, ../../resources/sass/componentes/_home.scss */
+/* line 76, ../../resources/sass/componentes/_home.scss */
 .content-head {
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 2em 0 1em;
+  color: #05cc68;
 }
 
-/* line 99, ../../resources/sass/componentes/_home.scss */
+/* line 82, ../../resources/sass/componentes/_home.scss */
 .content-head-ribbon {
   color: white;
 }
 
-/* line 103, ../../resources/sass/componentes/_home.scss */
+/* line 86, ../../resources/sass/componentes/_home.scss */
 .content-subhead {
   color: #181312;
 }
-/* line 106, ../../resources/sass/componentes/_home.scss */
+/* line 89, ../../resources/sass/componentes/_home.scss */
 .content-subhead i {
   margin-right: 7px;
 }
 
-/* line 111, ../../resources/sass/componentes/_home.scss */
-.ribbon {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url("/var/www/Chatbot/assets/images/accounting_banner.jpg");
-}
-
-/* line 126, ../../resources/sass/componentes/_home.scss */
+/* line 94, ../../resources/sass/componentes/_home.scss */
 .l-box {
   padding: 1em;
 }
 
-/* line 130, ../../resources/sass/componentes/_home.scss */
+/* line 98, ../../resources/sass/componentes/_home.scss */
 .l-box-lrg {
   padding: 2em;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* line 135, ../../resources/sass/componentes/_home.scss */
+/* line 103, ../../resources/sass/componentes/_home.scss */
 .is-center {
   text-align: center;
 }
 
-/* line 139, ../../resources/sass/componentes/_home.scss */
+/* line 107, ../../resources/sass/componentes/_home.scss */
 .pure-form label {
   margin: 1em 0 0;
   font-weight: bold;
   font-size: 100%;
 }
 
-/* line 145, ../../resources/sass/componentes/_home.scss */
+/* line 113, ../../resources/sass/componentes/_home.scss */
 .pure-form input[type] {
   border: 2px solid #ddd;
   box-shadow: none;
@@ -1166,7 +1151,7 @@ template {
 }
 
 @media (min-width: 20em) {
-  /* line 160, ../../resources/sass/componentes/_home.scss */
+  /* line 128, ../../resources/sass/componentes/_home.scss */
   .pure-menu.pure-menu-fixed {
     display: flex;
     padding: 0;
@@ -1176,44 +1161,44 @@ template {
     opacity: 1;
   }
 
-  /* line 169, ../../resources/sass/componentes/_home.scss */
+  /* line 137, ../../resources/sass/componentes/_home.scss */
   .pure-menu-horizontal .pure-menu-list {
     padding: 4px;
   }
 }
 @media (min-width: 48em) {
-  /* line 177, ../../resources/sass/componentes/_home.scss */
+  /* line 145, ../../resources/sass/componentes/_home.scss */
   body {
     font-size: 16px;
   }
 
-  /* line 181, ../../resources/sass/componentes/_home.scss */
+  /* line 149, ../../resources/sass/componentes/_home.scss */
   .home-menu {
     text-align: left;
   }
-  /* line 184, ../../resources/sass/componentes/_home.scss */
+  /* line 152, ../../resources/sass/componentes/_home.scss */
   .home-menu ul {
     float: right;
   }
 
-  /* line 189, ../../resources/sass/componentes/_home.scss */
+  /* line 157, ../../resources/sass/componentes/_home.scss */
   .splash {
     width: 50%;
     height: 50%;
   }
 
-  /* line 194, ../../resources/sass/componentes/_home.scss */
+  /* line 162, ../../resources/sass/componentes/_home.scss */
   .splash-head {
     font-size: 250%;
   }
 
-  /* line 198, ../../resources/sass/componentes/_home.scss */
+  /* line 166, ../../resources/sass/componentes/_home.scss */
   .l-box-lrg {
     border: none;
   }
 }
 @media (min-width: 78em) {
-  /* line 206, ../../resources/sass/componentes/_home.scss */
+  /* line 174, ../../resources/sass/componentes/_home.scss */
   .pure-menu.pure-menu-fixed {
     display: inline-block;
     border-bottom: none;
@@ -1221,7 +1206,7 @@ template {
     padding: 0px 20px 0 20px;
   }
 
-  /* line 213, ../../resources/sass/componentes/_home.scss */
+  /* line 181, ../../resources/sass/componentes/_home.scss */
   .pure-menu-horizontal .pure-menu-list {
     padding: 4px;
   }

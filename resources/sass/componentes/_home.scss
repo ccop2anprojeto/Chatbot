@@ -29,20 +29,13 @@
     z-index: 4;
 }
 
-
-
 .container-header {
     background-image: url("../images/mobile.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;  
-    z-index: 1;
-    overflow: hidden;
+    background-position: center center;
     width: 100%;
-    height: 88%;
-    top: 0;
-    left: 0;
-    position: fixed !important;
+    height: 614px;
     
     .hero {
         width: 80%;
@@ -54,22 +47,14 @@
         text-transform: uppercase;
 
         .hero-head {
-            font-family: 'Oswald', sans-serif;
-            font-size: 40px;
-            font-weight: bold;
+            @extend %banner-text;
             color: #ffae00;
-            font-weight: 100;
-            line-height: 1em;
         }
         
         .hero-subhead {
             color: white;
             letter-spacing: 0.05em;
             opacity: 0.8;
-
-            .hero-subhead-strong{
-                color: re;
-            }
         }
     }
 }
@@ -89,10 +74,8 @@
 }
 
 .content-head {
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin: 2em 0 1em;
+    @extend %banner-text;
+    color: $primary;
 }
 
 
@@ -107,21 +90,6 @@
         margin-right: 7px;
     }
 }
-
-.ribbon {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url("/var/www/Chatbot/assets/images/accounting_banner.jpg");
-}
-
-
-
-
-
-
-
-
 
 .l-box {
     padding: 1em;
