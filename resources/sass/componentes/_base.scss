@@ -8,6 +8,7 @@ body {
     line-height: 1.7em;
     color: #343d3d;
     font-size: 13px;
+    background: url("../images/ep_naturalwhite.png");
 }
 
 h1,h2,h3,h4,h5,h6, label {
@@ -17,5 +18,4 @@ h1,h2,h3,h4,h5,h6, label {
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
-    background: url("../images/intersection.png");
 }

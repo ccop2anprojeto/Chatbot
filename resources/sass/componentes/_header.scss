@@ -1,4 +1,8 @@
 
+//-------------------------
+// Navbar
+//-------------------------
+
 .navbar,
 .nav-list,
 .navbar.solid{
@@ -15,4 +19,61 @@
 .navbar.solid {
     background-color: #1f1c1c;
     opacity: .8;
+}
+
+
+//-------------------------
+// Footer
+//-------------------------
+
+
+.footer{
+    border-top: 20px solid $primary;
+    background-color: #1f1c1c;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    .footer-box{
+        display: inline-block;
+        margin: 30px 20px 0 20px;
+        text-align: center;
+        width: 20%;
+
+        .footer-info-box{
+            display: inline-block;
+            text-align: left;
+
+            .info span{
+                color: #fff;
+            }
+        }
+
+        .social-box .icon{
+            width: 40px;
+            height: 40px;
+            margin: 20px 10px 0 10px;
+        }
+    }
+    
+    .nav-footer{
+        list-style: none;
+        padding: 0;
+    }
+    
+    .end-footer{
+        display: inline-block;
+        width: 100%;
+        background-color: #111;
+        line-height: 10px;
+
+        p{
+            letter-spacing: 2px;
+            color:#fff;
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+    }
 }

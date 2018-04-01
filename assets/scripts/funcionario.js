@@ -1,8 +1,4 @@
 
-console.log("funcionou caralhooooo, seus merda de machista opressor");
-
-
-
 $(".icon_close a").on('click', function(){
   $(".container_chat").removeClass("active");
   $(".icon_chat").addClass("active");
