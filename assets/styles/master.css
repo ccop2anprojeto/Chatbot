@@ -428,6 +428,7 @@ h1, h2, h3, h4, h5, h6, label {
 .pure-img-responsive {
   max-width: 100%;
   height: auto;
+  background: url("../images/intersection.png");
 }
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
