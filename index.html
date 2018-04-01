@@ -55,9 +55,21 @@
             <div class="footer-box">
                 <h2>Fale Conosco:</h2>
                 <div class="footer-info-box">
-                    <p class="info">Endereço: Av. Brig. Faria Lima, 876</p>
-                    <p class="info">E-mail: atendimento@kathbot.com</p>
-                    <p class="info">Telefone: (11) 98396 - 5908</p>
+                    <form>
+                        <div class="emailBox">
+                            <label for="emailAddress">Digite seu e-mail:</label><br>
+                            <input id="emailAddress" type="email" maxLength="64" required
+                                    placeholder="nick.lima@exemplo.com" pattern="jan.nicolas@terra.com.br"
+                                    title="Digite aqui seu e-mail">
+                        </div>
+                        
+                        <div class="messageBox">
+                            <label for="message">Digite sua mensagem:</label><br>
+                            <textarea id="message" cols="80" rows="8" required
+                                    placeholder="Escreva aqui!"></textarea>
+                        </div>
+                            <input type="submit" value="Enviar">
+                    </form>
                 </div>
             </div>
             <div class="footer-box">
@@ -67,6 +79,9 @@
                     <i class="icon fab fa-twitter"></i>
                     <i class="icon fab fa-linkedin-in"></i>    
                 </div>
+            </div>
+            <div class="end-footer">
+                <p>Kathbot 2018 &copy; Copyright - All Rights Reserved</p>
             </div>
         </footer>
 </body>
