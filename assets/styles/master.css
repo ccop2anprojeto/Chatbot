@@ -930,6 +930,12 @@ template {
   padding: 0;
   margin: 0;
 }
+@media (max-width: 960px) {
+  /* line 15, ../../resources/sass/componentes/_componentes.scss */
+  .quote {
+    line-height: 2em;
+  }
+}
 
 /* line 1, ../../resources/sass/componentes/_login.scss */
 .login-field {
