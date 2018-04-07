@@ -77,7 +77,6 @@
     position: relative;
     background-color: #fbfbfb;   
     min-height: 100vh;
-    
 }
 .column_principal h1{
     text-align: center;
@@ -104,6 +103,7 @@
     }
 
 .container_chat{
+    border-top: 10px solid darken($primary, 10);
     max-width: 300px;
     width: 100%;
     height: initial;
@@ -111,18 +111,24 @@
     right: 0;
     bottom: 0;
     display: none;
-		overflow: hidden;
-		z-index: 7;
+    overflow: hidden;
+    z-index: 7;
+    transition: transform ease-in 3s;
+    
+    @media (max-width:960px){
+        max-width: 100%;
+    }
 }
 .container_chat.active{
     display: block;
+    transition: transform ease-in 3s;
 }
 .container_chat.expand{
     height: 325px;
 }
     .container_chat header{
         padding: 2.5%;
-        background-color: #00a552;
+        background-color: $primary;
         color: #fff;
         cursor: pointer;
     }
@@ -216,10 +222,10 @@
     
 }
     .icon_chat a{
-        color: #00a552;
+        color: $primary;
     }
     .icon_chat a:hover{
-        color:darken(#00a552, 10);
+        color:darken($primary, 10);
     }
 
 .icon_chat.active{
@@ -249,7 +255,7 @@
         //z-index: 999;
         // top: 13px;
 				// left: 20px;
-				background-color: #00a552;
+				background-color: $primary;
 				padding: 2.5% 5%;
     }
     .icon_main a{
@@ -258,7 +264,7 @@
     }
     .icon_main a:hover{
         font-size: 26px;
-        color: darken(#00a552, 10);
+        color: darken($primary, 10);
     }
     .overlay.active{
         position: absolute;
@@ -303,6 +309,6 @@
 		bottom:0;
 		left: 0;
 		right: -100px;
-		background-color: #00a552;
+		background-color: $primary;
 		z-index: 4;
 	}
