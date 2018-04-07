@@ -7,6 +7,15 @@
     @extend %quote-section;
 }
 
+.navbar{
+    .kathbot-logo-small{
+        width: 50px;
+        height: 100%;
+        vertical-align: middle;
+        filter: sepia(1);
+    }
+}
+
 .kathbot-logo{
     margin: 0 0;
     padding: 0;
@@ -60,6 +69,7 @@
         color: white;
         font-weight: 400;
         font-size: 120%;
+        margin-left: -12px;
     }
 }
 
@@ -276,7 +286,7 @@
         display: inline-block;
         border-bottom: none;
         z-index: 4;
-        padding: 0px 20px 0 20px;
+        padding: 0px 50px 0 50px;
     }
 
     .pure-menu-horizontal .pure-menu-list{
