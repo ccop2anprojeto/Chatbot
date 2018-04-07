@@ -1,4 +1,17 @@
 
+//---------------------------------
+// Elements
+//---------------------------------
+
+.quote{
+    @extend %quote-section;
+}
+
+
+//---------------------------------
+// Pure Itens
+//---------------------------------
+
 .home-menu {
     line-height: 3em;
     text-align: center;
@@ -59,6 +72,67 @@
     }
 }
 
+.container-header-2 {
+    background-image: url("../images/user.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 614px;
+    
+    .hero {
+        width: 80%;
+        height: 50%;
+        margin: auto;
+        position: absolute;
+        top: 100px; left: 0; bottom: 0; right: 0;
+        text-align: center;
+        text-transform: uppercase;
+
+        .hero-head {
+            @extend %banner-text;
+            color: #ffae00;
+        }
+        
+        .hero-subhead {
+            color: white;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+    }
+}
+
+.container-header-3 {
+    background-image: url("../images/gerente.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 614px;
+    
+    .hero {
+        width: 80%;
+        height: 50%;
+        margin: auto;
+        position: absolute;
+        top: 100px; left: 0; bottom: 0; right: 0;
+        text-align: center;
+        text-transform: uppercase;
+
+        .hero-head {
+            @extend %banner-text;
+            color: #ffae00;
+        }
+        
+        .hero-subhead {
+            color: white;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+    }
+}
+
+
 .content-wrapper {
     position: absolute;
     top: 87%;
@@ -116,6 +190,8 @@
     width: 100%;
     margin-bottom: 1em;
 }
+
+
 
 
 //---------------------------------
