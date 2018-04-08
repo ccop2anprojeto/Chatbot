@@ -689,8 +689,15 @@ template {
     text-transform: uppercase;
     text-decoration: none;
   }
+
+  /* line 55, ../../resources/sass/componentes/_header.scss */
+  .nav-logo.pure-menu-heading {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
-/* line 63, ../../resources/sass/componentes/_header.scss */
+/* line 69, ../../resources/sass/componentes/_header.scss */
 .footer {
   border-top: 20px solid #05cc68;
   background-color: #1f1c1c;
@@ -699,7 +706,7 @@ template {
   flex-wrap: wrap;
   justify-content: center;
 }
-/* line 71, ../../resources/sass/componentes/_header.scss */
+/* line 77, ../../resources/sass/componentes/_header.scss */
 .footer .footer-box {
   display: inline-block;
   margin: 30px 20px 50px 20px;
@@ -707,34 +714,34 @@ template {
   width: 300px;
   max-width: 300px;
 }
-/* line 78, ../../resources/sass/componentes/_header.scss */
+/* line 84, ../../resources/sass/componentes/_header.scss */
 .footer .footer-box .footer-info-box {
   display: inline-block;
   text-align: left;
 }
-/* line 82, ../../resources/sass/componentes/_header.scss */
+/* line 88, ../../resources/sass/componentes/_header.scss */
 .footer .footer-box .footer-info-box .info span {
   color: #fff;
 }
-/* line 87, ../../resources/sass/componentes/_header.scss */
+/* line 93, ../../resources/sass/componentes/_header.scss */
 .footer .footer-box .social-box .icon {
   width: 40px;
   height: 40px;
   margin: 20px 10px 0 10px;
 }
-/* line 94, ../../resources/sass/componentes/_header.scss */
+/* line 100, ../../resources/sass/componentes/_header.scss */
 .footer .nav-footer {
   list-style: none;
   padding: 0;
 }
-/* line 99, ../../resources/sass/componentes/_header.scss */
+/* line 105, ../../resources/sass/componentes/_header.scss */
 .footer .end-footer {
   display: inline-block;
   width: 100%;
   background-color: #111;
   line-height: 10px;
 }
-/* line 105, ../../resources/sass/componentes/_header.scss */
+/* line 111, ../../resources/sass/componentes/_header.scss */
 .footer .end-footer p {
   letter-spacing: 2px;
   color: #fff;
