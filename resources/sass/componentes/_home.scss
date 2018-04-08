@@ -21,7 +21,7 @@
     padding: 0;
     text-align: center;
     transition: filter .3s ease-out;
-    filter: grayscale(1);
+    filter: sepia(1);
     
     img{
         cursor: pointer;
@@ -29,7 +29,7 @@
     }
     
     &:hover{
-        filter: grayscale(0);
+        filter: sepia(0);
         transition: filter .3s ease-in;
     }
 
@@ -237,12 +237,7 @@
 // Mobile
 @media (min-width: 20em) {
     .pure-menu.pure-menu-fixed {
-        display: flex;
-        padding: 0;
-        margin: 0;
-        flex-wrap: wrap;
-        justify-content: center;
-        opacity: 1;
+        display: none;
     }
 
     .pure-menu-horizontal .pure-menu-list{
