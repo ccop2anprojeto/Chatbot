@@ -103,8 +103,12 @@
     }
 
 .container_chat{
+<<<<<<< HEAD
     border-top: 10px solid darken($primary, 10);
     max-width: 300px;
+=======
+    max-width: 400px;
+>>>>>>> alterando layout do chat
     width: 100%;
     height: initial;
     position: fixed;
@@ -124,7 +128,7 @@
     transition: transform ease-in 3s;
 }
 .container_chat.expand{
-    height: 325px;
+    height: 100%;
 }
     .container_chat header{
         padding: 2.5%;
@@ -158,21 +162,27 @@
     }
     .content_messages{
         background-color: #f5f5f5;
-        height: 100%;
-        padding: 3%;
+        height: calc(100% - 90px);
+        padding: 4%;
         display: none;
+        overflow-y: auto;
+        margin-bottom: 30px;
     }
     .content_area.expand{
         display: block;
     }
     .content_area{
+        background-color: #f4f4f4;
         position: absolute;
         bottom: 0px;
         width: 100%;    
-        padding: 8px;
+        padding: 13px 8px;
         display: none;
     }
     .box_area{
+        -webkit-box-shadow: 0px 2px 6px 0px #b0b0b0;
+        -moz-box-shadow: 0px 2px 6px 0px #b0b0b0;
+        box-shadow: 0px 2px 6px 0px #b0b0b0;
         background-color: #fff;
         width: 100%;
         border-radius: 8px;    
@@ -203,16 +213,18 @@
         box-shadow: 0px 2px 6px 0px rgba(176,176,176,1);
         padding: 2%;
         margin-bottom: 1.0rem !important;
-        display: table;
+        display: block;
+        margin: 5px; 
     }
     .message.received{
         background-color: #fff;
     }
     .message.sent{
         background-color: rgba(0, 184, 156, 0.10);
-        float: right;
     }
-
+    .box_view{
+        overflow-y: auto;
+    }
     .icon_chat{
     position: fixed;
     display: none;
