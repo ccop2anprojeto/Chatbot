@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A Kathbot é uma iniciativa privada para sei lá o que -- seus lixo">
     <title>Kathbot</title>
@@ -102,7 +103,7 @@
     <section class="container-header-3">
             <div class="hero"></div>
     </section>
-    <div class="container_chat active">
+    <div class="container_chat active expand">
         <header>
             <span>Maria Pereira</span>
             <span class="item_id">ID: 4X8383</span>
@@ -110,65 +111,29 @@
                 <a href="#"><i class="fa fa-times"></i></a>
             </div>
         </header>
-        <div class="content_messages">
+        <div class="content_messages expand">
             <div class="box_view">
-                <div class="message received">
-                    <span>Olá, estou com uma dúvida.</span>
+              <!-- <div class="message received">
+                    <span></span>
                 </div>
+                
                 <div class="message sent">
-                    <span>Boa Noite, no que posso te ajudar?</span>
-                </div>
-                <div class="message received">
-                    <span>Olá, estou com uma dúvida.</span>
-                </div>
-                <div class="message sent">
-                    <span>Boa Noite, no que posso te ajudar?</span>
-                </div>
-                <div class="message received">
-                    <span>Olá, estou com uma dúvida.</span>
-                </div>
-                <div class="message sent">
-                    <span>Boa Noite, no que posso te ajudar?</span>
-                </div>
-                <div class="message received">
-                    <span>Olá, estou com uma dúvida.</span>
-                </div>
-                <div class="message sent">
-                    <span>Boa Noite, no que posso te ajudar?</span>
-                </div>
-                <div class="message received">
-                    <span>Olá, estou com uma dúvida.</span>
-                </div>
-                <div class="message sent">
-                    <span>Boa Noite, no que posso te ajudar?</span>
-                </div>
-                <div class="message received">
-                    <span>Olá, estou com uma dúvida.</span>
-                </div>
-                <div class="message sent">
-                    <span>Boa Noite, no que posso te ajudar?</span>
-                </div>
-                <div class="message received">
-                    <span>Olá, estou com uma dúvida.</span>
-                </div>
-                <div class="message sent">
-                    <span>Boa Noite, no que posso te ajudar?</span>
-                </div>
+                    <span></span>
+                </div>      -->          
             </div>			
         </div>
-        <div class="content_area">
+        <div class="content_area expand">
             <div class="box_area">
-                <textarea placeholder="Digite aqui..."></textarea>
-                <div class="main_options">
-                    <a href="#"><i class="fa fa-bars"></i></a>				
-                </div>
+	                <input id="perg" name="pergunta" placeholder="Digite aqui..."/>
+	                <div class="main_options">
+	                    <button class="btn btn-primary" id="sendMsg">Enviar</button>				
+	                </div>
             </div>			
         </div>
     </div>
     <div class="icon_chat">
         <a href="#"><i class="fa fa-comment fa-2x"></i></a>
     </div>
-</div>
 
     <footer class="footer">
         <figure class="kathbot-logo">
@@ -196,5 +161,6 @@
 </body>
 <script src="assets/lib/jquery-3.3.1.min.js"></script>  
 <script src="assets/scripts/funcionario.js"></script>
+<script src="assets/scripts/main.js"></script>
 <script src="assets/scripts/navscroll.js"></script>
 </html>
