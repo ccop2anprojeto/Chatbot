@@ -10,7 +10,8 @@
 .navbar{
     .kathbot-logo-small{
         width: 50px;
-        height: 100%;
+        max-width: 100%;
+        height: auto;
         vertical-align: middle;
         filter: sepia(1);
     }
