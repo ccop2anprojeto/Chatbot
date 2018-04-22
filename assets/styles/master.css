@@ -1460,3 +1460,31 @@ template {
   background-color: #05cc68;
   z-index: 4;
 }
+
+/* line 1, ../../resources/sass/componentes/_wisper.scss */
+.wisper {
+  display: none;
+  position: fixed;
+  font-size: 25px;
+  right: 20px;
+  bottom: 80px;
+  max-width: 100%;
+  width: 240px;
+  height: 110px;
+  background-color: #05cc68;
+  text-align: center;
+  border-bottom: 45px solid #049a4f;
+}
+/* line 14, ../../resources/sass/componentes/_wisper.scss */
+.wisper h2 {
+  font-family: inherit;
+  color: #000502;
+  font-size: 10px;
+}
+/* line 20, ../../resources/sass/componentes/_wisper.scss */
+.wisper a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: #fff;
+}
