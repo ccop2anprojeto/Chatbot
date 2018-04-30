@@ -127,9 +127,12 @@
 }
     .container_chat header{
         padding: 2.5%;
-        background-color: $primary;
-        color: #fff;
+        background-color: $blue;
+        font-family: $n-regular;
+        letter-spacing: 4px;
+        color: darken($blue, 40);
         cursor: pointer;
+        border-bottom: 10px solid darken($blue, 40);
     }
     .container_chat header span{
         padding: 0 5px;
@@ -211,10 +214,11 @@
 
         .btn-enviar{
             border: none;
-            background-color: darken($primary, 10);
+            background-color: darken($blue, 10);
             padding: 0;
             text-transform: uppercase;
-            color: white;
+            color: darken($blue, 40);
+            font-weight: bolder;
             line-height: 50px;
             margin: -10% -10px 0px 0px;
             text-align: center;
@@ -249,10 +253,10 @@
     
 }
     .icon_chat a{
-        color: $primary;
+        color: $blue;
     }
     .icon_chat a:hover{
-        color:darken($primary, 10);
+        color:darken($blue, 10);
     }
 
 .icon_chat.active{

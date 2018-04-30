@@ -6,11 +6,17 @@ $(".icon_close a").on('click', function(){
 
 
 $(".icon_chat a").on('click', function(){
-  $(".container_chat").addClass("active");
+  $(".wisper").addClass("active");
+});
+
+
+$(".wisper .btn-comecar").on('click', function(){
+  $(".wisper").removeClass("active");  
+  $(".icon_chat").removeClass("active");
   $(".content_messages").addClass("expand");
   $(".content_area").addClass("expand");
   $(".container_chat").addClass("expand");
-  $(".icon_chat").removeClass("active");
+  $(".container_chat").addClass("active");
 });
 
 $(".container_chat header").on('click', function(){
@@ -28,6 +34,21 @@ $(".container_chat header").on('click', function(){
     $(".container_chat").addClass("expand");
   }
   
+});
+
+$('#perg').keypress(function (e) {
+  var key = e.which;
+  if(key == 13){
+     
+    $('.box_area .btn-enviar').click();
+     return false;  
+   }
+ });
+ 
+ $("#nav-btn").click(function() {
+  $('html, body').animate({
+      scrollTop: $("#elementtoScrollToID").offset().top
+  }, 2000);
 });
 
 
