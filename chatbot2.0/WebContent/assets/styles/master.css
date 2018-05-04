@@ -1,0 +1,1471 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500");
+@media (min-width: 960px) {
+  /* line 26, ../../resources/sass/componentes/_vars.scss */
+  .only-tablet {
+    display: block;
+  }
+}
+
+@media (min-width: 1248px) {
+  /* line 32, ../../resources/sass/componentes/_vars.scss */
+  .only-laptop {
+    display: block;
+  }
+}
+
+@media (min-width: 1600px) {
+  /* line 38, ../../resources/sass/componentes/_vars.scss */
+  .only-desk {
+    display: block;
+  }
+}
+
+/* line 1, ../../resources/sass/componentes/_base.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 7, ../../resources/sass/componentes/_base.scss */
+body {
+  line-height: 1.7em;
+  color: #343d3d;
+  font-size: 13px;
+  background: url("../images/ep_naturalwhite.png");
+}
+
+/* line 14, ../../resources/sass/componentes/_base.scss */
+h1, h2, h3, h4, h5, h6, label {
+  color: #05cc68;
+}
+
+/* line 18, ../../resources/sass/componentes/_base.scss */
+.pure-img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 28, ../../resources/sass/componentes/_base.scss */
+.navbar,
+.nav-list,
+.navbar.solid {
+  transition: background-color 1s ease-out;
+  will-change: background-color;
+}
+
+/* line 36, ../../resources/sass/componentes/_base.scss */
+.navbar .nav-logo {
+  vertical-align: middle;
+}
+
+/* line 41, ../../resources/sass/componentes/_base.scss */
+.navbar.solid {
+  background-color: #1f1c1c;
+  opacity: .8;
+}
+
+@media (min-width: 768px) {
+  /* line 48, ../../resources/sass/componentes/_base.scss */
+  .container.menu-home {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* line 56, ../../resources/sass/componentes/_base.scss */
+  .column_main {
+    transition: .5s margin-left ease-out;
+  }
+
+  /* line 60, ../../resources/sass/componentes/_base.scss */
+  .column_main.active {
+    opacity: 1;
+    transition: .5s margin-left ease-in;
+    background-color: #05cc68;
+  }
+
+  /* line 65, ../../resources/sass/componentes/_base.scss */
+  .column_main ul {
+    list-style: none;
+  }
+
+  /* line 68, ../../resources/sass/componentes/_base.scss */
+  .column_main ul li a {
+    font-size: 20px;
+    color: #049a4f;
+    font-weight: 600;
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* line 77, ../../resources/sass/componentes/_base.scss */
+  .nav-logo.pure-menu-heading {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+/* line 91, ../../resources/sass/componentes/_base.scss */
+.footer {
+  border-top: 20px solid #05cc68;
+  background-color: #1f1c1c;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* line 99, ../../resources/sass/componentes/_base.scss */
+.footer .footer-box {
+  display: inline-block;
+  margin: 30px 20px 50px 20px;
+  text-align: center;
+  width: 300px;
+  max-width: 300px;
+}
+/* line 106, ../../resources/sass/componentes/_base.scss */
+.footer .footer-box .footer-info-box {
+  display: inline-block;
+  text-align: left;
+}
+/* line 110, ../../resources/sass/componentes/_base.scss */
+.footer .footer-box .footer-info-box .info span {
+  color: #fff;
+}
+/* line 115, ../../resources/sass/componentes/_base.scss */
+.footer .footer-box .social-box .icon {
+  width: 40px;
+  height: 40px;
+  margin: 20px 10px 0 10px;
+}
+/* line 122, ../../resources/sass/componentes/_base.scss */
+.footer .nav-footer {
+  list-style: none;
+  padding: 0;
+}
+/* line 127, ../../resources/sass/componentes/_base.scss */
+.footer .end-footer {
+  display: inline-block;
+  width: 100%;
+  background-color: #111;
+  line-height: 10px;
+}
+/* line 133, ../../resources/sass/componentes/_base.scss */
+.footer .end-footer p {
+  letter-spacing: 2px;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+/* line 12, ../../resources/sass/componentes/_normalize.scss */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+/* line 25, ../../resources/sass/componentes/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 33, ../../resources/sass/componentes/_normalize.scss */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+/* line 47, ../../resources/sass/componentes/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+/* line 60, ../../resources/sass/componentes/_normalize.scss */
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+/* line 70, ../../resources/sass/componentes/_normalize.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+/* line 79, ../../resources/sass/componentes/_normalize.scss */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 90, ../../resources/sass/componentes/_normalize.scss */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+/* line 103, ../../resources/sass/componentes/_normalize.scss */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+/* line 113, ../../resources/sass/componentes/_normalize.scss */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+/* line 123, ../../resources/sass/componentes/_normalize.scss */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+/* line 132, ../../resources/sass/componentes/_normalize.scss */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 142, ../../resources/sass/componentes/_normalize.scss */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+/* line 153, ../../resources/sass/componentes/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+/* line 161, ../../resources/sass/componentes/_normalize.scss */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+/* line 170, ../../resources/sass/componentes/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+/* line 179, ../../resources/sass/componentes/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 187, ../../resources/sass/componentes/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 191, ../../resources/sass/componentes/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 202, ../../resources/sass/componentes/_normalize.scss */
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+/* line 211, ../../resources/sass/componentes/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+/* line 220, ../../resources/sass/componentes/_normalize.scss */
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+/* line 228, ../../resources/sass/componentes/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+/* line 240, ../../resources/sass/componentes/_normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+/* line 256, ../../resources/sass/componentes/_normalize.scss */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+/* line 266, ../../resources/sass/componentes/_normalize.scss */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+/* line 277, ../../resources/sass/componentes/_normalize.scss */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+/* line 288, ../../resources/sass/componentes/_normalize.scss */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+/* line 300, ../../resources/sass/componentes/_normalize.scss */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+/* line 311, ../../resources/sass/componentes/_normalize.scss */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+/* line 322, ../../resources/sass/componentes/_normalize.scss */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+/* line 336, ../../resources/sass/componentes/_normalize.scss */
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+/* line 345, ../../resources/sass/componentes/_normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+/* line 354, ../../resources/sass/componentes/_normalize.scss */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+/* line 364, ../../resources/sass/componentes/_normalize.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+/* line 374, ../../resources/sass/componentes/_normalize.scss */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+/* line 383, ../../resources/sass/componentes/_normalize.scss */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+/* line 393, ../../resources/sass/componentes/_normalize.scss */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+/* line 406, ../../resources/sass/componentes/_normalize.scss */
+details,
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+/* line 415, ../../resources/sass/componentes/_normalize.scss */
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 426, ../../resources/sass/componentes/_normalize.scss */
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+/* line 434, ../../resources/sass/componentes/_normalize.scss */
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10-.
+ */
+/* line 445, ../../resources/sass/componentes/_normalize.scss */
+[hidden] {
+  display: none;
+}
+
+/* line 6, ../../resources/sass/componentes/_componentes.scss */
+.container-header .hero .hero-head, .container-header-2 .hero .hero-head, .container-header-3 .hero .hero-head, .content-head {
+  font-family: 'Oswald', sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  font-weight: 100;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+/* line 15, ../../resources/sass/componentes/_componentes.scss */
+.quote {
+  width: 100%;
+  border-bottom: 20px solid #049a4f;
+  background-color: #05cc68;
+  color: #036835;
+  font-size: 30px;
+  line-height: 5em;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 960px) {
+  /* line 15, ../../resources/sass/componentes/_componentes.scss */
+  .quote {
+    line-height: 2em;
+  }
+}
+
+/* line 1, ../../resources/sass/componentes/_login.scss */
+.login-field {
+  font-family: 'Questrial', sans-serif;
+}
+/* line 4, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(0, 5, 2, 0.85);
+}
+/* line 12, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .password-remember {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+/* line 18, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .login {
+  border-radius: 2px 2px 5px 5px;
+  padding: 10px 20px 20px 20px;
+  width: 90%;
+  max-width: 320px;
+  background: #fff;
+  position: relative;
+  padding-bottom: 80px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+}
+/* line 28, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .login .login-title {
+  color: #04b35b;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0 30px 0;
+  border-bottom: 1px solid #cacaca;
+  padding-bottom: 20px;
+  text-align: center;
+}
+/* line 38, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .login .login-input {
+  display: block;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  transition: border-width 0.2s ease;
+  border-radius: 2px;
+  color: #049a4f;
+}
+/* line 48, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .login .login-input:focus {
+  opacity: 1;
+  transition: all 0.25s ease-out;
+  outline: none;
+  color: #05cc68;
+  border-color: #05cc68;
+}
+/* line 57, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .login .remember {
+  display: inherit;
+  font-size: 0.8em;
+  color: #05cc68;
+  text-decoration: none;
+  margin: 0 0 10px 0;
+}
+/* line 65, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .login .login-button {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  line-height: 60px;
+  text-align: center;
+  text-decoration: none;
+  background: #05cc68;
+  color: #fff;
+  margin-top: 20px;
+  border: 0px solid #049a4f;
+  border-bottom-width: 8px;
+}
+
+/* line 11, ../../resources/sass/componentes/_home.scss */
+.navbar .kathbot-logo-small {
+  width: 50px;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  filter: sepia(1);
+}
+
+/* line 20, ../../resources/sass/componentes/_home.scss */
+.kathbot-logo {
+  margin: 0 0;
+  padding: 0;
+  text-align: center;
+  transition: filter .3s ease-out;
+  filter: sepia(1);
+}
+/* line 27, ../../resources/sass/componentes/_home.scss */
+.kathbot-logo img {
+  cursor: pointer;
+  width: 40%;
+}
+/* line 32, ../../resources/sass/componentes/_home.scss */
+.kathbot-logo:hover {
+  filter: sepia(0);
+  transition: filter .3s ease-in;
+}
+/* line 37, ../../resources/sass/componentes/_home.scss */
+.kathbot-logo figcaption {
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #049a4f;
+  font-family: "Montserrat";
+}
+
+/* line 51, ../../resources/sass/componentes/_home.scss */
+.home-menu {
+  line-height: 3em;
+  text-align: center;
+  font: 20px "Montserrat";
+  font-weight: bolder;
+}
+/* line 57, ../../resources/sass/componentes/_home.scss */
+.home-menu li a:hover,
+.home-menu li a:focus {
+  background-color: transparent;
+  color: #05c263;
+  height: 100%;
+}
+/* line 64, ../../resources/sass/componentes/_home.scss */
+.home-menu a {
+  color: white;
+}
+/* line 69, ../../resources/sass/componentes/_home.scss */
+.home-menu .pure-menu-heading {
+  color: white;
+  font-weight: 400;
+  font-size: 120%;
+  margin-left: -12px;
+}
+
+/* line 77, ../../resources/sass/componentes/_home.scss */
+.pure-menu.pure-menu-fixed {
+  border-bottom: none;
+  z-index: 4;
+}
+
+/* line 82, ../../resources/sass/componentes/_home.scss */
+.container-header {
+  background-image: url("../images/mobile.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 614px;
+}
+/* line 90, ../../resources/sass/componentes/_home.scss */
+.container-header .hero {
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 99, ../../resources/sass/componentes/_home.scss */
+.container-header .hero .hero-head {
+  color: #ffae00;
+}
+/* line 104, ../../resources/sass/componentes/_home.scss */
+.container-header .hero .hero-subhead {
+  color: white;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* line 112, ../../resources/sass/componentes/_home.scss */
+.container-header-2 {
+  background-image: url("../images/user.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 614px;
+}
+/* line 120, ../../resources/sass/componentes/_home.scss */
+.container-header-2 .hero {
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 129, ../../resources/sass/componentes/_home.scss */
+.container-header-2 .hero .hero-head {
+  color: #ffae00;
+}
+/* line 134, ../../resources/sass/componentes/_home.scss */
+.container-header-2 .hero .hero-subhead {
+  color: white;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* line 142, ../../resources/sass/componentes/_home.scss */
+.container-header-3 {
+  background-image: url("../images/gerente.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 614px;
+}
+/* line 150, ../../resources/sass/componentes/_home.scss */
+.container-header-3 .hero {
+  width: 80%;
+  height: 50%;
+  margin: auto;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 159, ../../resources/sass/componentes/_home.scss */
+.container-header-3 .hero .hero-head {
+  color: #ffae00;
+}
+/* line 164, ../../resources/sass/componentes/_home.scss */
+.container-header-3 .hero .hero-subhead {
+  color: white;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* line 173, ../../resources/sass/componentes/_home.scss */
+.content-wrapper {
+  position: absolute;
+  top: 87%;
+  width: 100%;
+  min-height: 12%;
+  z-index: 2;
+  background: white;
+}
+
+/* line 183, ../../resources/sass/componentes/_home.scss */
+.content {
+  padding: 1em 1em 3em;
+}
+
+/* line 187, ../../resources/sass/componentes/_home.scss */
+.content-head {
+  color: #05cc68;
+}
+
+/* line 192, ../../resources/sass/componentes/_home.scss */
+.content-head-ribbon {
+  color: white;
+}
+
+/* line 196, ../../resources/sass/componentes/_home.scss */
+.content-subhead {
+  color: #181312;
+}
+/* line 199, ../../resources/sass/componentes/_home.scss */
+.content-subhead i {
+  margin-right: 7px;
+}
+
+/* line 204, ../../resources/sass/componentes/_home.scss */
+.l-box {
+  padding: 1em;
+}
+
+/* line 208, ../../resources/sass/componentes/_home.scss */
+.l-box-lrg {
+  padding: 2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* line 213, ../../resources/sass/componentes/_home.scss */
+.is-center {
+  text-align: center;
+}
+
+/* line 217, ../../resources/sass/componentes/_home.scss */
+.pure-form label {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+/* line 223, ../../resources/sass/componentes/_home.scss */
+.pure-form input[type] {
+  border: 2px solid #ddd;
+  box-shadow: none;
+  font-size: 100%;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 20em) {
+  /* line 240, ../../resources/sass/componentes/_home.scss */
+  .pure-menu.pure-menu-fixed {
+    display: none;
+  }
+
+  /* line 244, ../../resources/sass/componentes/_home.scss */
+  .pure-menu-horizontal .pure-menu-list {
+    padding: 4px;
+  }
+}
+@media (min-width: 48em) {
+  /* line 252, ../../resources/sass/componentes/_home.scss */
+  body {
+    font-size: 16px;
+  }
+
+  /* line 256, ../../resources/sass/componentes/_home.scss */
+  .home-menu {
+    text-align: left;
+  }
+  /* line 259, ../../resources/sass/componentes/_home.scss */
+  .home-menu ul {
+    float: right;
+  }
+
+  /* line 264, ../../resources/sass/componentes/_home.scss */
+  .splash {
+    width: 50%;
+    height: 50%;
+  }
+
+  /* line 269, ../../resources/sass/componentes/_home.scss */
+  .splash-head {
+    font-size: 250%;
+  }
+
+  /* line 273, ../../resources/sass/componentes/_home.scss */
+  .l-box-lrg {
+    border: none;
+  }
+}
+@media (min-width: 78em) {
+  /* line 281, ../../resources/sass/componentes/_home.scss */
+  .pure-menu.pure-menu-fixed {
+    display: inline-block;
+    border-bottom: none;
+    z-index: 4;
+    padding: 0px 50px 0 50px;
+  }
+
+  /* line 288, ../../resources/sass/componentes/_home.scss */
+  .pure-menu-horizontal .pure-menu-list {
+    padding: 4px;
+  }
+}
+/* line 3, ../../resources/sass/componentes/_funcionario.scss */
+.fixed {
+  overflow-y: hidden !important;
+  position: relative;
+}
+
+/* line 8, ../../resources/sass/componentes/_funcionario.scss */
+#container {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* line 15, ../../resources/sass/componentes/_funcionario.scss */
+.teste {
+  border: none;
+}
+
+/* line 18, ../../resources/sass/componentes/_funcionario.scss */
+.column_main {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 300px;
+  background-color: #00a552;
+  color: #fff;
+}
+
+/* line 30, ../../resources/sass/componentes/_funcionario.scss */
+.box_info {
+  padding: 8% 8% 0 8%;
+  background-color: #05cc68;
+  overflow: hidden;
+}
+
+/* line 35, ../../resources/sass/componentes/_funcionario.scss */
+.image_fun {
+  max-width: 150px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+/* line 40, ../../resources/sass/componentes/_funcionario.scss */
+.image_fun img {
+  border-radius: 50%;
+  width: 100%;
+  height: 150px;
+  background-color: #fff;
+}
+
+/* line 47, ../../resources/sass/componentes/_funcionario.scss */
+.image_fun img:hover {
+  opacity: 0.5;
+}
+
+/* line 51, ../../resources/sass/componentes/_funcionario.scss */
+.icon_closeMain {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
+/* line 57, ../../resources/sass/componentes/_funcionario.scss */
+.icon_closeMain a {
+  color: #007239;
+}
+
+/* line 60, ../../resources/sass/componentes/_funcionario.scss */
+.column_main ul {
+  padding-top: 10px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* line 66, ../../resources/sass/componentes/_funcionario.scss */
+.column_main ul li {
+  border-bottom: 1px solid;
+  padding: 15px;
+}
+
+/* line 70, ../../resources/sass/componentes/_funcionario.scss */
+.column_main ul li a {
+  display: block;
+  color: #fff;
+}
+
+/* line 75, ../../resources/sass/componentes/_funcionario.scss */
+.column_principal {
+  float: right;
+  overflow: hidden;
+  width: calc(100% - 300px);
+  padding: 2% 2% 0 2%;
+  position: relative;
+  background-color: #fbfbfb;
+  min-height: 100vh;
+}
+
+/* line 84, ../../resources/sass/componentes/_funcionario.scss */
+.column_principal h1 {
+  text-align: center;
+}
+
+/* line 87, ../../resources/sass/componentes/_funcionario.scss */
+.content_chart {
+  padding-top: 50px;
+  display: table;
+  margin: 0 auto;
+  max-width: 700px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* line 96, ../../resources/sass/componentes/_funcionario.scss */
+.content_chart canvas {
+  max-width: 400px;
+}
+
+/* line 99, ../../resources/sass/componentes/_funcionario.scss */
+.box_chart {
+  flex: 0;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+/* line 108, ../../resources/sass/componentes/_funcionario.scss */
+.container_chat {
+  max-width: 400px;
+  width: 100%;
+  height: initial;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: none;
+  overflow: hidden;
+  z-index: 7;
+  transition: transform ease-in 3s;
+}
+@media (max-width: 960px) {
+  /* line 108, ../../resources/sass/componentes/_funcionario.scss */
+  .container_chat {
+    max-width: 100%;
+  }
+}
+
+/* line 124, ../../resources/sass/componentes/_funcionario.scss */
+.container_chat.active {
+  display: block;
+  transition: transform ease-in 3s;
+}
+
+/* line 128, ../../resources/sass/componentes/_funcionario.scss */
+.container_chat.expand {
+  height: 100%;
+}
+
+/* line 131, ../../resources/sass/componentes/_funcionario.scss */
+.container_chat header {
+  padding: 2.5%;
+  background-color: #4dbfd3;
+  font-family: "Montserrat";
+  letter-spacing: 4px;
+  color: #113c43;
+  cursor: pointer;
+  border-bottom: 10px solid #113c43;
+}
+
+/* line 140, ../../resources/sass/componentes/_funcionario.scss */
+.container_chat header span {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+/* line 144, ../../resources/sass/componentes/_funcionario.scss */
+.container_chat header .item_id {
+  border-left: 1px solid;
+  padding-left: 8px;
+}
+
+/* line 148, ../../resources/sass/componentes/_funcionario.scss */
+.container_chat header .icon_close {
+  display: inline;
+}
+
+/* line 152, ../../resources/sass/componentes/_funcionario.scss */
+.icon_close a {
+  color: #fff;
+  display: table;
+  float: right;
+  padding-right: 5px;
+}
+
+/* line 158, ../../resources/sass/componentes/_funcionario.scss */
+.icon_close a:hover {
+  font-size: 17px;
+}
+
+/* line 161, ../../resources/sass/componentes/_funcionario.scss */
+.content_messages.expand {
+  display: block;
+}
+
+/* line 164, ../../resources/sass/componentes/_funcionario.scss */
+.content_messages {
+  background-color: #f5f5f5;
+  height: calc(100% - 90px);
+  padding: 4%;
+  display: none;
+  overflow-y: auto;
+  margin-bottom: 30px;
+}
+
+/* line 172, ../../resources/sass/componentes/_funcionario.scss */
+.content_area.expand {
+  display: block;
+}
+
+/* line 175, ../../resources/sass/componentes/_funcionario.scss */
+.content_area {
+  background-color: #f4f4f4;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 13px 8px;
+  display: none;
+}
+
+/* line 183, ../../resources/sass/componentes/_funcionario.scss */
+.box_area {
+  display: flex;
+  -webkit-box-shadow: 0px 2px 6px 0px #b0b0b0;
+  -moz-box-shadow: 0px 2px 6px 0px #b0b0b0;
+  box-shadow: 0px 2px 6px 0px #b0b0b0;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 50px;
+  position: relative;
+}
+/* line 195, ../../resources/sass/componentes/_funcionario.scss */
+.box_area .input-box {
+  border: none;
+  width: calc(100% - 120px);
+  margin-left: 10px;
+  outline: none;
+}
+
+/* line 202, ../../resources/sass/componentes/_funcionario.scss */
+.content_area textarea {
+  width: calc(100% - 35px);
+  resize: none;
+  outline: none;
+  border: none;
+  padding: 3.5%;
+  height: 40px;
+  border-radius: 8px;
+}
+
+/* line 211, ../../resources/sass/componentes/_funcionario.scss */
+.main_options {
+  display: inline;
+  background-color: #fff;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+/* line 218, ../../resources/sass/componentes/_funcionario.scss */
+.main_options .btn-enviar {
+  border: none;
+  background-color: #2fa9be;
+  padding: 0;
+  text-transform: uppercase;
+  color: #113c43;
+  font-weight: bolder;
+  line-height: 50px;
+  margin: -10% -10px 0px 0px;
+  text-align: center;
+  width: 100px;
+}
+
+/* line 232, ../../resources/sass/componentes/_funcionario.scss */
+.message {
+  -webkit-box-shadow: 0px 2px 6px 0px #b0b0b0;
+  -moz-box-shadow: 0px 2px 6px 0px #b0b0b0;
+  box-shadow: 0px 2px 6px 0px #b0b0b0;
+  padding: 2%;
+  margin-bottom: 1.0rem !important;
+  display: block;
+  margin: 5px;
+}
+
+/* line 241, ../../resources/sass/componentes/_funcionario.scss */
+.message.received {
+  background-color: #fff;
+}
+
+/* line 244, ../../resources/sass/componentes/_funcionario.scss */
+.message.sent {
+  background-color: rgba(0, 184, 156, 0.1);
+}
+
+/* line 247, ../../resources/sass/componentes/_funcionario.scss */
+.box_view {
+  overflow-y: auto;
+}
+
+/* line 250, ../../resources/sass/componentes/_funcionario.scss */
+.icon_chat {
+  position: fixed;
+  display: none;
+  font-size: 25px;
+  right: 20px;
+  bottom: 20px;
+}
+
+/* line 258, ../../resources/sass/componentes/_funcionario.scss */
+.icon_chat a {
+  color: #4dbfd3;
+}
+
+/* line 261, ../../resources/sass/componentes/_funcionario.scss */
+.icon_chat a:hover {
+  color: #2fa9be;
+}
+
+/* line 265, ../../resources/sass/componentes/_funcionario.scss */
+.icon_chat.active {
+  display: block;
+}
+
+/* line 268, ../../resources/sass/componentes/_funcionario.scss */
+.icon_main {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* line 272, ../../resources/sass/componentes/_funcionario.scss */
+  .column_main {
+    margin-left: -300px;
+  }
+
+  /* line 275, ../../resources/sass/componentes/_funcionario.scss */
+  .column_main.active {
+    margin-left: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 9;
+  }
+
+  /* line 283, ../../resources/sass/componentes/_funcionario.scss */
+  .column_principal {
+    width: 100%;
+  }
+
+  /* line 286, ../../resources/sass/componentes/_funcionario.scss */
+  .icon_main {
+    display: block;
+    background-color: #05cc68;
+    padding: 2.5% 5%;
+  }
+
+  /* line 295, ../../resources/sass/componentes/_funcionario.scss */
+  .icon_main a {
+    font-size: 25px;
+    color: #fff;
+  }
+
+  /* line 299, ../../resources/sass/componentes/_funcionario.scss */
+  .icon_main a:hover {
+    font-size: 26px;
+    color: #049a4f;
+  }
+
+  /* line 303, ../../resources/sass/componentes/_funcionario.scss */
+  .overlay.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 8;
+    cursor: pointer;
+  }
+
+  /* line 313, ../../resources/sass/componentes/_funcionario.scss */
+  .icon_closeMain {
+    display: block;
+  }
+
+  /* line 317, ../../resources/sass/componentes/_funcionario.scss */
+  .container_chat.expand {
+    height: calc(100vh - 56px);
+    max-width: initial;
+    border-top: 1px solid #fff;
+  }
+}
+/* line 325, ../../resources/sass/componentes/_funcionario.scss */
+.box_title {
+  position: relative;
+  display: table;
+  margin: 0 auto;
+}
+
+/* line 331, ../../resources/sass/componentes/_funcionario.scss */
+.box_title h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 10px;
+  color: #4a4a4a;
+}
+
+/* line 338, ../../resources/sass/componentes/_funcionario.scss */
+#line::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  right: -100px;
+  background-color: #05cc68;
+  z-index: 4;
+}
