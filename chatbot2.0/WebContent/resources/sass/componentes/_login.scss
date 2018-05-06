@@ -11,8 +11,16 @@
         background: rgba(darken($primary,40%), 0.85);
         .password-remember{
             text-decoration: none;
-            color: #fff;
+            color: $primary;
             font-size: 14px;
+        }
+
+        .logo-kathbot{
+            color: #fff;
+            text-transform: uppercase;
+            font-family: $n-regular;
+            font-weight: 100;
+            font-size: 20px;
         }
 
         .login {
@@ -43,14 +51,24 @@
                 border: 1px solid #ddd;
                 transition: border-width 0.2s ease;
                 border-radius: 2px;
-                color: darken($primary, 10);
+                color: $gray;
                 
                 &:focus {
                     opacity: 1;
                     transition: all 0.25s ease-out;
                     outline: none;
-                    color: $primary;
+                    color: $gray;
                     border-color: $primary;
+
+                    &.wrong {
+                        color: $red; 
+                        border-color: $red;
+
+                        &::placeholder{
+                            color: $red; 
+                            border-color: $red; 
+                        }
+                    }
                 }
             }
             
