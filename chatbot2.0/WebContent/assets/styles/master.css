@@ -1179,7 +1179,7 @@ template {
   z-index: 7;
   transition: transform ease-in 3s;
 }
-@media (max-width: 960px) {
+@media (max-width: 425px) {
   /* line 108, ../../resources/sass/componentes/_funcionario.scss */
   .container_chat {
     max-width: 100%;
@@ -1469,4 +1469,44 @@ template {
   right: -100px;
   background-color: #05cc68;
   z-index: 4;
+}
+
+/* line 1, ../../resources/sass/componentes/_wisper.scss */
+.wisper {
+  display: none;
+  position: fixed;
+  font-size: 25px;
+  right: 20px;
+  bottom: 80px;
+  max-width: 100%;
+  width: 240px;
+  height: 110px;
+  background-color: #4dbfd3;
+  text-align: center;
+  border-radius: 10px;
+}
+/* line 14, ../../resources/sass/componentes/_wisper.scss */
+.wisper.active {
+  display: block;
+}
+/* line 18, ../../resources/sass/componentes/_wisper.scss */
+.wisper h2 {
+  color: #113c43;
+  font-family: inherit;
+  line-height: 20px;
+  font-size: 15px;
+}
+/* line 25, ../../resources/sass/componentes/_wisper.scss */
+.wisper .area-botao {
+  background-color: #113c43;
+  line-height: 45px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* line 32, ../../resources/sass/componentes/_wisper.scss */
+.wisper .btn-comecar {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: #fff;
 }

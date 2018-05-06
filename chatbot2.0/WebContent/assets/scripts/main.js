@@ -5,7 +5,6 @@ console.log($("#sendMsg"));
 localStorage.removeItem("talk");
 
 
-
 $(".btn-comecar").on('click', function(){
 	$(".wisper").removeClass("active");  
   $(".container_chat").addClass("active");

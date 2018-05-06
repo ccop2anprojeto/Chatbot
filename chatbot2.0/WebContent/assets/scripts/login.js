@@ -6,8 +6,11 @@ $("#entrar").on('click', function(){
 	.done(function( data ) {
 		var Data = JSON.parse(data.toString('utf8'));
 		console.log(Data);
-		if(Data[0])
+		if(Data[0]){
 			window.location.href = "http://localhost:8080/chatbot2.0/funcionario.html";
-		
+			sessionStorage.setItem('user', JSON.stringify(Data[1]));
+		}else
+			console.log("login invalido");
+			
 	  });  
 });
