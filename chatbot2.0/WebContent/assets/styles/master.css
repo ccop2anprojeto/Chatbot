@@ -684,15 +684,25 @@ template {
   font-family: "Montserrat";
   text-decoration: none;
 }
-/* line 21, ../../resources/sass/componentes/_login.scss */
+/* line 20, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .password-remember:hover {
+  color: #05cc68;
+}
+/* line 25, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .logo-kathbot {
   color: #fff;
   text-transform: uppercase;
   font-family: "Montserrat";
   font-weight: 100;
-  font-size: 24px;
+  font-size: 28px;
+  text-decoration: none;
+  margin-bottom: 30px;
 }
-/* line 29, ../../resources/sass/componentes/_login.scss */
+/* line 34, ../../resources/sass/componentes/_login.scss */
+.login-field .wrap .logo-kathbot:hover {
+  color: #05cc68;
+}
+/* line 39, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login {
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
@@ -703,17 +713,18 @@ template {
   padding-bottom: 80px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
-/* line 39, ../../resources/sass/componentes/_login.scss */
+/* line 49, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login .login-title {
-  color: #04b35b;
-  font-size: 1.2em;
+  color: #05bd60;
+  font-size: 16px;
   font-weight: bold;
-  margin: 10px 0 30px 0;
-  border-bottom: 1px solid #05cc68;
+  margin: 10px 0 0 0;
   padding-bottom: 20px;
   text-align: center;
+  cursor: default;
+  user-select: none;
 }
-/* line 49, ../../resources/sass/componentes/_login.scss */
+/* line 62, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login .login-input {
   display: block;
   padding: 15px 10px;
@@ -724,7 +735,7 @@ template {
   border-radius: 2px;
   color: #313131;
 }
-/* line 59, ../../resources/sass/componentes/_login.scss */
+/* line 72, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login .login-input:focus {
   opacity: 1;
   transition: all 0.25s ease-out;
@@ -732,17 +743,17 @@ template {
   color: #313131;
   border-color: #05cc68;
 }
-/* line 66, ../../resources/sass/componentes/_login.scss */
+/* line 79, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login .login-input:focus.wrong {
   color: #e74c3c;
   border-color: #e74c3c;
 }
-/* line 70, ../../resources/sass/componentes/_login.scss */
+/* line 83, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login .login-input:focus.wrong::placeholder {
   color: #e74c3c;
   border-color: #e74c3c;
 }
-/* line 78, ../../resources/sass/componentes/_login.scss */
+/* line 91, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login .remember {
   display: inherit;
   font-size: 0.8em;
@@ -750,7 +761,7 @@ template {
   text-decoration: none;
   margin: 0 0 10px 0;
 }
-/* line 86, ../../resources/sass/componentes/_login.scss */
+/* line 99, ../../resources/sass/componentes/_login.scss */
 .login-field .wrap .login .login-button {
   position: absolute;
   left: 0;
