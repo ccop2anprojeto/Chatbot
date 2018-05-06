@@ -23,3 +23,16 @@
     }
 }
 
+%logo-kathbot{
+    color: #fff;
+    text-transform: uppercase;
+    font-family: $n-regular;
+    font-weight: 100;
+    font-size: 28px;
+    text-decoration: none;
+    margin-bottom: 30px;
+
+    &:hover{
+        color: $primary;
+    }
+}
