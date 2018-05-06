@@ -28,12 +28,20 @@
 }
 
 .box_info{
-    padding: 8% 8% 0 8%;
+    padding: 8% 8% 8% 8%;
     background-color: $blue;
     overflow: hidden;
     border-bottom: 10px solid darken($blue, 10);
 }
-	.image_fun{
+    
+    .logo-kathbot{
+        @extend %logo-kathbot;
+        text-align: center;
+        font-size: 25px;
+        margin-top: 15px;
+    }
+    
+    .image_fun{
 			max-width: 150px;
 			margin: 0 auto;
 			padding-bottom: 10px;
@@ -65,7 +73,7 @@
 
 }
 .column_main ul li{
-    border-bottom: 1px solid;
+    border-bottom: 1px solid darken($blue, 32);
     padding: 15px;
 }
 .column_main ul li a{
