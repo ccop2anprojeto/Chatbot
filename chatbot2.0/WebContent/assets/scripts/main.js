@@ -5,7 +5,6 @@ console.log($("#sendMsg"));
 localStorage.removeItem("talk");
 
 $(".icon_chat a").on('click', function(){
-	
   $(".container_chat").addClass("active");
   $(".content_messages").addClass("expand");
   $(".content_area").addClass("expand");

@@ -299,10 +299,6 @@
         border: none;
     }
 
-}
-
-// Desktop
-@media (min-width: 78em) {
     .pure-menu.pure-menu-fixed {
         display: inline-block;
         border-bottom: none;
@@ -312,5 +308,13 @@
 
     .pure-menu-horizontal .pure-menu-list{
         padding: 4px;
+    }
+
+}
+
+// Tablet
+@media (min-width: 48em) {
+    .home-menu .pure-menu-heading{
+        display: inline-block;
     }
 }

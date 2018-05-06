@@ -1039,9 +1039,8 @@ template {
   .l-box-lrg {
     border: none;
   }
-}
-@media (min-width: 78em) {
-  /* line 306, ../../resources/sass/componentes/_home.scss */
+
+  /* line 302, ../../resources/sass/componentes/_home.scss */
   .pure-menu.pure-menu-fixed {
     display: inline-block;
     border-bottom: none;
@@ -1049,9 +1048,15 @@ template {
     padding: 0px 50px 0 50px;
   }
 
-  /* line 313, ../../resources/sass/componentes/_home.scss */
+  /* line 309, ../../resources/sass/componentes/_home.scss */
   .pure-menu-horizontal .pure-menu-list {
     padding: 4px;
+  }
+}
+@media (min-width: 48em) {
+  /* line 317, ../../resources/sass/componentes/_home.scss */
+  .home-menu .pure-menu-heading {
+    display: inline-block;
   }
 }
 /* line 3, ../../resources/sass/componentes/_funcionario.scss */
@@ -1484,4 +1489,44 @@ template {
   right: -100px;
   background-color: #05cc68;
   z-index: 4;
+}
+
+/* line 1, ../../resources/sass/componentes/_wisper.scss */
+.wisper {
+  display: none;
+  position: fixed;
+  font-size: 25px;
+  right: 20px;
+  bottom: 80px;
+  max-width: 100%;
+  width: 240px;
+  height: 110px;
+  background-color: #4dbfd3;
+  text-align: center;
+  border-radius: 10px;
+}
+/* line 14, ../../resources/sass/componentes/_wisper.scss */
+.wisper.active {
+  display: block;
+}
+/* line 18, ../../resources/sass/componentes/_wisper.scss */
+.wisper h2 {
+  color: #113c43;
+  font-family: inherit;
+  line-height: 20px;
+  font-size: 15px;
+}
+/* line 25, ../../resources/sass/componentes/_wisper.scss */
+.wisper .area-botao {
+  background-color: #113c43;
+  line-height: 45px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* line 32, ../../resources/sass/componentes/_wisper.scss */
+.wisper .btn-comecar {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: #fff;
 }
