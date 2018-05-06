@@ -1,11 +1,13 @@
 var talk = [], interaction = {};
-var notIdentified, controll = 0, cont = 1;
+var notIdentified, controll = 0, cont = 1, convCompleted = false;
 
 console.log($("#sendMsg"));
 localStorage.removeItem("talk");
 
-$(".icon_chat a").on('click', function(){
-	
+
+
+$(".btn-comecar").on('click', function(){
+	$(".wisper").removeClass("active");  
   $(".container_chat").addClass("active");
   $(".content_messages").addClass("expand");
   $(".content_area").addClass("expand");
@@ -13,7 +15,11 @@ $(".icon_chat a").on('click', function(){
   $(".icon_chat").removeClass("active");
   var init = `começar`;
   appendPerg(init);
-  $.get("controller.do", `command=historyIdentify&init=${init}`)
+  startTalk(init);
+});
+
+var startTalk = (init) => {
+	$.get("controller.do", `command=historyIdentify&init=${init}`)
 	.done(function( data ) {
 		console.log(data[0]);
 		var Data = JSON.parse(data.toString('utf8'));
@@ -21,7 +27,7 @@ $(".icon_chat a").on('click', function(){
 		
 		appendResp(Data[0].resp);
 	  });  
-});
+}
 var historyIdentify = (cpf) => {
   	
   $.get("controller.do", `command=historyIdentify&init=${cpf}`)
@@ -69,6 +75,8 @@ var feedBackResp = () => {
 	$(".sim").on('click', function(){
 		templateSend = `<div class="message sent"><span>Fico feliz por ter tirado sua dúvida :)</span></div> <div class="message sent"><span>Posso te ajudar em mais alguma coisa?</span></div>`;
 		$(".content_messages").append(templateSend);
+		convCompleted = true;
+		
 	});
 	
 	$(".nao").on('click', function(){			
@@ -91,7 +99,6 @@ var feedBackResp = () => {
 	
 }
 
-
 var counter = 1;
 var register = [];
 var Data = JSON.parse(localStorage.getItem("data"));
@@ -110,9 +117,24 @@ $("#sendMsg").on('click', function(){
 			
 		}else{
 			if(!notIdentified){
+				if(convCompleted){
+					var notQuestion = pergunta.includes("não") || pergunta.includes("somente isso");
+					if(notQuestion){
+						controll = 0;
+						appendResp("Foi um prazer conversar com você, até mais! :)");
+						var templateFinished = `<div class="message sent"><div class="content_buttons"><button type="button" class="btn btn-success init">Iniciar nova conversa</button></div></div> `;						
+						$(".content_messages").append(templateFinished);
+						
+						$(".init").on('click', function(){							
+							startTalk(`começar`);
+						});
+						
+					}						
+					
+				}else
+					
 				historyQuestions(pergunta);								
-			}			
-				
+			}							
 			
 			else{			
 				if(counter < Data.length){

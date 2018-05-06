@@ -1,23 +1,25 @@
 
 $(".icon_close a").on('click', function(){
+	
   $(".container_chat").removeClass("active");
   $(".icon_chat").addClass("active");
 });
 
 
 $(".icon_chat a").on('click', function(){
+	console.log("clicou");
   $(".wisper").addClass("active");
 });
 
 
-$(".wisper .btn-comecar").on('click', function(){
+/*$(".wisper .btn-comecar").on('click', function(){
   $(".wisper").removeClass("active");  
   $(".icon_chat").removeClass("active");
   $(".content_messages").addClass("expand");
   $(".content_area").addClass("expand");
   $(".container_chat").addClass("expand");
   $(".container_chat").addClass("active");
-});
+});*/
 
 $(".container_chat header").on('click', function(){
 
