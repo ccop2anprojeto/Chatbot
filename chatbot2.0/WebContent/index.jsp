@@ -176,7 +176,6 @@
             </div>
             <div class="wisper">
                 <h2>Bem-vindo ao atendimento online!</h2>
-                <!-- <h2>Clique em começar para iniciar o atendimento.</h2> -->
                 <div class="area-botao">
                     <a class="btn-comecar" href="#">Começar</a>
                 </div>
