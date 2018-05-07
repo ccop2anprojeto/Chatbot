@@ -36,16 +36,17 @@ public class login implements Command {
 		
 		FuncionarioService service = new FuncionarioService();
 		func = service.buscar(login, senha);
+		
 		if(func != null) {
 			loginAuthorized = true;
+			func.setState(1);
 			list.add(loginAuthorized);
 			list.add(func);
 		}else {
 			loginAuthorized = false;
 			list.add(loginAuthorized);
 		}
-			
-		
+					
 				
 		Gson gson = new Gson();
 		String respJSONString = gson.toJson(list);

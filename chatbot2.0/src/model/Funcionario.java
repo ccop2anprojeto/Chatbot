@@ -9,6 +9,7 @@ public class Funcionario {
 	private String telefone;
 	private String login;
 	private String senha;
+	private int state;
 	
 	public Funcionario() {
 		
@@ -70,6 +71,14 @@ public class Funcionario {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
 	
 	

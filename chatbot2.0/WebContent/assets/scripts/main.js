@@ -1,5 +1,6 @@
 var talk = [], interaction = {};
 var notIdentified, controll = 0, cont = 1, convCompleted = false;
+sessionStorage.clear();
 
 console.log($("#sendMsg"));
 localStorage.removeItem("talk");
@@ -84,7 +85,9 @@ var feedBackResp = () => {
 		
 		if(cont > 2){
 			templateSend = `<div class="message sent">O atendimento será transferido para um atendente humano.<br/> Aguarde alguns instantes você será atendido.<span></span></div> `;
-			$(".content_messages").append(templateSend);			
+			$(".content_messages").append(templateSend);
+			
+			
 		}
 			
 		else{
