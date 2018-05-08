@@ -1520,11 +1520,10 @@ template {
   font-size: 1.5rem;
   text-align: center;
   font-weight: 600;
-  padding-bottom: 10px;
   color: #113c43;
 }
 
-/* line 349, ../../resources/sass/componentes/_funcionario.scss */
+/* line 348, ../../resources/sass/componentes/_funcionario.scss */
 #line::before {
   content: '';
   position: absolute;
@@ -1537,7 +1536,7 @@ template {
   z-index: 4;
 }
 
-/* line 361, ../../resources/sass/componentes/_funcionario.scss */
+/* line 360, ../../resources/sass/componentes/_funcionario.scss */
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -1545,23 +1544,23 @@ template {
   margin-top: 20px;
 }
 
-/* line 368, ../../resources/sass/componentes/_funcionario.scss */
+/* line 367, ../../resources/sass/componentes/_funcionario.scss */
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-/* line 373, ../../resources/sass/componentes/_funcionario.scss */
+/* line 372, ../../resources/sass/componentes/_funcionario.scss */
 #customers tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* line 375, ../../resources/sass/componentes/_funcionario.scss */
+/* line 374, ../../resources/sass/componentes/_funcionario.scss */
 #customers tr:hover {
   background-color: #ddd;
 }
 
-/* line 377, ../../resources/sass/componentes/_funcionario.scss */
+/* line 376, ../../resources/sass/componentes/_funcionario.scss */
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -1610,58 +1609,58 @@ template {
   color: #fff;
 }
 
-/* line 6, ../../resources/sass/componentes/_relatorios.scss */
-.column_principal .atendimentos h2 {
-  font: 20px/3 "Montserrat";
-  color: #313131;
+/* line 4, ../../resources/sass/componentes/_relatorios.scss */
+.column_principal .atendimentos {
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
-/* line 11, ../../resources/sass/componentes/_relatorios.scss */
+/* line 8, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-/* line 16, ../../resources/sass/componentes/_relatorios.scss */
+/* line 13, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card {
   display: flex;
   flex-wrap: wrap;
   width: 200px;
   margin: 0 30px 0 30px;
 }
-/* line 18, ../../resources/sass/componentes/_relatorios.scss */
+/* line 15, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card.diario {
   background-color: #90ce75;
   transition: all 0.2s ease-in;
 }
-/* line 21, ../../resources/sass/componentes/_relatorios.scss */
+/* line 18, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card.diario:hover {
   background-color: #6ab04c;
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease-in;
 }
-/* line 28, ../../resources/sass/componentes/_relatorios.scss */
+/* line 25, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card.semanal {
   background-color: #bdc3c7;
   transition: all 0.2s ease-in;
 }
-/* line 31, ../../resources/sass/componentes/_relatorios.scss */
+/* line 28, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card.semanal:hover {
   background-color: #95a5a6;
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease-in;
 }
-/* line 38, ../../resources/sass/componentes/_relatorios.scss */
+/* line 35, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card.mensal {
   background-color: #1abc9c;
   transition: all 0.2s ease-in;
 }
-/* line 41, ../../resources/sass/componentes/_relatorios.scss */
+/* line 38, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card.mensal:hover {
   background-color: #16a085;
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease-in;
 }
-/* line 48, ../../resources/sass/componentes/_relatorios.scss */
+/* line 45, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card .card-box {
   margin: 0 auto;
   text-align: center;
@@ -1669,7 +1668,7 @@ template {
   align-items: center;
   line-height: 100px;
 }
-/* line 55, ../../resources/sass/componentes/_relatorios.scss */
+/* line 52, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card .card-box h2 {
   color: #fff;
   text-transform: uppercase;
@@ -1677,12 +1676,30 @@ template {
   font-weight: bold;
   letter-spacing: 2px;
 }
-/* line 63, ../../resources/sass/componentes/_relatorios.scss */
+/* line 60, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .atendimentos .cards .card .card-box p {
   font-size: 50px;
   color: #4d4848;
 }
-/* line 79, ../../resources/sass/componentes/_relatorios.scss */
+/* line 73, ../../resources/sass/componentes/_relatorios.scss */
+.column_principal .atendimentos .reload {
+  position: relative;
+}
+/* line 76, ../../resources/sass/componentes/_relatorios.scss */
+.column_principal .atendimentos .reload .btn-reload {
+  position: absolute;
+  top: -40px;
+  right: 70px;
+  color: #39b8ce;
+  font-size: 25px;
+  cursor: pointer;
+}
+/* line 89, ../../resources/sass/componentes/_relatorios.scss */
+.column_principal .tabela-relatorio .datepicker {
+  float: right;
+  margin-bottom: 5px;
+}
+/* line 94, ../../resources/sass/componentes/_relatorios.scss */
 .column_principal .tabela-relatorio h2 {
   font: 20px/3 "Montserrat";
   color: #313131;

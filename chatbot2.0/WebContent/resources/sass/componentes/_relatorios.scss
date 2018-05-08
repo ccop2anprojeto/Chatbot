@@ -2,12 +2,9 @@
 .column_principal{
     
     .atendimentos{
+        margin-bottom: 40px;
+        margin-top: 40px;
         
-        h2{
-            font: 20px/3 $n-regular;
-            color: $gray;            
-        }
-
         .cards{
             display: flex;
             flex-wrap: wrap;
@@ -72,10 +69,28 @@
                 margin: 0 30px 0 30px;
             }
         }
+
+        .reload{
+            position: relative;
+
+            .btn-reload{
+                position: absolute;
+                top: -40px;
+                right: 70px;
+                color: darken($blue, 5);
+                font-size: 25px;
+                cursor: pointer;
+            }
+        }
     }
 
     .tabela-relatorio{
         
+        .datepicker{
+            float: right;
+            margin-bottom: 5px;
+        }
+
         h2{
             font: 20px/3 $n-regular;
             color: $gray; 

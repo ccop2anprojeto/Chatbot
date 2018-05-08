@@ -7,6 +7,7 @@
 	<title>Kathbot</title>
 	<link rel="stylesheet" type="text/css" href="assets/styles/master.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
 </head>
 <body>
@@ -44,8 +45,9 @@
 				</div>
 						
 				<section class="atendimentos">
-					<h2>Atendimentos</h2>
-					<i class="fa fa-sync-alt"></i>
+					<div class="reload">
+						<i class="fas fa-sync-alt btn-reload" value="Reload Page" onClick="document.location.reload(true)"></i>
+					</div>
 					<div class="cards">
 						<div class="card diario">
 							<div class="card-box">
@@ -70,12 +72,13 @@
 				
 				<section class="tabela-relatorio">
 					<h2>Atendimento Detalhado</h2>
-					<form action="/action_page.php">
+					<i class="fa fa-calendar-alt"></i>
+					<form class="datepicker" action="/action_page.php">
 						Filtro:
 						<input type="date" name="bday">
 						<input type="submit">
 					</form>
-
+					
 					<table id="customers">
 						<tr>
 							<th>ID Atendimento</th>
@@ -109,7 +112,8 @@
 			</section>
 
 	</body>
-	<script src="assets/scripts/datepicker.js"></script>	
+	<script src="assets/scripts/datepicker.js"></script>
 	<script src="assets/scripts/funcionario.js"></script>
 	<script src="assets/lib/jquery-3.3.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
 </html>
