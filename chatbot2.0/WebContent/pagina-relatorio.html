@@ -10,8 +10,6 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">	
 </head>
 <body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
-	<script src="assets/lib/jquery-3.3.1.min.js"></script>
 	<div id="container">
 		<div class="icon_main">
 			<a href="#"><i class="fa fa-bars"></i></a>
@@ -38,79 +36,80 @@
 					<h2 class="logo-kathbot">Kathbot</h2>
 				</nav>
 			</section>
-		<section class="column_principal">
-			<div class="box_title">
-				<h1>Relatório</h1>
-				<div id="line"></div>
-			</div>			
-		</section>
+			<section class="column_principal">
 		
-		<div class="container_chat active">
-			<header>
-				<span>Maria Pereira</span>
-				<span class="item_id">ID: 4028383</span>
-				<div class="icon_close">
-					<a href="#"><i class="fa fa-times"></i></a>
+				<div class="box_title">
+					<h1>Relatório</h1>
+					<div id="line"></div>
 				</div>
-			</header>
-			<div class="content_messages">
-				<div class="box_view">
-					<div class="message received">
-						<span>Olá, estou com uma dúvida.</span>
+						
+				<section class="atendimentos">
+					<h2>Atendimentos</h2>
+					<i class="fa fa-sync-alt"></i>
+					<div class="cards">
+						<div class="card diario">
+							<div class="card-box">
+								<h2>Diário</h2>
+								<p>133</p>
+							</div>
+						</div>
+						<div class="card semanal">
+							<div class="card-box">
+								<h2>Semanal</h2>
+								<p>563</p>
+							</div>
+						</div>
+						<div class="card mensal">
+							<div class="card-box">
+								<h2>Mensal</h2>
+								<p>1693</p>
+							</div>
+						</div>
 					</div>
-					<div class="message sent">
-						<span>Boa Noite, no que posso te ajudar?</span>
-					</div>
-					<div class="message received">
-						<span>Olá, estou com uma dúvida.</span>
-					</div>
-					<div class="message sent">
-						<span>Boa Noite, no que posso te ajudar?</span>
-					</div>
-					<div class="message received">
-						<span>Olá, estou com uma dúvida.</span>
-					</div>
-					<div class="message sent">
-						<span>Boa Noite, no que posso te ajudar?</span>
-					</div>
-					<div class="message received">
-						<span>Olá, estou com uma dúvida.</span>
-					</div>
-					<div class="message sent">
-						<span>Boa Noite, no que posso te ajudar?</span>
-					</div>
-					<div class="message received">
-						<span>Olá, estou com uma dúvida.</span>
-					</div>
-					<div class="message sent">
-						<span>Boa Noite, no que posso te ajudar?</span>
-					</div>
-					<div class="message received">
-						<span>Olá, estou com uma dúvida.</span>
-					</div>
-					<div class="message sent">
-						<span>Boa Noite, no que posso te ajudar?</span>
-					</div>
-					<div class="message received">
-						<span>Olá, estou com uma dúvida.</span>
-					</div>
-					<div class="message sent">
-						<span>Boa Noite, no que posso te ajudar?</span>
-					</div>
-				</div>			
-			</div>
-			<div class="content_area">
-				<div class="box_area">
-					<textarea placeholder="Digite aqui..."></textarea>
-				</div>			
-			</div>
-		</div>
-		<div class="icon_chat">
-			<a href="#"><i class="fa fa-comment fa-2x"></i></a>
-		</div>
-	</div>
-	
+				</section>
+				
+				<section class="tabela-relatorio">
+					<h2>Atendimento Detalhado</h2>
+					<form action="/action_page.php">
+						Filtro:
+						<input type="date" name="bday">
+						<input type="submit">
+					</form>
 
+					<table id="customers">
+						<tr>
+							<th>ID Atendimento</th>
+							<th>Data</th>
+							<th>Hora</th>
+							<th>Tempo de Atendimento</th>
+							<th>Total de Iterações</th>
+							<th>Resolvido</th>
+							<th>Tentativas do Bot</th>
+						</tr>
+						<tr>
+							<td>1 x 4</td>
+							<td>06/03/2018</td>
+							<td>14:47</td>
+							<td>5 minutos</td>
+							<td>10 iterações</td>
+							<td>Bot</td>
+							<td>3 tentativas</td>
+						</tr>
+						<tr>
+							<td>1 x 5</td>
+							<td>06/03/2018</td>
+							<td>16:01</td>
+							<td>10 minutos</td>
+							<td>10 iterações</td>
+							<td>Humano</td>
+							<td>--</td>
+						</tr>
+					</table>		
+				</section>
+			</section>
+
+	</body>
+	<script src="assets/scripts/datepicker.js"></script>	
 	<script src="assets/scripts/funcionario.js"></script>
-</body>
+	<script src="assets/lib/jquery-3.3.1.min.js"></script>
 </html>
