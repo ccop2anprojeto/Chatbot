@@ -676,6 +676,22 @@ template {
   color: #05cc68;
 }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url(/var/www/Chatbot/chatbot2.0/WebContent/assets/styles/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: 'Oswald', sans-serif;
+  src: url(/var/www/Chatbot/chatbot2.0/WebContent/assets/styles/fonts/Oswald-Regular.ttf);
+}
+@font-face {
+  font-family: 'Oswald', sans-serif;
+  src: url(/var/www/Chatbot/chatbot2.0/WebContent/assets/styles/fonts/Oswald-Medium.ttf);
+}
+@font-face {
+  font-family: 'Oswald', sans-serif;
+  src: url(/var/www/Chatbot/chatbot2.0/WebContent/assets/styles/fonts/Oswald-Bold.ttf);
+}
 /* line 1, ../../resources/sass/componentes/_login.scss */
 .login-field {
   font-family: 'Questrial', sans-serif;
