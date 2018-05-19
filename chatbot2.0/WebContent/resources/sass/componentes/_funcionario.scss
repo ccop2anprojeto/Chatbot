@@ -1,4 +1,6 @@
-//pagina funcionario
+//============================
+// Página Funcionário
+//============================
 
 .fixed{
     overflow-y: hidden !important; 
@@ -12,9 +14,7 @@
     position: relative
 
 }
-.teste{
-    border: none;
-}
+
 .column_main{
     width: 100%;
     position: fixed;
@@ -25,6 +25,23 @@
     background-color: darken($blue, 40);
     color: #fff;
 
+        ul{    
+            padding-top: 10px;
+            width: 100%;
+            padding: 20px;
+
+        }
+
+        li{
+            border-bottom: 1px solid darken($blue, 32);
+            padding: 15px;
+
+        a {
+            display: block;
+            color: #fff;
+        }  
+    }
+
 }
 
 .box_info{
@@ -34,53 +51,35 @@
     border-bottom: 10px solid darken($blue, 10);
 }
     
-    .logo-kathbot{
-        @extend %logo-kathbot;
-        text-align: center;
-        font-size: 25px;
-        margin-top: 15px;
-    }
-    
-    .image_fun{
-			max-width: 150px;
-			margin: 0 auto;
-			padding-bottom: 10px;
-	}
-	.image_fun img{
-			border-radius: 50%;
-			width: 100%;
-			height: 150px;
-			background-color: #fff;
-			
-	}
-	.image_fun img:hover{
-			//background-color: rgba(0, 0, 0, 0.5);
-			opacity: 0.5;
-	}
-	.icon_closeMain{
-		display: none;
-		position: absolute;
-		right: 20px;
-		top: 15px;
-	}
-	.icon_closeMain a{
-		color: darken(#00a552, 10);
-	}
-.column_main ul{    
-    padding-top: 10px;
-    width: 100%;
-    padding: 20px;
+.image_fun{
+    max-width: 150px;
+    margin: 0 auto;
+    padding-bottom: 10px;
 
+    img {
+        border-radius: 50%;
+        width: 100%;
+        height: 150px;
+        background-color: #fff;
+
+        &:hover{
+            opacity: 0.5;        
+        }
+    }
 }
-.column_main ul li{
-    border-bottom: 1px solid darken($blue, 32);
-    padding: 15px;
-}
-.column_main ul li a{
-    display: block;
-    color: #fff;
+
+.icon_closeMain{
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 15px;
     
+    a {
+        color: darken(#00a552, 10);
+    }
 }
+
+
 .column_principal{
     float: right;
     overflow: hidden;
@@ -296,12 +295,8 @@
     }
     .icon_main{
         display: block;
-       // position: absolute;
-        //z-index: 999;
-        // top: 13px;
-				// left: 20px;
-				background-color: $primary;
-				padding: 2.5% 5%;
+        background-color: $secondary;
+        padding: 2.5% 5%;
     }
     .icon_main a{
         font-size: 25px;
