@@ -2,12 +2,28 @@ package model;
 
 public class Mensagens {	
 	private int id;
-	private int id_funcionario;
-	private int id_cliente;
+	private int id_de;
+	private int id_para;
 	private String mensagem;
 	private int time;
 	private int recebida;
 	
+	public int getId_de() {
+		return id_de;
+	}
+
+	public void setId_de(int id_de) {
+		this.id_de = id_de;
+	}
+
+	public int getId_para() {
+		return id_para;
+	}
+
+	public void setId_para(int id_para) {
+		this.id_para = id_para;
+	}
+
 	public Mensagens() {
 		
 	}
@@ -17,22 +33,6 @@ public class Mensagens {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getId_cliente() {
-		return id_cliente;
-	}
-
-	public void setId_cliente(int id_cliente) {
-		this.id_cliente = id_cliente;
-	}
-
-	public int getId_funcionario() {
-		return id_funcionario;
-	}
-
-	public void setId_funcionario(int id_funcionario) {
-		this.id_funcionario = id_funcionario;
 	}
 
 	public String getMensagem() {

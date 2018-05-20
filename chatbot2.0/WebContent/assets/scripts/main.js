@@ -60,10 +60,7 @@ var historyQuestions = (pergunta) => {
 		
 		appendResp(interaction.resposta);
 		feedBackResp();
-				
-		
-        
-	  });
+	});
 	
 }
 
@@ -87,6 +84,18 @@ var feedBackResp = () => {
 			templateSend = `<div class="message sent">O atendimento será transferido para um atendente humano.<br/> Aguarde alguns instantes você será atendido.<span></span></div> `;
 			$(".content_messages").append(templateSend);
 			
+			msg = {
+					'id': 0,
+					'id_de': 2,
+					'id_para': 4,
+					'mensagem': "Atendimento iniciado",
+					'time': 0,
+					'recebida': 0
+						
+			}
+			
+			historyAttendat(msg)
+			
 			
 		}
 			
@@ -101,6 +110,41 @@ var feedBackResp = () => {
 	
 }
 
+var historyAttendat = (msg) => {
+	appendPerg(msg);
+	
+	$.get("controller.do", `command=sendMessage&msg=${msg}`)
+	.done(function(data){
+		console.log(data);
+		if(data[0]){
+			verifyNewMessage();
+		}
+	});
+	
+}
+
+var verifyNewMessage = () => {
+	setInterval(function(){
+		$.get("controller.do", `command=searchMessage&id_para=2`)
+		.done(function( data ) {
+			console.log(data);
+			var Data = JSON.parse(data);
+			console.log(Data);
+			var _thisData = Data;
+			if(Data){		
+				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+				.done(function( data ) {
+					console.log(data);
+				});
+				
+				msgRecebida = true;
+				appendResp(Data[0].mensagem);
+			}
+			
+		
+		});
+
+} 
 var counter = 1;
 var register = [];
 var Data = JSON.parse(localStorage.getItem("data"));
@@ -116,21 +160,27 @@ $("#sendMsg").on('click', function(){
 		if(controll == 0){
 			register.push(pergunta);
 			historyIdentify(pergunta);
+			console.log("entroii aquiii");
 			
 		}else{
 			if(!notIdentified){
 				if(convCompleted){
 					var notQuestion = pergunta.includes("não") || pergunta.includes("somente isso");
 					if(notQuestion){
-						controll = 0;
+						controll = -1;
 						appendResp("Foi um prazer conversar com você, até mais! :)");
 						var templateFinished = `<div class="message sent"><div class="content_buttons"><button type="button" class="btn btn-success init">Iniciar nova conversa</button></div></div> `;						
-						$(".content_messages").append(templateFinished);
+						
 						
 						$(".init").on('click', function(){							
 							startTalk(`começar`);
+							convCompleted = false;
+							notIdentified = true;
+							register = [];
 						});
 						
+					}else{
+						historyQuestions(pergunta);
 					}						
 					
 				}else
@@ -156,8 +206,10 @@ $("#sendMsg").on('click', function(){
 						if(Data.length > 1){
 							appendResp(Data[0].resp);
 							appendResp(Data[1].resp);
-						}else
+						}else{
 							appendResp(Data[0].resp);
+						}
+							
 						
 						notIdentified = Data[Data.length-1];
 																	
@@ -168,6 +220,7 @@ $("#sendMsg").on('click', function(){
 				
 										
 	}
+	console.log("register: " + register);
 	controll++;
 	$("#perg").val("");
 });
