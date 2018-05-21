@@ -1,5 +1,5 @@
 var talk = [], interaction = {};
-var notIdentified, controll = 0, cont = 1, convCompleted = false;
+var notIdentified, controll = 0, cont = 1, convCompleted = false, convAttendent;
 sessionStorage.clear();
 
 console.log($("#sendMsg"));
@@ -93,8 +93,8 @@ var feedBackResp = () => {
 					'recebida': 0
 						
 			}
-			
-			historyAttendat(msg)
+			convAttendent = true;
+			historyAttendat(`Atendimento iniciado`)
 			
 			
 		}
@@ -107,29 +107,27 @@ var feedBackResp = () => {
 		//$(".content_messages").append(templateSend);
 		cont++;
 	});		
-	
 }
 
 var historyAttendat = (msg) => {
-	appendPerg(msg);
-	
-	$.get("controller.do", `command=sendMessage&msg=${msg}`)
+	console.log(msg);
+	//appendPerg(msg);
+	console.log("ativou historia com atendente");
+	$.get("controller.do", `command=sendMessage&id_de=2&id_para=4&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
 			verifyNewMessage();
 		}
-	});
-	
+	});	
 }
 
 var verifyNewMessage = () => {
+	console.log("verifyMessage");
 	setInterval(function(){
 		$.get("controller.do", `command=searchMessage&id_para=2`)
 		.done(function( data ) {
-			console.log(data);
 			var Data = JSON.parse(data);
-			console.log(Data);
 			var _thisData = Data;
 			if(Data){		
 				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
@@ -139,11 +137,11 @@ var verifyNewMessage = () => {
 				
 				msgRecebida = true;
 				appendResp(Data[0].mensagem);
-			}
-			
+			}			
 		
 		});
 
+	},10000);
 } 
 var counter = 1;
 var register = [];
@@ -183,9 +181,13 @@ $("#sendMsg").on('click', function(){
 						historyQuestions(pergunta);
 					}						
 					
-				}else
+				}else if(convAttendent){
+					historyAttendat(pergunta);
+				}else{
+					historyQuestions(pergunta);
+				}
 					
-				historyQuestions(pergunta);								
+												
 			}							
 			
 			else{			

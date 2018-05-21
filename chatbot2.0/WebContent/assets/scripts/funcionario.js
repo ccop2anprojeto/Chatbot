@@ -15,9 +15,7 @@ var msgRecebida = false;
 setInterval(function(){
 	$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
 	.done(function( data ) {
-		console.log(data);
 		var Data = JSON.parse(data);
-		console.log(Data);
 		var _thisData = Data;
 		if(Data){		
 			$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
@@ -37,6 +35,30 @@ setInterval(function(){
 var msgSuccess = () => {
 	
 }
+var sendMessage = (msg) => {
+	console.log(msg);
+	//appendPerg(msg);
+	console.log("ativou historia com atendente");
+	$.get("controller.do", `command=sendMessage&id_de=4&id_para=2&msg=${msg}`)
+	.done(function(data){
+		console.log(data);
+		
+	});
+	
+}
+$("#sendMsg").on('click', function(){
+	var pergunta = $("#perg").val();
+	
+	console.log(pergunta);
+	if( pergunta != ""){		
+		appendPerg(pergunta);
+						
+			sendMessage(pergunta);							
+	}
+	
+	$("#perg").val(" ");
+});
+
 var appendPerg = (perg) => {
 	var templateReceived = `<div class="message received"><span>${perg}</span></div>`;
 	$(".content_messages").append(templateReceived);
