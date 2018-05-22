@@ -9,11 +9,10 @@ import java.util.ArrayList;
 import dao.ConnectionFactory;
 import dao.FilaClienteDAO;
 import model.FilaCliente;
-import model.Atendimento;
-import model.FilaAtendente;
+import model.FilaAtendimento;
 
 
-public class FilaClienteService {
+public class FilaAtendenteService {
 	
 	FilaClienteDAO dao = new FilaClienteDAO();
 	
@@ -28,8 +27,8 @@ public class FilaClienteService {
 		return dao.searchFor(id_para);
 	}*/
 	
-	public Atendimento startOnlineSupport(FilaCliente filaCliente, FilaAtendente filaAtendente) {
-		return dao.startOnlineSupport(filaCliente, filaAtendente);
+	public FilaCliente startOnlineSupport(FilaCliente filaCliente, FilaAtendimento filaAtendimento) {
+		return dao.startOnlineSupport(filaCliente, filaAtendimento);
 	}
 	
 }

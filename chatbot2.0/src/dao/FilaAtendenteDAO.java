@@ -12,7 +12,7 @@ import model.FilaAtendente;
 import model.Atendimento;
 
 
-public class FilaClienteDAO {	
+public class FilaAtendenteDAO {	
 	
 	public boolean insertInRow(FilaCliente filaCliente) {
 		String sqlInsert = "INSERT INTO `FilaCliente` (`pk_filaCliente`, `fk_cliente`) VALUES (default, ?);";

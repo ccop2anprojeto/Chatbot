@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 
 import service.FilaClienteService;
+import model.FilaCliente;
 
 public class insertRowCliente implements Command {
 
@@ -20,7 +21,8 @@ public class insertRowCliente implements Command {
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		int id_cliente = Integer.parseInt(request.getParameter("id"));		
+		FilaCliente filaCliente = new FilaCliente();
+		filaCliente.setId_cliente(Integer.parseInt(request.getParameter("id"))); 		
 		
 //	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
 		
@@ -29,7 +31,7 @@ public class insertRowCliente implements Command {
 		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
 		FilaClienteService service = new FilaClienteService();
 		
-		list.add(service.insertInRow(id_cliente));
+		list.add(service.insertInRow(filaCliente));
 		System.out.println(list.get(0));
 		
 				

@@ -94,7 +94,15 @@ var feedBackResp = () => {
 						
 			}
 			convAttendent = true;
-			historyAttendat(`Atendimento iniciado`)
+			
+			$.get("controller.do", `command=insertRowCliente&id=2`)
+			.done(function(data){
+				console.log(data);
+				if(data[0]){
+					OpiningAttendat();
+				}
+			});
+		//	historyAttendat(`Atendimento iniciado`)
 			
 			
 		}
@@ -108,18 +116,41 @@ var feedBackResp = () => {
 		cont++;
 	});		
 }
+var OpiningAttendat = () => {
+	
+	setInterval(function(){
+		$.get("controller.do", `command=searchMessage&id_para=2`)
+		.done(function( data ) {
+			var Data = JSON.parse(data);
+			var _thisData = Data;
+			if(Data){		
+				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+				.done(function( data ) {
+					console.log(data);
+				});
+				
+				msgRecebida = true;
+				appendResp(Data[0].mensagem);
+			}			
+		
+		});
+
+	},10000);
+	
+}
 
 var historyAttendat = (msg) => {
 	console.log(msg);
 	//appendPerg(msg);
-	console.log("ativou historia com atendente");
-	$.get("controller.do", `command=sendMessage&id_de=2&id_para=4&msg=${msg}`)
+	console.log("ativou historia com atendente");	
+	
+	/*$.get("controller.do", `command=sendMessage&id_de=2&id_para=4&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
 			verifyNewMessage();
 		}
-	});	
+	});*/	
 }
 
 var verifyNewMessage = () => {
