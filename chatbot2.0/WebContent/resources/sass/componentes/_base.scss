@@ -20,69 +20,6 @@ h1,h2,h3,h4,h5,h6, label {
     height: auto;
 }
 
-
-//-------------------------
-// Navbar
-//-------------------------
-
-.navbar,
-.nav-list,
-.navbar.solid{
-    transition: background-color 1s ease-out;
-    will-change: background-color;    
-}
-
-.navbar{
-    .nav-logo{
-        vertical-align: middle;
-    }
-}
-
-.navbar.solid {
-    background-color: #1f1c1c;
-    opacity: .8;
-}
-
-@media (min-width: 768px){
-    
-    .container.menu-home{
-        display: none;
-            
-    }
-}
-
-@media only screen and (max-width: 768px){
-    
-    .column_main{
-        transition: .5s margin-left ease-out;        
-    }
-
-    .column_main.active{
-        opacity: 1;
-        transition: .5s margin-left ease-in;
-        background-color: $primary;
-    }
-    .column_main ul{
-        list-style: none;
-    }
-    .column_main ul li a{
-        font-size: 20px;
-        color: darken($primary, 10);
-        font-weight: 600;
-        font-family: $n-regular;
-        text-transform: uppercase;
-        text-decoration: none;
-    }
-
-    .nav-logo.pure-menu-heading{
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
-}
-
-
-
 //-------------------------
 // Footer
 //-------------------------

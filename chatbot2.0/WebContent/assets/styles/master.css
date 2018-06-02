@@ -48,66 +48,6 @@ h1, h2, h3, h4, h5, h6, label {
 }
 
 /* line 28, ../../resources/sass/componentes/_base.scss */
-.navbar,
-.nav-list,
-.navbar.solid {
-  transition: background-color 1s ease-out;
-  will-change: background-color;
-}
-
-/* line 36, ../../resources/sass/componentes/_base.scss */
-.navbar .nav-logo {
-  vertical-align: middle;
-}
-
-/* line 41, ../../resources/sass/componentes/_base.scss */
-.navbar.solid {
-  background-color: #1f1c1c;
-  opacity: .8;
-}
-
-@media (min-width: 768px) {
-  /* line 48, ../../resources/sass/componentes/_base.scss */
-  .container.menu-home {
-    display: none;
-  }
-}
-@media only screen and (max-width: 768px) {
-  /* line 56, ../../resources/sass/componentes/_base.scss */
-  .column_main {
-    transition: .5s margin-left ease-out;
-  }
-
-  /* line 60, ../../resources/sass/componentes/_base.scss */
-  .column_main.active {
-    opacity: 1;
-    transition: .5s margin-left ease-in;
-    background-color: #05cc68;
-  }
-
-  /* line 65, ../../resources/sass/componentes/_base.scss */
-  .column_main ul {
-    list-style: none;
-  }
-
-  /* line 68, ../../resources/sass/componentes/_base.scss */
-  .column_main ul li a {
-    font-size: 20px;
-    color: #049a4f;
-    font-weight: 600;
-    font-family: "Montserrat";
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  /* line 77, ../../resources/sass/componentes/_base.scss */
-  .nav-logo.pure-menu-heading {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-}
-/* line 91, ../../resources/sass/componentes/_base.scss */
 .footer {
   border-top: 20px solid #05cc68;
   background-color: #1f1c1c;
@@ -116,7 +56,7 @@ h1, h2, h3, h4, h5, h6, label {
   flex-wrap: wrap;
   justify-content: center;
 }
-/* line 99, ../../resources/sass/componentes/_base.scss */
+/* line 36, ../../resources/sass/componentes/_base.scss */
 .footer .footer-box {
   display: inline-block;
   margin: 30px 20px 50px 20px;
@@ -124,34 +64,34 @@ h1, h2, h3, h4, h5, h6, label {
   width: 300px;
   max-width: 300px;
 }
-/* line 106, ../../resources/sass/componentes/_base.scss */
+/* line 43, ../../resources/sass/componentes/_base.scss */
 .footer .footer-box .footer-info-box {
   display: inline-block;
   text-align: left;
 }
-/* line 110, ../../resources/sass/componentes/_base.scss */
+/* line 47, ../../resources/sass/componentes/_base.scss */
 .footer .footer-box .footer-info-box .info span {
   color: #fff;
 }
-/* line 115, ../../resources/sass/componentes/_base.scss */
+/* line 52, ../../resources/sass/componentes/_base.scss */
 .footer .footer-box .social-box .icon {
   width: 40px;
   height: 40px;
   margin: 20px 10px 0 10px;
 }
-/* line 122, ../../resources/sass/componentes/_base.scss */
+/* line 59, ../../resources/sass/componentes/_base.scss */
 .footer .nav-footer {
   list-style: none;
   padding: 0;
 }
-/* line 127, ../../resources/sass/componentes/_base.scss */
+/* line 64, ../../resources/sass/componentes/_base.scss */
 .footer .end-footer {
   display: inline-block;
   width: 100%;
   background-color: #111;
   line-height: 10px;
 }
-/* line 133, ../../resources/sass/componentes/_base.scss */
+/* line 70, ../../resources/sass/componentes/_base.scss */
 .footer .end-footer p {
   letter-spacing: 2px;
   color: #fff;
@@ -797,7 +737,66 @@ template {
   border-bottom-width: 8px;
 }
 
-/* line 6, ../../resources/sass/componentes/_header.scss */
+/* line 8, ../../resources/sass/componentes/_header.scss */
+.navbar,
+.nav-list,
+.navbar.solid {
+  transition: background-color 1s ease-out;
+  will-change: background-color;
+}
+
+/* line 16, ../../resources/sass/componentes/_header.scss */
+.navbar .nav-logo {
+  vertical-align: middle;
+}
+
+/* line 21, ../../resources/sass/componentes/_header.scss */
+.navbar.solid {
+  background-color: #1f1c1c;
+  opacity: .8;
+}
+
+@media (min-width: 768px) {
+  /* line 28, ../../resources/sass/componentes/_header.scss */
+  .container.menu-home {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  /* line 36, ../../resources/sass/componentes/_header.scss */
+  .column_main {
+    transition: .5s margin-left ease-out;
+  }
+
+  /* line 40, ../../resources/sass/componentes/_header.scss */
+  .column_main.active {
+    opacity: 1;
+    transition: .5s margin-left ease-in;
+  }
+
+  /* line 44, ../../resources/sass/componentes/_header.scss */
+  .column_main ul {
+    list-style: none;
+  }
+
+  /* line 47, ../../resources/sass/componentes/_header.scss */
+  .column_main ul li a {
+    font-size: 20px;
+    color: #049a4f;
+    font-weight: 600;
+    font-family: "Montserrat";
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  /* line 56, ../../resources/sass/componentes/_header.scss */
+  .nav-logo.pure-menu-heading {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+/* line 64, ../../resources/sass/componentes/_header.scss */
 .navbar .kathbot-logo-small {
   width: 50px;
   max-width: 100%;
@@ -806,7 +805,7 @@ template {
   filter: sepia(1);
 }
 
-/* line 15, ../../resources/sass/componentes/_header.scss */
+/* line 73, ../../resources/sass/componentes/_header.scss */
 .kathbot-logo {
   margin: 0 0;
   padding: 0;
@@ -814,17 +813,17 @@ template {
   transition: filter .3s ease-out;
   filter: sepia(1);
 }
-/* line 22, ../../resources/sass/componentes/_header.scss */
+/* line 80, ../../resources/sass/componentes/_header.scss */
 .kathbot-logo img {
   cursor: pointer;
   width: 40%;
 }
-/* line 27, ../../resources/sass/componentes/_header.scss */
+/* line 85, ../../resources/sass/componentes/_header.scss */
 .kathbot-logo:hover {
   filter: sepia(0);
   transition: filter .3s ease-in;
 }
-/* line 32, ../../resources/sass/componentes/_header.scss */
+/* line 90, ../../resources/sass/componentes/_header.scss */
 .kathbot-logo figcaption {
   text-transform: uppercase;
   font-size: 40px;
@@ -832,25 +831,25 @@ template {
   font-family: "Montserrat";
 }
 
-/* line 41, ../../resources/sass/componentes/_header.scss */
+/* line 99, ../../resources/sass/componentes/_header.scss */
 .home-menu {
   line-height: 3em;
   text-align: center;
   font: 20px "Montserrat";
   font-weight: bolder;
 }
-/* line 47, ../../resources/sass/componentes/_header.scss */
+/* line 105, ../../resources/sass/componentes/_header.scss */
 .home-menu li a:hover,
 .home-menu li a:focus {
   background-color: transparent;
   color: #05c263;
   height: 100%;
 }
-/* line 54, ../../resources/sass/componentes/_header.scss */
+/* line 112, ../../resources/sass/componentes/_header.scss */
 .home-menu a {
   color: white;
 }
-/* line 59, ../../resources/sass/componentes/_header.scss */
+/* line 117, ../../resources/sass/componentes/_header.scss */
 .home-menu .pure-menu-heading {
   color: white;
   font-weight: 400;
@@ -858,13 +857,13 @@ template {
   margin-left: -12px;
 }
 
-/* line 67, ../../resources/sass/componentes/_header.scss */
+/* line 125, ../../resources/sass/componentes/_header.scss */
 .pure-menu.pure-menu-fixed {
   border-bottom: none;
   z-index: 4;
 }
 
-/* line 76, ../../resources/sass/componentes/_header.scss */
+/* line 134, ../../resources/sass/componentes/_header.scss */
 .container-header .image-autoplay .image-header {
   filter: brightness(0.6);
   background-repeat: no-repeat;
@@ -874,12 +873,12 @@ template {
   height: 800px;
 }
 @media only screen and (max-width: 768px) {
-  /* line 76, ../../resources/sass/componentes/_header.scss */
+  /* line 134, ../../resources/sass/componentes/_header.scss */
   .container-header .image-autoplay .image-header {
     height: 500px;
   }
 }
-/* line 90, ../../resources/sass/componentes/_header.scss */
+/* line 148, ../../resources/sass/componentes/_header.scss */
 .container-header .hero {
   width: 100%;
   margin: 0 auto;
@@ -889,18 +888,18 @@ template {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 99, ../../resources/sass/componentes/_header.scss */
+/* line 157, ../../resources/sass/componentes/_header.scss */
 .container-header .hero .hero-head {
   color: #ffae00;
 }
-/* line 104, ../../resources/sass/componentes/_header.scss */
+/* line 162, ../../resources/sass/componentes/_header.scss */
 .container-header .hero .hero-subhead {
   color: white;
   letter-spacing: 0.05em;
   opacity: 0.8;
 }
 
-/* line 112, ../../resources/sass/componentes/_header.scss */
+/* line 170, ../../resources/sass/componentes/_header.scss */
 .container-header-2 {
   background-image: url("../images/user.jpg");
   background-repeat: no-repeat;
@@ -909,7 +908,7 @@ template {
   width: 100%;
   height: 614px;
 }
-/* line 120, ../../resources/sass/componentes/_header.scss */
+/* line 178, ../../resources/sass/componentes/_header.scss */
 .container-header-2 .hero {
   width: 80%;
   height: 50%;
@@ -922,18 +921,18 @@ template {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 129, ../../resources/sass/componentes/_header.scss */
+/* line 187, ../../resources/sass/componentes/_header.scss */
 .container-header-2 .hero .hero-head {
   color: #ffae00;
 }
-/* line 134, ../../resources/sass/componentes/_header.scss */
+/* line 192, ../../resources/sass/componentes/_header.scss */
 .container-header-2 .hero .hero-subhead {
   color: white;
   letter-spacing: 0.05em;
   opacity: 0.8;
 }
 
-/* line 142, ../../resources/sass/componentes/_header.scss */
+/* line 200, ../../resources/sass/componentes/_header.scss */
 .container-header-3 {
   background-image: url("../images/gerente.jpg");
   background-repeat: no-repeat;
@@ -942,7 +941,7 @@ template {
   width: 100%;
   height: 614px;
 }
-/* line 150, ../../resources/sass/componentes/_header.scss */
+/* line 208, ../../resources/sass/componentes/_header.scss */
 .container-header-3 .hero {
   width: 80%;
   height: 50%;
@@ -955,11 +954,11 @@ template {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 159, ../../resources/sass/componentes/_header.scss */
+/* line 217, ../../resources/sass/componentes/_header.scss */
 .container-header-3 .hero .hero-head {
   color: #ffae00;
 }
-/* line 164, ../../resources/sass/componentes/_header.scss */
+/* line 222, ../../resources/sass/componentes/_header.scss */
 .container-header-3 .hero .hero-subhead {
   color: white;
   letter-spacing: 0.05em;
