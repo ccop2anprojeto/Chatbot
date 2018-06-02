@@ -10,27 +10,40 @@ $("#funcName").text(funcionario.nome);
 
 if(funcionario.cargo == "atendente"){
 	$(".gerenciamento").css("display", "none");
+	
+	$.get("controller.do", `command=insertRowAtendente&id=${funcionario.id}`)
+	.done(function(data){
+		console.log(data);
+		if(data[0]){
+			OpiningAttendat();
+		}
+	});
 }
 var msgRecebida = false;
-setInterval(function(){
-	$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
-	.done(function( data ) {
-		var Data = JSON.parse(data);
-		var _thisData = Data;
-		if(Data){		
-			$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
-			.done(function( data ) {
-				console.log(data);
-			});
-			
-			msgRecebida = true;
-			appendResp(Data[0].mensagem);
-		}
-		
-	
-	});
 
-},10000);
+var OpiningAttendat = () => {
+	setInterval(function(){
+		$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
+		.done(function( data ) {
+			var Data = JSON.parse(data);
+			var _thisData = Data;
+			console.log(Data);
+			if(Data){		
+				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+				.done(function( data ) {
+					console.log(data);
+				});
+				
+				msgRecebida = true;
+				appendResp(Data[0].mensagem);
+			}
+			
+		
+		});
+
+	},10000);
+}
+
 
 var msgSuccess = () => {
 	

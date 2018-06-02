@@ -1,34 +1,26 @@
 package service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
-import dao.ConnectionFactory;
-import dao.FilaClienteDAO;
-import model.FilaCliente;
-import model.FilaAtendimento;
+import dao.FilaAtendenteDAO;
+import model.Atendimento;
+import model.FilaAtendente;
+
 
 
 public class FilaAtendenteService {
 	
-	FilaClienteDAO dao = new FilaClienteDAO();
+	FilaAtendenteDAO dao = new FilaAtendenteDAO();
 	
-	public boolean insertInRow(FilaCliente filaCliente) {
-		return dao.insertInRow(filaCliente);		
-	}	                     
+	public FilaAtendente insertInRow(FilaAtendente filaAtend) {
+		return dao.insertInRow(filaAtend);		
+	}	 
 	
-	/*public ArrayList<Mensagens> buscar(int id_de, int id_para){
-		return dao.buscar(id_de, id_para);
+	public Atendimento checkAvailability() {
+		return dao.checkAvailability();
 	}
-	public ArrayList<Mensagens> searchFor(int id_para){
-		return dao.searchFor(id_para);
-	}*/
-	
-	public FilaCliente startOnlineSupport(FilaCliente filaCliente, FilaAtendimento filaAtendimento) {
-		return dao.startOnlineSupport(filaCliente, filaAtendimento);
+		
+	public Atendimento startOnlineSupport(Atendimento atend) {
+		return dao.startOnlineSupport(atend);
 	}
 	
 }

@@ -14,10 +14,10 @@ import model.Atendimento;
 
 public class FilaClienteDAO {	
 	
-	public boolean insertInRow(FilaCliente filaCliente) {
+	public FilaCliente insertInRow(FilaCliente filaCliente) {
 		String sqlInsert = "INSERT INTO `FilaCliente` (`pk_filaCliente`, `fk_cliente`) VALUES (default, ?);";
 		
-		boolean status = false;
+		FilaCliente rowCliente = new FilaCliente();
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
@@ -28,7 +28,7 @@ public class FilaClienteDAO {
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
 					ResultSet rs = stm2.executeQuery();) {
 				if (rs.next()) {
-					status = true;
+					rowCliente.setId(rs.getInt(1));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -36,105 +36,37 @@ public class FilaClienteDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return status;
+		return rowCliente;
 		
 	}
 	
 	
-/*	//BUSCA NOVAS MSG SEM ESPECIFICAR QUEM ENVIOU
-	public ArrayList<Mensagens> searchFor(int id_para) {		
-		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
-		Mensagens msg = new Mensagens();
-		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida` FROM `mensagem` where mensagem.id_para = ? and mensagem.recebida = 0";
+
+	public FilaCliente searchIntoRow(int id_cliente) {
+		FilaCliente fila = new FilaCliente();
+		String sqlSelect = " select `pk_filacliente`, `fk_cliente` from filacliente where fk_cliente = ?;";		
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			stm.setInt(1, id_cliente);									
 			
-			stm.setInt(1, id_para);
 			try (ResultSet rs = stm.executeQuery();) {
-				while (rs.next()) {
-					msg.setId(rs.getInt("pk_mensagem"));
-					msg.setId_de(rs.getInt("id_de"));
-					msg.setId_para(rs.getInt("id_para"));
-					msg.setMensagem(rs.getString("mensagem"));
-					msg.setTime(rs.getInt("time"));
-					msg.setRecebida(rs.getInt("recebida"));
-					msgs.add(msg);
-				} 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} catch (SQLException e1) {
-			System.out.print(e1.getStackTrace());
-		}
-		
-		if(msg.getId() != 0)
-			return msgs;
-		else
-			return null;
-	}
-	
-	
-	//BUSCA TOTAL
-	public ArrayList<Mensagens> buscar(int id_de, int id_para) {		
-		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
-		Mensagens msg = new Mensagens();
-		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida` FROM `mensagem` where mensagem.id_de = ? and mensagem.id_para = ? and mensagem.recebida = 0";
-		
-		try (Connection conn = ConnectionFactory.obtemConexao();
-				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
-			stm.setInt(1, id_de);
-			stm.setInt(2, id_para);
-			try (ResultSet rs = stm.executeQuery();) {
-				while (rs.next()) {
-					msg.setId(rs.getInt("pk_mensagem"));
-					msg.setId_de(rs.getInt("id_de"));
-					msg.setId_para(rs.getInt("id_para"));
-					msg.setMensagem(rs.getString("mensagem"));
-					msg.setTime(rs.getInt("time"));
-					msg.setRecebida(rs.getInt("recebida"));
-					msgs.add(msg);
-				} 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} catch (SQLException e1) {
-			System.out.print(e1.getStackTrace());
-		}
-		
-		if(msg.getId() != 0)
-			return msgs;
-		else
-			return null;
-	}*/
-	public Atendimento startOnlineSupport(FilaCliente filaCliente, FilaAtendente filaAtendente) {
-		Atendimento atendimento = new Atendimento();
-		String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`) VALUES (default, ?, ?, ?);";
-		
-		try (Connection conn = ConnectionFactory.obtemConexao();
-				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
-			stm.setInt(1, 0);
-			stm.setInt(2, filaAtendente.getId_atendente());
-			stm.setInt(1, filaCliente.getId_cliente());
-						
-			stm.execute();
-			
-			String sqlQuery = "SELECT LAST_INSERT_ID()";
-			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
-					ResultSet rs = stm2.executeQuery();) {
 				if (rs.next()) {
 					
-					atendimento.setId(rs.getInt(1));
+					fila.setId(rs.getInt("pk_filacliente"));
+					fila.setId_cliente(rs.getInt("pk_filacliente"));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			atendimento.setId(0);
 
 		}
-		return atendimento;
+		if(fila.getId() != 0) 
+			return fila;
+		else
+			return null;
 					
 	}
 	public static void main(String[] args) {

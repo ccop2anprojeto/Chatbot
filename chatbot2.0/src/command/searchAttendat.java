@@ -13,11 +13,8 @@ import com.google.gson.Gson;
 
 import service.FilaClienteService;
 import model.FilaCliente;
-import service.FilaAtendenteService;
-import model.Atendimento;
-import model.FilaAtendente;
 
-public class insertRowCliente implements Command {
+public class searchAttendat implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -27,21 +24,15 @@ public class insertRowCliente implements Command {
 		FilaCliente filaCliente = new FilaCliente();
 		filaCliente.setId_cliente(Integer.parseInt(request.getParameter("id"))); 		
 		
+//	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
+		
 		ArrayList list = new ArrayList();
 	
+		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
 		FilaClienteService service = new FilaClienteService();
-		FilaCliente fila = service.searchIntoRow(filaCliente.getId_cliente());
-				
-		if(fila == null) {			
-			list.add(service.insertInRow(filaCliente));
-			System.out.println(list.get(0));
-		}
 		
-		FilaAtendenteService serviceA = new FilaAtendenteService();
-		Atendimento atend = serviceA.checkAvailability();
-		if(atend != null) {
-			list.add(atend);
-		}
+		list.add(service.insertInRow(filaCliente));
+		System.out.println(list.get(0));
 		
 				
 		Gson gson = new Gson();

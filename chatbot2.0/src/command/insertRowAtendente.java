@@ -11,37 +11,29 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
-import service.FilaClienteService;
-import model.FilaCliente;
 import service.FilaAtendenteService;
-import model.Atendimento;
 import model.FilaAtendente;
 
-public class insertRowCliente implements Command {
+public class insertRowAtendente implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		FilaCliente filaCliente = new FilaCliente();
-		filaCliente.setId_cliente(Integer.parseInt(request.getParameter("id"))); 		
+		FilaAtendente filaAtend = new FilaAtendente();
+		filaAtend.setId_atendente(Integer.parseInt(request.getParameter("id"))); 
+		System.out.println(filaAtend.getId_atendente());
+		
+//	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
 		
 		ArrayList list = new ArrayList();
 	
-		FilaClienteService service = new FilaClienteService();
-		FilaCliente fila = service.searchIntoRow(filaCliente.getId_cliente());
-				
-		if(fila == null) {			
-			list.add(service.insertInRow(filaCliente));
-			System.out.println(list.get(0));
-		}
+		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
+		FilaAtendenteService service = new FilaAtendenteService();
 		
-		FilaAtendenteService serviceA = new FilaAtendenteService();
-		Atendimento atend = serviceA.checkAvailability();
-		if(atend != null) {
-			list.add(atend);
-		}
+		list.add(service.insertInRow(filaAtend));
+		System.out.println(list.get(0));
 		
 				
 		Gson gson = new Gson();

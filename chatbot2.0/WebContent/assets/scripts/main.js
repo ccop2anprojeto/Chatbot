@@ -84,26 +84,23 @@ var feedBackResp = () => {
 			templateSend = `<div class="message sent">O atendimento será transferido para um atendente humano.<br/> Aguarde alguns instantes você será atendido.<span></span></div> `;
 			$(".content_messages").append(templateSend);
 			
-			msg = {
-					'id': 0,
-					'id_de': 2,
-					'id_para': 4,
-					'mensagem': "Atendimento iniciado",
-					'time': 0,
-					'recebida': 0
-						
-			}
-			convAttendent = true;
+			//historyAttendat("Atendimento iniciado");
+			convAttendent = true;						
 			
-			$.get("controller.do", `command=insertRowCliente&id=2`)
-			.done(function(data){
-				console.log(data);
-				if(data[0]){
-					OpiningAttendat();
-				}
-			});
-		//	historyAttendat(`Atendimento iniciado`)
-			
+			var selectAttendant = setInterval(function(){
+				$.get("controller.do", `command=insertRowCliente&id=2`)
+				.done(function(data){
+					console.log(data);
+					var Data = JSON.parse(data.toString('utf8'));
+					console.log(Data);
+					if(Data[0]){
+						console.log(Data);
+						OpiningAttendat();
+						clearInterval(selectAttendant);
+					}
+				});
+
+			},20000);
 			
 		}
 			
@@ -117,25 +114,17 @@ var feedBackResp = () => {
 	});		
 }
 var OpiningAttendat = () => {
-	
-	setInterval(function(){
-		$.get("controller.do", `command=searchMessage&id_para=2`)
-		.done(function( data ) {
-			var Data = JSON.parse(data);
-			var _thisData = Data;
-			if(Data){		
-				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
-				.done(function( data ) {
-					console.log(data);
-				});
-				
-				msgRecebida = true;
-				appendResp(Data[0].mensagem);
-			}			
-		
-		});
-
-	},10000);
+	console.log("opining attendat");
+	/*$.get("controller.do", `command=insertRowCliente&id=2`)
+	.done(function(data){
+		console.log(data);
+		var Data = JSON.parse(data.toString('utf8'));
+		console.log(Data);
+		if(Data[0]){
+			console.log(Data);
+			OpiningAttendat();
+		}
+	});*/
 	
 }
 
@@ -144,13 +133,13 @@ var historyAttendat = (msg) => {
 	//appendPerg(msg);
 	console.log("ativou historia com atendente");	
 	
-	/*$.get("controller.do", `command=sendMessage&id_de=2&id_para=4&msg=${msg}`)
+	$.get("controller.do", `command=sendMessage&id_de=2&id_para=4&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
 			verifyNewMessage();
 		}
-	});*/	
+	});	
 }
 
 var verifyNewMessage = () => {
@@ -213,6 +202,7 @@ $("#sendMsg").on('click', function(){
 					}						
 					
 				}else if(convAttendent){
+					console.log("enviu primeir msg");					
 					historyAttendat(pergunta);
 				}else{
 					historyQuestions(pergunta);

@@ -9,26 +9,26 @@ import java.util.ArrayList;
 import dao.ConnectionFactory;
 import model.FilaCliente;
 import model.FilaAtendente;
+import model.Funcionario;
 import model.Atendimento;
+
 
 
 public class FilaAtendenteDAO {	
 	
-	public boolean insertInRow(FilaCliente filaCliente) {
-		String sqlInsert = "INSERT INTO `FilaCliente` (`pk_filaCliente`, `fk_cliente`) VALUES (default, ?);";
-		
-		boolean status = false;
+	public FilaAtendente insertInRow(FilaAtendente filaAtend) {
+		String sqlInsert = "INSERT INTO `FilaAtendente` (`pk_filaAtendente`, `fk_atendente`) VALUES (default, ?);";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
-			stm.setInt(1, filaCliente.getId_cliente());			
+			stm.setInt(1, filaAtend.getId_atendente());			
 					
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
 			try (PreparedStatement stm2 = conn.prepareStatement(sqlQuery);
 					ResultSet rs = stm2.executeQuery();) {
 				if (rs.next()) {
-					status = true;
+					filaAtend.setId(rs.getInt(1));					
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -36,30 +36,22 @@ public class FilaAtendenteDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return status;
+		return filaAtend;
 		
 	}
 	
 	
-/*	//BUSCA NOVAS MSG SEM ESPECIFICAR QUEM ENVIOU
-	public ArrayList<Mensagens> searchFor(int id_para) {		
-		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
-		Mensagens msg = new Mensagens();
-		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida` FROM `mensagem` where mensagem.id_para = ? and mensagem.recebida = 0";
-		
+	//BUSCA Atendentes disponiveis
+	public Atendimento checkAvailability() {				
+		String sqlSelect = "select `pk_filaatendente`, `fk_atendente`, count(atend.fk_funcionario) from `filaatendente` fila left join atendimento atend on fila.fk_atendente = atend.fk_funcionario where atend.status = 0 group by fk_funcionario having count(atend.fk_funcionario) < 3";
+		Atendimento atend = new Atendimento();
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
-			
-			stm.setInt(1, id_para);
+
 			try (ResultSet rs = stm.executeQuery();) {
 				while (rs.next()) {
-					msg.setId(rs.getInt("pk_mensagem"));
-					msg.setId_de(rs.getInt("id_de"));
-					msg.setId_para(rs.getInt("id_para"));
-					msg.setMensagem(rs.getString("mensagem"));
-					msg.setTime(rs.getInt("time"));
-					msg.setRecebida(rs.getInt("recebida"));
-					msgs.add(msg);
+					atend.setIdFuncionario(rs.getInt("fk_atendente"));
+					
 				} 
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -67,55 +59,22 @@ public class FilaAtendenteDAO {
 		} catch (SQLException e1) {
 			System.out.print(e1.getStackTrace());
 		}
-		
-		if(msg.getId() != 0)
-			return msgs;
+		if(atend.getIdFuncionario() != 0)
+			return atend;
 		else
 			return null;
 	}
 	
 	
-	//BUSCA TOTAL
-	public ArrayList<Mensagens> buscar(int id_de, int id_para) {		
-		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
-		Mensagens msg = new Mensagens();
-		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida` FROM `mensagem` where mensagem.id_de = ? and mensagem.id_para = ? and mensagem.recebida = 0";
-		
-		try (Connection conn = ConnectionFactory.obtemConexao();
-				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
-			stm.setInt(1, id_de);
-			stm.setInt(2, id_para);
-			try (ResultSet rs = stm.executeQuery();) {
-				while (rs.next()) {
-					msg.setId(rs.getInt("pk_mensagem"));
-					msg.setId_de(rs.getInt("id_de"));
-					msg.setId_para(rs.getInt("id_para"));
-					msg.setMensagem(rs.getString("mensagem"));
-					msg.setTime(rs.getInt("time"));
-					msg.setRecebida(rs.getInt("recebida"));
-					msgs.add(msg);
-				} 
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} catch (SQLException e1) {
-			System.out.print(e1.getStackTrace());
-		}
-		
-		if(msg.getId() != 0)
-			return msgs;
-		else
-			return null;
-	}*/
-	public Atendimento startOnlineSupport(FilaCliente filaCliente, FilaAtendente filaAtendente) {
+	public Atendimento startOnlineSupport(Atendimento atend) {
 		Atendimento atendimento = new Atendimento();
 		String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`) VALUES (default, ?, ?, ?);";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
 			stm.setInt(1, 0);
-			stm.setInt(2, filaAtendente.getId_atendente());
-			stm.setInt(1, filaCliente.getId_cliente());
+			stm.setInt(2, atend.getIdFuncionario());
+			stm.setInt(1, atend.getIdCliente());
 						
 			stm.execute();
 			
