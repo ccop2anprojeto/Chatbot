@@ -12,9 +12,6 @@
     position: relative
 
 }
-.teste{
-    border: none;
-}
 .column_main{
     width: 100%;
     position: fixed;
@@ -22,17 +19,26 @@
     bottom:0;
     left: 0;
     max-width: 300px;
-    background-color: #00a552;
+    background-color: darken($blue, 40);
     color: #fff;
 
 }
 
 .box_info{
-    padding: 8% 8% 0 8%;
-    background-color: #05cc68;
-    overflow: hidden;    
+    padding: 8% 8% 8% 8%;
+    background-color: $blue;
+    overflow: hidden;
+    border-bottom: 10px solid darken($blue, 10);
 }
-	.image_fun{
+    
+    .logo-kathbot{
+        @extend %logo-kathbot;
+        text-align: center;
+        font-size: 25px;
+        margin-top: 15px;
+    }
+    
+    .image_fun{
 			max-width: 150px;
 			margin: 0 auto;
 			padding-bottom: 10px;
@@ -64,7 +70,7 @@
 
 }
 .column_main ul li{
-    border-bottom: 1px solid;
+    border-bottom: 1px solid darken($blue, 32);
     padding: 15px;
 }
 .column_main ul li a{
@@ -78,8 +84,9 @@
     width: calc(100% - 300px);
     padding: 2% 2% 0 2%;
     position: relative;
-    background-color: #fbfbfb;   
+    box-shadow: inset 3px 0px 20px 0px;    
     min-height: 100vh;
+    background-color: #f1f1f1;
 }
 .column_principal h1{
     text-align: center;
@@ -115,6 +122,7 @@
     display: none;
     overflow: hidden;
     z-index: 7;
+    box-shadow: 3px -4px 18px 0px;
     transition: transform ease-in 3s;
     
     @media (max-width:960px){
@@ -333,7 +341,7 @@
 		text-align: center;
 		font-weight: 600;
         padding-bottom: 10px;
-        color: #4a4a4a;
+        color: darken($blue, 40);
 	}	
 	#line::before {
 		content: '';
@@ -343,6 +351,31 @@
 		bottom:0;
 		left: 0;
 		right: -100px;
-		background-color: $primary;
+		background-color: darken($blue, 40);
 		z-index: 4;
-	}
+    }
+    
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: darken($blue, 40);
+        color: white;
+    }
+    

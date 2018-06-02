@@ -43,6 +43,7 @@ public class historyIdentify implements Command {
 			Cliente cliente = new Cliente();
 			
 			cliente = service.buscar(init);
+			System.out.println("-------- busca cpf: " + init);
 			
 			if(cliente != null) { 			
 				resp.setResp("Olá " + cliente.getNome() + ", em que posso te ajudar?");

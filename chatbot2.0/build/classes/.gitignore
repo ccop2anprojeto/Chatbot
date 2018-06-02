@@ -1,6 +1,3 @@
-/ChatBotServelet.class
-/command/
-/controller/
 /dao/
-/model/
 /service/
+/command/

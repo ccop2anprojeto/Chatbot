@@ -1,80 +1,95 @@
 
-$(".icon_close a").on('click', function(){
-  $(".container_chat").removeClass("active");
-  $(".icon_chat").addClass("active");
+var funcionario = JSON.parse(sessionStorage.getItem('user'));
+console.log(funcionario);
+if(!funcionario){
+	window.location.href = "http://localhost:8080/chatbot2.0/index.jsp";
+}
+
+$("#funcId").text(funcionario.id);
+$("#funcName").text(funcionario.nome);
+
+if(funcionario.cargo == "atendente"){
+	$(".gerenciamento").css("display", "none");
+	
+	$.get("controller.do", `command=insertRowAtendente&id=${funcionario.id}`)
+	.done(function(data){
+		console.log(data);
+		if(data[0]){
+			OpiningAttendat();
+		}
+	});
+}
+var msgRecebida = false;
+
+var OpiningAttendat = () => {
+	setInterval(function(){
+		$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
+		.done(function( data ) {
+			var Data = JSON.parse(data);
+			var _thisData = Data;
+			console.log(Data);
+			if(Data){		
+				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+				.done(function( data ) {
+					console.log(data);
+				});
+				
+				msgRecebida = true;
+				appendResp(Data[0].mensagem);
+			}
+			
+		
+		});
+
+	},10000);
+}
+
+
+var msgSuccess = () => {
+	
+}
+var sendMessage = (msg) => {
+	console.log(msg);
+	//appendPerg(msg);
+	console.log("ativou historia com atendente");
+	$.get("controller.do", `command=sendMessage&id_de=4&id_para=2&msg=${msg}`)
+	.done(function(data){
+		console.log(data);
+		
+	});
+	
+}
+$("#sendMsg").on('click', function(){
+	var pergunta = $("#perg").val();
+	
+	console.log(pergunta);
+	if( pergunta != ""){		
+		appendPerg(pergunta);
+						
+			sendMessage(pergunta);							
+	}
+	
+	$("#perg").val(" ");
 });
 
+var appendPerg = (perg) => {
+	var templateReceived = `<div class="message received"><span>${perg}</span></div>`;
+	$(".content_messages").append(templateReceived);
 
-$(".icon_chat a").on('click', function(){
-  $(".wisper").addClass("active");
+}
+
+var appendResp = (resp) => {		
+	var templateSend = `<div class="message sent"><span>${resp}</span></div> `;
+	$(".content_messages").append(templateSend);
+};
+
+
+$(".sair").on('click', function(){
+	window.location.href = "http://localhost:8080/chatbot2.0/index.jsp";
+	console.log("sair");
+	sessionStorage.clear();
+	
 });
-
-
-$(".wisper .btn-comecar").on('click', function(){
-  $(".wisper").removeClass("active");  
-  $(".icon_chat").removeClass("active");
-  $(".content_messages").addClass("expand");
-  $(".content_area").addClass("expand");
-  $(".container_chat").addClass("expand");
-  $(".container_chat").addClass("active");
-});
-
-$(".container_chat header").on('click', function(){
-
-  if($(".content_messages").hasClass("expand")){   
-    $("html").removeClass("fixed");
-    $(".content_messages").removeClass("expand");
-    $(".content_area").removeClass("expand");
-    $(".container_chat").removeClass("expand");
-  }
-  else{
-    $("html").addClass("fixed");
-    $(".content_messages").addClass("expand");
-    $(".content_area").addClass("expand");
-    $(".container_chat").addClass("expand");
-  }
-  
-});
-
-$('#perg').keypress(function (e) {
-  var key = e.which;
-  if(key == 13){
-     
-    $('.box_area .btn-enviar').click();
-     return false;  
-   }
- });
- 
- $("#nav-btn").click(function() {
-  $('html, body').animate({
-      scrollTop: $("#elementtoScrollToID").offset().top
-  }, 2000);
-});
-
-
-$(".icon_main a").on('click', function(){
-
-  if($(".column_main").hasClass("active")){
-    $(".column_main").removeClass("active");
-    $(".overlay").removeClass("active");
-  }
-    
-  else{
-    $(".column_main").addClass("active");
-    $(".overlay").addClass("active");
-  }
-  
-});
-
-$(".icon_closeMain a").on('click', function(){
-  $(".column_main").removeClass("active");
-  $(".overlay").removeClass("active");
-});
-
-$(".overlay").on('click', function(){
-    $(".column_main").removeClass("active");
-    $(".overlay").removeClass("active");
-  });
 
 var ctx = document.getElementById('myChart');
 console.log(ctx);
@@ -119,3 +134,4 @@ var myPieChart2 = new Chart(ctx2,{
     }
   }
 });
+
