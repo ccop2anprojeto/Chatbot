@@ -612,6 +612,10 @@ template {
   margin-bottom: 30px;
 }
 /* line 35, ../../resources/sass/componentes/_componentes.scss */
+.login-field .wrap .logo-kathbot small {
+  font-size: 12px;
+}
+/* line 39, ../../resources/sass/componentes/_componentes.scss */
 .login-field .wrap .logo-kathbot:hover {
   color: #05cc68;
 }
