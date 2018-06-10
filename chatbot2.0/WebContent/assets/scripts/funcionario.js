@@ -2,7 +2,7 @@
 var funcionario = JSON.parse(sessionStorage.getItem('user'));
 console.log(funcionario);
 if(!funcionario){
-	window.location.href = "http://localhost:8080/chatbot2.0/index.jsp";
+	// window.location.href = "http://localhost:8080/chatbot2.0/index.jsp";
 }
 
 $("#funcId").text(funcionario.id);
@@ -134,4 +134,3 @@ var myPieChart2 = new Chart(ctx2,{
     }
   }
 });
-

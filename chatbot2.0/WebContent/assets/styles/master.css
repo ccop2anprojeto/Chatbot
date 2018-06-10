@@ -282,13 +282,14 @@ mark {
 /* line 170, ../../resources/sass/componentes/_normalize.scss */
 small {
   font-size: 80%;
+  font-size: 12px;
 }
 
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-/* line 179, ../../resources/sass/componentes/_normalize.scss */
+/* line 180, ../../resources/sass/componentes/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -297,12 +298,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 187, ../../resources/sass/componentes/_normalize.scss */
+/* line 188, ../../resources/sass/componentes/_normalize.scss */
 sub {
   bottom: -0.25em;
 }
 
-/* line 191, ../../resources/sass/componentes/_normalize.scss */
+/* line 192, ../../resources/sass/componentes/_normalize.scss */
 sup {
   top: -0.5em;
 }
@@ -312,7 +313,7 @@ sup {
 /**
  * Add the correct display in IE 9-.
  */
-/* line 202, ../../resources/sass/componentes/_normalize.scss */
+/* line 203, ../../resources/sass/componentes/_normalize.scss */
 audio,
 video {
   display: inline-block;
@@ -321,7 +322,7 @@ video {
 /**
  * Add the correct display in iOS 4-7.
  */
-/* line 211, ../../resources/sass/componentes/_normalize.scss */
+/* line 212, ../../resources/sass/componentes/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -330,7 +331,7 @@ audio:not([controls]) {
 /**
  * Remove the border on images inside links in IE 10-.
  */
-/* line 220, ../../resources/sass/componentes/_normalize.scss */
+/* line 221, ../../resources/sass/componentes/_normalize.scss */
 img {
   border-style: none;
 }
@@ -338,7 +339,7 @@ img {
 /**
  * Hide the overflow in IE.
  */
-/* line 228, ../../resources/sass/componentes/_normalize.scss */
+/* line 229, ../../resources/sass/componentes/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
@@ -349,7 +350,7 @@ svg:not(:root) {
  * 1. Change the font styles in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
-/* line 240, ../../resources/sass/componentes/_normalize.scss */
+/* line 241, ../../resources/sass/componentes/_normalize.scss */
 button,
 input,
 optgroup,
@@ -369,7 +370,7 @@ textarea {
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
-/* line 256, ../../resources/sass/componentes/_normalize.scss */
+/* line 257, ../../resources/sass/componentes/_normalize.scss */
 button,
 input {
   /* 1 */
@@ -380,7 +381,7 @@ input {
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
-/* line 266, ../../resources/sass/componentes/_normalize.scss */
+/* line 267, ../../resources/sass/componentes/_normalize.scss */
 button,
 select {
   /* 1 */
@@ -392,7 +393,7 @@ select {
  *    controls in Android 4.
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
-/* line 277, ../../resources/sass/componentes/_normalize.scss */
+/* line 278, ../../resources/sass/componentes/_normalize.scss */
 button,
 html [type="button"],
 [type="reset"],
@@ -404,7 +405,7 @@ html [type="button"],
 /**
  * Remove the inner border and padding in Firefox.
  */
-/* line 288, ../../resources/sass/componentes/_normalize.scss */
+/* line 289, ../../resources/sass/componentes/_normalize.scss */
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
@@ -416,7 +417,7 @@ button::-moz-focus-inner,
 /**
  * Restore the focus styles unset by the previous rule.
  */
-/* line 300, ../../resources/sass/componentes/_normalize.scss */
+/* line 301, ../../resources/sass/componentes/_normalize.scss */
 button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
@@ -427,7 +428,7 @@ button:-moz-focusring,
 /**
  * Correct the padding in Firefox.
  */
-/* line 311, ../../resources/sass/componentes/_normalize.scss */
+/* line 312, ../../resources/sass/componentes/_normalize.scss */
 fieldset {
   padding: 0.35em 0.75em 0.625em;
 }
@@ -438,7 +439,7 @@ fieldset {
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
-/* line 322, ../../resources/sass/componentes/_normalize.scss */
+/* line 323, ../../resources/sass/componentes/_normalize.scss */
 legend {
   box-sizing: border-box;
   /* 1 */
@@ -458,7 +459,7 @@ legend {
  * 1. Add the correct display in IE 9-.
  * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
-/* line 336, ../../resources/sass/componentes/_normalize.scss */
+/* line 337, ../../resources/sass/componentes/_normalize.scss */
 progress {
   display: inline-block;
   /* 1 */
@@ -469,7 +470,7 @@ progress {
 /**
  * Remove the default vertical scrollbar in IE.
  */
-/* line 345, ../../resources/sass/componentes/_normalize.scss */
+/* line 346, ../../resources/sass/componentes/_normalize.scss */
 textarea {
   overflow: auto;
 }
@@ -478,7 +479,7 @@ textarea {
  * 1. Add the correct box sizing in IE 10-.
  * 2. Remove the padding in IE 10-.
  */
-/* line 354, ../../resources/sass/componentes/_normalize.scss */
+/* line 355, ../../resources/sass/componentes/_normalize.scss */
 [type="checkbox"],
 [type="radio"] {
   box-sizing: border-box;
@@ -490,7 +491,7 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-/* line 364, ../../resources/sass/componentes/_normalize.scss */
+/* line 365, ../../resources/sass/componentes/_normalize.scss */
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
@@ -500,7 +501,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-/* line 374, ../../resources/sass/componentes/_normalize.scss */
+/* line 375, ../../resources/sass/componentes/_normalize.scss */
 [type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -511,7 +512,7 @@ textarea {
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
  */
-/* line 383, ../../resources/sass/componentes/_normalize.scss */
+/* line 384, ../../resources/sass/componentes/_normalize.scss */
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -521,7 +522,7 @@ textarea {
  * 1. Correct the inability to style clickable types in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
-/* line 393, ../../resources/sass/componentes/_normalize.scss */
+/* line 394, ../../resources/sass/componentes/_normalize.scss */
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
   /* 1 */
@@ -535,7 +536,7 @@ textarea {
  * Add the correct display in IE 9-.
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
-/* line 406, ../../resources/sass/componentes/_normalize.scss */
+/* line 407, ../../resources/sass/componentes/_normalize.scss */
 details,
 menu {
   display: block;
@@ -544,7 +545,7 @@ menu {
 /*
  * Add the correct display in all browsers.
  */
-/* line 415, ../../resources/sass/componentes/_normalize.scss */
+/* line 416, ../../resources/sass/componentes/_normalize.scss */
 summary {
   display: list-item;
 }
@@ -554,7 +555,7 @@ summary {
 /**
  * Add the correct display in IE 9-.
  */
-/* line 426, ../../resources/sass/componentes/_normalize.scss */
+/* line 427, ../../resources/sass/componentes/_normalize.scss */
 canvas {
   display: inline-block;
 }
@@ -562,7 +563,7 @@ canvas {
 /**
  * Add the correct display in IE.
  */
-/* line 434, ../../resources/sass/componentes/_normalize.scss */
+/* line 435, ../../resources/sass/componentes/_normalize.scss */
 template {
   display: none;
 }
@@ -572,7 +573,7 @@ template {
 /**
  * Add the correct display in IE 10-.
  */
-/* line 445, ../../resources/sass/componentes/_normalize.scss */
+/* line 446, ../../resources/sass/componentes/_normalize.scss */
 [hidden] {
   display: none;
 }

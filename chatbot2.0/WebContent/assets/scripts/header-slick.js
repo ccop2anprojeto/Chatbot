@@ -1,4 +1,3 @@
-
 $('.image-autoplay').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -6,4 +5,4 @@ $('.image-autoplay').slick({
     autoplaySpeed: 5000,
     dots: false,
     arrows: false,
-  });        
+  });
