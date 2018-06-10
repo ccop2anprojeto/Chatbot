@@ -50,6 +50,7 @@ public class historyIdentify implements Command {
 				notIdentified = false;
 				list.add(resp);
 				list.add(notIdentified);
+				list.add(cliente);
 			}
 			else {
 				ArrayList<Resposta> listResp = new ArrayList<Resposta>();

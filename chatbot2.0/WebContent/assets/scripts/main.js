@@ -4,7 +4,18 @@ sessionStorage.clear();
 
 console.log($("#sendMsg"));
 localStorage.removeItem("talk");
+localStorage.removeItem("user");
+localStorage.removeItem("data");
 
+var appendPerg = (perg) => {
+	var templateReceived = `<div class="message received"><span>${perg}</span></div>`;
+	$(".content_messages").append(templateReceived);
+
+}
+var appendResp = (resp) => {		
+	var templateSend = `<div class="message sent"><span>${resp}</span></div> `;
+	$(".content_messages").append(templateSend);
+};
 
 $(".btn-comecar").on('click', function(){
 	$(".wisper").removeClass("active");  
@@ -34,9 +45,10 @@ var historyIdentify = (cpf) => {
 	.done(function( data ) {
 		var Data = JSON.parse(data.toString('utf8'));
 		console.log(Data);
-		notIdentified = Data[Data.length-1];
-		if(notIdentified){			
+		notIdentified = Data[1];
+		if(!notIdentified){			
 		    localStorage.setItem("data", JSON.stringify(Data));
+		    localStorage.setItem("user", JSON.stringify(Data[2]));
 		}
 		appendResp(Data[0].resp);				
 		
@@ -86,15 +98,19 @@ var feedBackResp = () => {
 			
 			//historyAttendat("Atendimento iniciado");
 			convAttendent = true;						
+			var user = JSON.parse(localStorage.getItem('user'));
 			
+			console.log(user);
 			var selectAttendant = setInterval(function(){
-				$.get("controller.do", `command=insertRowCliente&id=2`)
+				console.log("na filaa----");
+				$.get("controller.do", `command=insertRowCliente&id=${user.id}`)
 				.done(function(data){
 					console.log(data);
 					var Data = JSON.parse(data.toString('utf8'));
 					console.log(Data);
 					if(Data[0]){
 						console.log(Data);
+						localStorage.setItem("atendimento", JSON.stringify(Data));
 						OpiningAttendat();
 						clearInterval(selectAttendant);
 					}
@@ -115,16 +131,20 @@ var feedBackResp = () => {
 }
 var OpiningAttendat = () => {
 	console.log("opining attendat");
-	/*$.get("controller.do", `command=insertRowCliente&id=2`)
+	//colocar aqui msg padrão para atendente
+	//tirar do hardcode as msg,
+	//chamar aqui o metodo verifyNewMessage
+	var user = JSON.parse(localStorage.getItem('user'));
+	var atend = JSON.parse(localStorage.getItem("atendimento"));
+	console.log(atend);
+	var msg = `Atendimento iniciado`;
+	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend[0].idFuncionario}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
-		var Data = JSON.parse(data.toString('utf8'));
-		console.log(Data);
-		if(Data[0]){
-			console.log(Data);
-			OpiningAttendat();
+		if(data[0]){
+			verifyNewMessage();
 		}
-	});*/
+	});	
 	
 }
 
@@ -132,12 +152,13 @@ var historyAttendat = (msg) => {
 	console.log(msg);
 	//appendPerg(msg);
 	console.log("ativou historia com atendente");	
-	
-	$.get("controller.do", `command=sendMessage&id_de=2&id_para=4&msg=${msg}`)
+	var user = JSON.parse(localStorage.getItem('user'));
+	var atend = JSON.parse(localStorage.getItem("atendimento"));
+	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
-			verifyNewMessage();
+			//verifyNewMessage();
 		}
 	});	
 }
@@ -165,11 +186,12 @@ var verifyNewMessage = () => {
 } 
 var counter = 1;
 var register = [];
-var Data = JSON.parse(localStorage.getItem("data"));
 var cpf;
-console.log(Data.length);
+//console.log(Data.length);
 
 $("#sendMsg").on('click', function(){
+	var Data = JSON.parse(localStorage.getItem("data"));
+	console.log("clicou?");
 	var pergunta = $("#perg").val();
 	
 	console.log(pergunta);
@@ -225,12 +247,12 @@ $("#sendMsg").on('click', function(){
 						var Data = JSON.parse(data.toString('utf8'));
 						console.log(Data);
 								
-						//localStorage.setItem("data", JSON.stringify(Data));
+						localStorage.setItem("user", JSON.stringify(Data[0]));
 						if(Data.length > 1){
-							appendResp(Data[0].resp);
 							appendResp(Data[1].resp);
+							appendResp(Data[2].resp);
 						}else{
-							appendResp(Data[0].resp);
+							appendResp(Data[1].resp);
 						}
 							
 						
@@ -249,13 +271,5 @@ $("#sendMsg").on('click', function(){
 });
 console.log(register);
 
-var appendPerg = (perg) => {
-	var templateReceived = `<div class="message received"><span>${perg}</span></div>`;
-	$(".content_messages").append(templateReceived);
 
-}
 
-var appendResp = (resp) => {		
-	var templateSend = `<div class="message sent"><span>${resp}</span></div> `;
-	$(".content_messages").append(templateSend);
-};

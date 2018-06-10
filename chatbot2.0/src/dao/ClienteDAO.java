@@ -73,16 +73,38 @@ public class ClienteDAO {
 		else
 			return null;
 	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//PalavraChave pChave = new PalavraChave(61, "teste2");
+	public Cliente buscarId(int idC) {		
+		Cliente cliente = new Cliente();
+		cliente.setId(idC);
 		
-		//PalavraChaveDAO dao = new PalavraChaveDAO();
-		//dao.criar(pChave);
-		//System.out.println("teste : " + dao.listarPchave().size());
-
+		String sqlSelect = "SELECT `pk_cliente`, `Nome`, `Sobrenome`, `Telefone`, `Email`, `cpf` FROM `cliente` where cliente.pk_cliente = ?";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			stm.setInt(1, cliente.getId());
+			try (ResultSet rs = stm.executeQuery();) {
+				if (rs.next()) {
+					cliente.setId(rs.getInt("pk_cliente"));
+					cliente.setNome(rs.getString("Nome"));
+					cliente.setSobrenome(rs.getString("Sobrenome"));
+					cliente.setTelefone(rs.getString("Telefone"));
+					cliente.setEmail(rs.getString("Email"));
+					cliente.setCpf(rs.getString("cpf"));
+					
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		
+		if(cliente.getId() != 0)
+			return cliente;
+		else
+			return null;
 	}
+	
 	
 }
 
