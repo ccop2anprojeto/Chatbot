@@ -6,6 +6,7 @@ public class Atendimento {
 	private int idFuncionario;
 	private int idCliente;
 	private int idFilaCliente;
+	private int status;
 
 	public Atendimento() {
 		
@@ -48,6 +49,14 @@ public class Atendimento {
 
 	public void setIdFilaCliente(int idFilaCliente) {
 		this.idFilaCliente = idFilaCliente;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	

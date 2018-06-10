@@ -9,50 +9,54 @@ $("#funcId").text(funcionario.id);
 $("#funcName").text(funcionario.nome);
 
 if(funcionario.cargo == "atendente"){
-	$(".gerenciamento").css("display", "none");
-	
-	$.get("controller.do", `command=insertRowAtendente&id=${funcionario.id}`)
-	.done(function(data){
-		console.log(data);
-		if(data[0]){
-			OpiningAttendat();
-		}
-	});
+	$(".gerenciamento").css("display", "none");	
 }
-var msgRecebida = false;
-
-var OpiningAttendat = () => {
-	setInterval(function(){
-		$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
-		.done(function( data ) {
-			var Data = JSON.parse(data);
-			var _thisData = Data;
-			console.log(Data);
-			if(Data){		
-				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+setInterval(function(){
+	$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
+	.done(function( data ) {
+		var Data = JSON.parse(data);
+		var _thisData = Data;
+		console.log(Data);
+		if(Data){		
+			$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+			.done(function( data ) {
+				console.log(data);
+			});
+			appendResp(Data[0].mensagem);
+			if(Data[0].mensagem == "Atendimento iniciado"){
+				console.log("Atendimento iniciado");
+				$.get("controller.do", `command=searchData&idC=${Data[0].id_de}&idA=${funcionario.id}`)
 				.done(function( data ) {
-					console.log(data);
+					var Data = JSON.parse(data);
+					localStorage.setItem("user", JSON.stringify(Data[0]));
+					localStorage.setItem("atendimento", JSON.stringify(Data[1]));
+					console.log(Data);
+					var msgPadrao = `Olá ${Data[0].name}! Meu nome é ${funcionario.nome}, como posso te ajudar?`;
+					sendMessage(msgPadrao);
+					appendPerg(msgPadrao);
 				});
-				
-				msgRecebida = true;
-				appendResp(Data[0].mensagem);
 			}
 			
+			
+		}
 		
-		});
+	
+	});
 
-	},10000);
-}
+},10000);
+
 
 
 var msgSuccess = () => {
 	
 }
 var sendMessage = (msg) => {
+	var user = JSON.parse(localStorage.getItem('user'));
+	var atend = JSON.parse(localStorage.getItem("atendimento"));
 	console.log(msg);
-	//appendPerg(msg);
+	// appendPerg(msg);
 	console.log("ativou historia com atendente");
-	$.get("controller.do", `command=sendMessage&id_de=4&id_para=2&msg=${msg}`)
+	$.get("controller.do", `command=sendMessage&id_de=${funcionario.id}&id_para=${user.id}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		
@@ -92,11 +96,11 @@ $(".sair").on('click', function(){
 });
 
 var ctx = document.getElementById('myChart');
-console.log(ctx);
+//console.log(ctx);
 ctx.getContext('2d');
 
 var ctx2 = document.getElementById('myChart2');
-console.log(ctx2);
+//console.log(ctx2);
 ctx2.getContext('2d');
 
 var myPieChart = new Chart(ctx,{

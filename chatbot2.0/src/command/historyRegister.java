@@ -40,14 +40,16 @@ public class historyRegister implements Command {
 		Resposta resp1 = new Resposta();
 		boolean notIdentified;
 	    
-		int idCliente = service.criar(cliente);
+		cliente.setId(service.criar(cliente)); 
 		
-		if(idCliente != 0) {
+		if(cliente.getId() != 0) {
 			resp.setResp("Cadastro efetuado com sucesso!");	
 			resp1.setResp("Vamos lá! Em que posso te ajudar " + cliente.getNome() + "?");
 			listResp.add(resp);
 			listResp.add(resp1);
 			notIdentified = false;
+			
+			list.add(cliente);
 		}			
 		else {
 			resp.setResp("Ouve um erro no sistema e não foi possível efetuar o cadastro");

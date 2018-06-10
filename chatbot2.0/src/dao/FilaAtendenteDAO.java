@@ -43,13 +43,14 @@ public class FilaAtendenteDAO {
 	
 	//BUSCA Atendentes disponiveis
 	public Atendimento checkAvailability() {				
-		String sqlSelect = "select `pk_filaatendente`, `fk_atendente`, count(atend.fk_funcionario) from `filaatendente` fila left join atendimento atend on fila.fk_atendente = atend.fk_funcionario where atend.status = 0 group by fk_funcionario having count(atend.fk_funcionario) < 3";
+		String sqlSelect = "select fk_atendente from filaatendente where fk_atendente not in (select fk_funcionario from atendimento where status = 0 group by fk_funcionario having count(1) >= 3);";
 		Atendimento atend = new Atendimento();
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 
 			try (ResultSet rs = stm.executeQuery();) {
 				while (rs.next()) {
+					//melhorar método de filtrar atendentes dosponíveis. 
 					atend.setIdFuncionario(rs.getInt("fk_atendente"));
 					
 				} 
@@ -67,14 +68,17 @@ public class FilaAtendenteDAO {
 	
 	
 	public Atendimento startOnlineSupport(Atendimento atend) {
-		Atendimento atendimento = new Atendimento();
-		String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`) VALUES (default, ?, ?, ?);";
+		
+		String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`) VALUES (default, ?, ?, ?, ?, ?);";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
-			stm.setInt(1, 0);
+			stm.setInt(1, 1);
 			stm.setInt(2, atend.getIdFuncionario());
-			stm.setInt(1, atend.getIdCliente());
+			stm.setInt(3, atend.getIdCliente());
+			stm.setInt(4, atend.getIdFilaCliente());
+			stm.setInt(5, atend.getStatus());
+			//status 0 é atendimento aberto, 1 é atendimento fechado
 						
 			stm.execute();
 			
@@ -83,17 +87,17 @@ public class FilaAtendenteDAO {
 					ResultSet rs = stm2.executeQuery();) {
 				if (rs.next()) {
 					
-					atendimento.setId(rs.getInt(1));
+					atend.setId(rs.getInt(1));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			atendimento.setId(0);
+			atend.setId(0);
 
 		}
-		return atendimento;
+		return atend;
 					
 	}
 	public static void main(String[] args) {

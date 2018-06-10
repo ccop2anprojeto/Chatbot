@@ -24,26 +24,43 @@ public class insertRowCliente implements Command {
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		FilaCliente filaCliente = new FilaCliente();
+		FilaCliente filaCliente = new FilaCliente();		
 		filaCliente.setId_cliente(Integer.parseInt(request.getParameter("id"))); 		
 		
 		ArrayList list = new ArrayList();
 	
 		FilaClienteService service = new FilaClienteService();
-		FilaCliente fila = service.searchIntoRow(filaCliente.getId_cliente());
+		FilaCliente fila = service.searchIntoRow(filaCliente.getId_cliente());	
+		System.out.println("id FilaCliente --- "+ filaCliente.getId());
+		System.out.println("id cliente --- "+ filaCliente.getId_cliente());
 				
-		if(fila == null) {			
-			list.add(service.insertInRow(filaCliente));
+		if(fila == null) {
+			fila = service.insertInRow(filaCliente);
+			System.out.println("Insert fila cliente --- "+ fila.getId());
+			list.add(fila);
 			System.out.println(list.get(0));
+		}else {
+			fila.setId_cliente(filaCliente.getId_cliente());
 		}
+		
 		
 		FilaAtendenteService serviceA = new FilaAtendenteService();
 		Atendimento atend = serviceA.checkAvailability();
 		if(atend != null) {
 			list.add(atend);
+			atend.setIdCliente(fila.getId_cliente());
+			atend.setIdFilaCliente(fila.getId());
+			System.out.println("Id fila: ---" + fila.getId());
+			atend.setStatus(0);
+			atend = serviceA.startOnlineSupport(atend);
+			System.out.println("Id atend: ---" + atend.getId());
+			System.out.println("Id func: ---" + atend.getIdFuncionario());
+			System.out.println("Id cliente: ---" + atend.getIdCliente());
+			
+			System.out.println("Atendimento iniciado e inserido com sucesso: ---" + atend.getId());
+			//registrando o atendimento;
 		}
 		
-				
 		Gson gson = new Gson();
 		String respJSONString = gson.toJson(list);
 		System.out.println(respJSONString);		
@@ -52,5 +69,9 @@ public class insertRowCliente implements Command {
 	
 
 	}
+
+
+
+	
 
 }

@@ -21,5 +21,8 @@ public class ClienteService {
 	public Cliente buscar(String cpf){
 		return dao.buscar(cpf);
 	}
+	public Cliente buscarId(int idC){
+		return dao.buscarId(idC);
+	}
 	
 }
