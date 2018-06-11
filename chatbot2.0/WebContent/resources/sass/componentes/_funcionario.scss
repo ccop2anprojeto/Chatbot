@@ -245,10 +245,36 @@
         padding: 2%;
         margin-bottom: 1.0rem !important;
         display: block;
-        margin: 5px; 
+        margin: 5px;
+
+        .content_buttons{
+
+            .btn.btn-warning.nao,
+            .btn.btn-success.sim{
+                &:hover{
+                    background-color: darken($blue, 10);                    
+                    color: white;
+                    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1), 0 10px 14px rgba(0, 0, 0, 0.05);
+                }
+            }
+
+            .btn.btn-success.sim,
+            .btn.btn-warning.nao{
+                border: none;
+                background-color: #397079;
+                color: white;
+                padding: 5px;
+                font-size: 15px;
+                border-radius: 6px;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2);
+                transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+        }
+
     }
     .message.received{
         background-color: #fff;
+        padding-bottom: 20px;
     }
     .message.sent{
         background-color: rgba(0, 184, 156, 0.10);
