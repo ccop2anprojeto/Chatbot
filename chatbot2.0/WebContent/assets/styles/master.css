@@ -973,22 +973,16 @@ template {
 /* line 5, ../../resources/sass/componentes/_home.scss */
 .quote {
   position: relative;
+  background-color: #3b3a3ad1;
+  border-bottom: 10px solid #2dac6c;
 }
-/* line 9, ../../resources/sass/componentes/_home.scss */
-.quote .quote-image {
-  width: 100%;
-  height: 300px;
-  filter: brightness(0.6);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  position: absolute;
-  z-index: -1;
-}
-/* line 20, ../../resources/sass/componentes/_home.scss */
+/* line 12, ../../resources/sass/componentes/_home.scss */
 .quote .quote-text {
   text-align: center;
-  color: #ffae00;
+  color: #2dac6c;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
 /* line 5, ../../resources/sass/componentes/_pure-objects.scss */
@@ -1402,7 +1396,7 @@ template {
   width: 100px;
 }
 
-/* line 240, ../../resources/sass/componentes/_funcionario.scss */
+/* line 241, ../../resources/sass/componentes/_funcionario.scss */
 .message {
   -webkit-box-shadow: 0px 2px 6px 0px #b0b0b0;
   -moz-box-shadow: 0px 2px 6px 0px #b0b0b0;
@@ -1412,14 +1406,14 @@ template {
   display: block;
   margin: 5px;
 }
-/* line 253, ../../resources/sass/componentes/_funcionario.scss */
+/* line 254, ../../resources/sass/componentes/_funcionario.scss */
 .message .content_buttons .btn.btn-warning.nao:hover,
 .message .content_buttons .btn.btn-success.sim:hover {
   background-color: #2fa9be;
   color: white;
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1), 0 10px 14px rgba(0, 0, 0, 0.05);
 }
-/* line 260, ../../resources/sass/componentes/_funcionario.scss */
+/* line 261, ../../resources/sass/componentes/_funcionario.scss */
 .message .content_buttons .btn.btn-success.sim,
 .message .content_buttons .btn.btn-warning.nao {
   border: none;
@@ -1432,26 +1426,26 @@ template {
   transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* line 274, ../../resources/sass/componentes/_funcionario.scss */
+/* line 275, ../../resources/sass/componentes/_funcionario.scss */
 .message.received {
   background-color: rgba(0, 184, 156, 0.1);
   border-radius: 10px;
   margin-left: 30%;
 }
 
-/* line 280, ../../resources/sass/componentes/_funcionario.scss */
+/* line 294, ../../resources/sass/componentes/_funcionario.scss */
 .message.sent {
   background-color: #fff;
   border-radius: 10px;
   margin-right: 30%;
 }
 
-/* line 285, ../../resources/sass/componentes/_funcionario.scss */
+/* line 313, ../../resources/sass/componentes/_funcionario.scss */
 .box_view {
   overflow-y: auto;
 }
 
-/* line 288, ../../resources/sass/componentes/_funcionario.scss */
+/* line 316, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat {
   position: fixed;
   display: none;
@@ -1460,33 +1454,33 @@ template {
   bottom: 20px;
 }
 
-/* line 296, ../../resources/sass/componentes/_funcionario.scss */
+/* line 324, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat a {
-  color: #4dbfd3;
+  color: #05cc68;
 }
 
-/* line 299, ../../resources/sass/componentes/_funcionario.scss */
+/* line 327, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat a:hover {
-  color: #2fa9be;
+  color: #049a4f;
 }
 
-/* line 303, ../../resources/sass/componentes/_funcionario.scss */
+/* line 331, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat.active {
   display: block;
 }
 
-/* line 306, ../../resources/sass/componentes/_funcionario.scss */
+/* line 334, ../../resources/sass/componentes/_funcionario.scss */
 .icon_main {
   display: none;
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 310, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 338, ../../resources/sass/componentes/_funcionario.scss */
   .column_main {
     margin-left: -300px;
   }
 
-  /* line 313, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 341, ../../resources/sass/componentes/_funcionario.scss */
   .column_main.active {
     margin-left: 0px;
     position: fixed;
@@ -1496,31 +1490,31 @@ template {
     z-index: 9;
   }
 
-  /* line 321, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 349, ../../resources/sass/componentes/_funcionario.scss */
   .column_principal {
     width: 100%;
   }
 
-  /* line 324, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 352, ../../resources/sass/componentes/_funcionario.scss */
   .icon_main {
     display: block;
     background-color: #181312;
     padding: 2.5% 5%;
   }
 
-  /* line 329, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 357, ../../resources/sass/componentes/_funcionario.scss */
   .icon_main a {
     font-size: 25px;
     color: #fff;
   }
 
-  /* line 333, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 361, ../../resources/sass/componentes/_funcionario.scss */
   .icon_main a:hover {
     font-size: 26px;
     color: #049a4f;
   }
 
-  /* line 337, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 365, ../../resources/sass/componentes/_funcionario.scss */
   .overlay.active {
     position: absolute;
     top: 0;
@@ -1532,26 +1526,26 @@ template {
     cursor: pointer;
   }
 
-  /* line 347, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 375, ../../resources/sass/componentes/_funcionario.scss */
   .icon_closeMain {
     display: block;
   }
 
-  /* line 351, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 379, ../../resources/sass/componentes/_funcionario.scss */
   .container_chat.expand {
     height: calc(100vh - 56px);
     max-width: initial;
     border-top: 1px solid #fff;
   }
 }
-/* line 359, ../../resources/sass/componentes/_funcionario.scss */
+/* line 387, ../../resources/sass/componentes/_funcionario.scss */
 .box_title {
   position: relative;
   display: table;
   margin: 0 auto;
 }
 
-/* line 365, ../../resources/sass/componentes/_funcionario.scss */
+/* line 393, ../../resources/sass/componentes/_funcionario.scss */
 .box_title h1 {
   font-size: 1.5rem;
   text-align: center;
@@ -1559,7 +1553,7 @@ template {
   color: #113c43;
 }
 
-/* line 371, ../../resources/sass/componentes/_funcionario.scss */
+/* line 399, ../../resources/sass/componentes/_funcionario.scss */
 #line::before {
   content: '';
   position: absolute;
@@ -1572,7 +1566,7 @@ template {
   z-index: 4;
 }
 
-/* line 383, ../../resources/sass/componentes/_funcionario.scss */
+/* line 411, ../../resources/sass/componentes/_funcionario.scss */
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -1580,23 +1574,23 @@ template {
   margin-top: 20px;
 }
 
-/* line 390, ../../resources/sass/componentes/_funcionario.scss */
+/* line 418, ../../resources/sass/componentes/_funcionario.scss */
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-/* line 395, ../../resources/sass/componentes/_funcionario.scss */
+/* line 423, ../../resources/sass/componentes/_funcionario.scss */
 #customers tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* line 397, ../../resources/sass/componentes/_funcionario.scss */
+/* line 425, ../../resources/sass/componentes/_funcionario.scss */
 #customers tr:hover {
   background-color: #ddd;
 }
 
-/* line 399, ../../resources/sass/componentes/_funcionario.scss */
+/* line 427, ../../resources/sass/componentes/_funcionario.scss */
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -1615,43 +1609,67 @@ template {
   max-width: 100%;
   width: 240px;
   height: 110px;
-  background-color: #4dbfd3;
+  background-color: #05cc68;
   text-align: center;
   border-radius: 10px;
+  box-shadow: 0px 2px 6px 0px #020202;
 }
-/* line 14, ../../resources/sass/componentes/_wisper.scss */
+/* line 15, ../../resources/sass/componentes/_wisper.scss */
 .wisper.active {
   display: block;
 }
-/* line 18, ../../resources/sass/componentes/_wisper.scss */
+/* line 19, ../../resources/sass/componentes/_wisper.scss */
 .wisper h2 {
-  color: #113c43;
+  color: #36433d;
   font-family: inherit;
   line-height: 20px;
-  font-size: 15px;
+  font-size: 16px;
+  text-transform: uppercase;
 }
-/* line 25, ../../resources/sass/componentes/_wisper.scss */
+/* line 27, ../../resources/sass/componentes/_wisper.scss */
 .wisper .area-botao {
-  background-color: #113c43;
+  background-color: #313131;
   line-height: 45px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-/* line 32, ../../resources/sass/componentes/_wisper.scss */
+/* line 34, ../../resources/sass/componentes/_wisper.scss */
 .wisper .btn-comecar {
   text-decoration: none;
   text-transform: uppercase;
-  font-family: inherit;
+  font-family: "Montserrat";
+  font-weight: bolder;
+  font-size: 18px;
   color: #fff;
 }
 
-/* line 40, ../../resources/sass/componentes/_wisper.scss */
+/* line 1, ../../resources/sass/componentes/_modal.scss */
 .modal {
-  position: fixed;
-  display: block;
-  background-color: red;
+  position: absolute;
+  top: 36%;
+  right: 40%;
+  background-color: #05cc68;
   width: 400px;
-  height: 400px;
+  line-height: 60px;
+  text-align: center;
+  box-shadow: 0px 2px 6px 0px #020202;
+}
+/* line 11, ../../resources/sass/componentes/_modal.scss */
+.modal p {
+  color: #3b3a3a;
+  font-size: 18px;
+}
+/* line 16, ../../resources/sass/componentes/_modal.scss */
+.modal .area-botao {
+  background-color: #3b3a3a;
+}
+/* line 19, ../../resources/sass/componentes/_modal.scss */
+.modal .area-botao button {
+  border: none;
+  background-color: white;
+  margin: 0 10px 0 10px;
+  width: 60px;
+  line-height: 40px;
 }
 
 /* line 4, ../../resources/sass/componentes/_relatorios.scss */

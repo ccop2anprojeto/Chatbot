@@ -6,19 +6,14 @@
     @extend %quote-section;
     position: relative;    
     
-    .quote-image{
-        width: 100%;
-        height: 300px;
-        filter: brightness(.6);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-        position: absolute;
-        z-index: -1;
-    }
+    background-color: #3b3a3ad1;
+    border-bottom: 10px solid #2dac6c;
 
     .quote-text{
         text-align: center;
-        color: $yellow;
+        color: #2dac6c;
+        font-family: 'Times New Roman', Times, serif;
+        text-transform: uppercase;
+        letter-spacing: 4px;
     }
 }
