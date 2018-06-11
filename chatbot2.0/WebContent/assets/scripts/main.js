@@ -47,9 +47,19 @@ var historyIdentify = (cpf) => {
 		console.log(Data);
 		notIdentified = Data[1];
 		if(!notIdentified){
-			//iniciando o atendimento
+			// Registrando o atendimento com o bot
+			console.log("Registrando o atendimento com o bot-------");
+			$.get("controller.do", `command=startService&idC=${Data[2].id}`)
+			.done(function( data ) {
+				// console.log(data[0]);
+				var Data = JSON.parse(data.toString('utf8'));				
+				console.log(Data);		
+				atend = localStorage.setItem("atend", JSON.stringify(Data[0]));
+				
+			  });  
 		    localStorage.setItem("data", JSON.stringify(Data));
 		    localStorage.setItem("user", JSON.stringify(Data[2]));
+		    
 		}
 		appendResp(Data[0].resp);				
 		
@@ -97,36 +107,45 @@ var feedBackResp = () => {
 			templateSend = `<div class="message sent">O atendimento será transferido para um atendente humano.<br/> Aguarde alguns instantes você será atendido.<span></span></div> `;
 			$(".content_messages").append(templateSend);
 			
-			//historyAttendat("Atendimento iniciado");
+			// historyAttendat("Atendimento iniciado");
 			convAttendent = true;						
 			var user = JSON.parse(localStorage.getItem('user'));
 			
 			console.log(user);
-			var selectAttendant = setInterval(function(){
-				console.log("na filaa----");
-				$.get("controller.do", `command=insertRowCliente&id=${user.id}`)
-				.done(function(data){
-					console.log(data);
-					var Data = JSON.parse(data.toString('utf8'));
-					console.log(Data);
-					if(Data[0]){
-						clearInterval(selectAttendant);
-						console.log(Data);
-						if(Data[0].idFuncionario != '0'){
-							console.log("idFuncionario diferente de 0");
-							localStorage.setItem("atend", JSON.stringify(Data[0]));
-							OpiningAttendat();
-						}
-						
-						console.log("passou aqui ---------");
-						console.log(JSON.parse(localStorage.getItem("atend")));
-						
-						
-					}
-				});
-
-			},10000);
 			
+		// ----- inserindo cliente na fila de atendimento
+			
+			$.get("controller.do", `command=insertRowCliente&id=${user.id}`)
+			.done(function(data){
+				console.log(data);
+				var Data = JSON.parse(data.toString('utf8'));
+				console.log(Data);
+			// Se o cliente foi inserido na fila com sucesso disparar metodo que
+			// busca um atendente disponivel
+				if(Data[0]){					
+					var selectAttendant = setInterval(function(){
+						console.log("na filaa----");
+						// busca atendente disponivel
+						$.get("controller.do", `command=alterService&id=${atend.id}`)
+						.done(function(data){
+							var Data = JSON.parse(data.toString('utf8'));
+							console.log(Data);
+							// quando encontrar já insere o id do funcionario no
+							// atendimento
+							// retorno esperado: obj atendimento com todos dados
+							if(Data[0]){
+								// se o retorno vier ok, parar o metodo
+								clearInterval(selectAttendant);
+								atend = localStorage.setItem("atend", JSON.stringify(Data[0]));
+								OpiningAttendat();
+								console.log("passou aqui ---------");
+								console.log(JSON.parse(localStorage.getItem("atend")));
+							}
+						});
+
+					},10000);
+				}
+			});
 		}
 			
 		else{
@@ -134,18 +153,18 @@ var feedBackResp = () => {
 			feedBackResp();
 		}
 			
-		//$(".content_messages").append(templateSend);
+		// $(".content_messages").append(templateSend);
 		cont++;
 	});		
 }
 var OpiningAttendat = () => {
 	console.log("opining attendat");
-	//colocar aqui msg padrão para atendente
-	//tirar do hardcode as msg,
-	//chamar aqui o metodo verifyNewMessage
+	// colocar aqui msg padrão para atendente
+	// tirar do hardcode as msg,
+	// chamar aqui o metodo verifyNewMessage
 	 user = JSON.parse(localStorage.getItem('user'));
 	 atend = JSON.parse(localStorage.getItem("atend"));
-	//localStorage.setItem("atendimento", JSON.stringify(atend));
+	// localStorage.setItem("atendimento", JSON.stringify(atend));
 	console.log(atend);
 	var msg = `Atendimento iniciado`;
 	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
@@ -169,16 +188,16 @@ var finalizeService = (atendId) => {
 
 var historyAttendat = (msg) => {
 	console.log(msg);
-	//appendPerg(msg);
+	// appendPerg(msg);
 	console.log("ativou historia com atendente");	
-	//var user = JSON.parse(localStorage.getItem('user'));
-	//var atend = JSON.parse(localStorage.getItem("atendimento"));
+	// var user = JSON.parse(localStorage.getItem('user'));
+	// var atend = JSON.parse(localStorage.getItem("atendimento"));
 	console.log(atend);
 	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
-			//verifyNewMessage();
+			// verifyNewMessage();
 		}
 	});	
 }
@@ -207,7 +226,7 @@ var verifyNewMessage = () => {
 var counter = 1;
 var register = [];
 var cpf;
-//console.log(Data.length);
+// console.log(Data.length);
 
 $("#sendMsg").on('click', function(){
 	var Data = JSON.parse(localStorage.getItem("data"));

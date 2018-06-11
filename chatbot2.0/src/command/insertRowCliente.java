@@ -44,7 +44,7 @@ public class insertRowCliente implements Command {
 		}
 		
 		
-		FilaAtendenteService serviceA = new FilaAtendenteService();
+		/*FilaAtendenteService serviceA = new FilaAtendenteService();
 		Atendimento atend = serviceA.checkAvailability();
 		if(atend != null) {
 			list.add(atend);
@@ -59,7 +59,7 @@ public class insertRowCliente implements Command {
 			
 			System.out.println("Atendimento iniciado e inserido com sucesso: ---" + atend.getId());
 			//registrando o atendimento;
-		}
+		}*/
 		
 		Gson gson = new Gson();
 		String respJSONString = gson.toJson(list);
