@@ -1621,12 +1621,13 @@ template {
   text-align: center;
   border-radius: 10px;
   box-shadow: 0px 2px 6px 0px #020202;
+  cursor: default;
 }
-/* line 15, ../../resources/sass/componentes/_wisper.scss */
+/* line 16, ../../resources/sass/componentes/_wisper.scss */
 .wisper.active {
   display: block;
 }
-/* line 19, ../../resources/sass/componentes/_wisper.scss */
+/* line 20, ../../resources/sass/componentes/_wisper.scss */
 .wisper h2 {
   color: #36433d;
   font-family: inherit;
@@ -1634,14 +1635,14 @@ template {
   font-size: 16px;
   text-transform: uppercase;
 }
-/* line 27, ../../resources/sass/componentes/_wisper.scss */
+/* line 28, ../../resources/sass/componentes/_wisper.scss */
 .wisper .area-botao {
   background-color: #313131;
   line-height: 45px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-/* line 34, ../../resources/sass/componentes/_wisper.scss */
+/* line 35, ../../resources/sass/componentes/_wisper.scss */
 .wisper .btn-comecar {
   text-decoration: none;
   text-transform: uppercase;
