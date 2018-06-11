@@ -8,20 +8,41 @@
     text-align: center;
     box-shadow: 0px 2px 6px 0px #020202;
 
+    h2{
+        @extend %logo-kathbot;
+        margin: 0;
+        padding: 0;
+        margin-top: 10px;
+
+        &:hover{
+           color: white;
+           cursor: default;
+        }
+    }
+
     p{
         color: #3b3a3a;
-        font-size: 18px;    
+        font-size: 18px;
+        margin-top: -10px;
     }
 
     .area-botao{
         background-color:#3b3a3a;
+        line-height: 80px;
 
         button{
             border: none;
-            background-color:white;
+            background-color:#3b3a3a;
+            border: 1px solid #fff;
+            color: #fff;
             margin: 0 10px 0 10px;
             width: 60px;
             line-height: 40px;
+
+            &:hover{
+                background-color: #fff;
+                color: #3b3a3a; 
+            }
         }
     }
 }

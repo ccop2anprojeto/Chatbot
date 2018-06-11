@@ -139,11 +139,12 @@
 }
     .container_chat header{
         padding: 2.5%;
-        background-color: $blue;
+        background-color: $primary;
         font-family: $n-regular;
-        color: darken($blue, 40);
+        color: whitesmoke;
+        font-size: 20px;
         cursor: pointer;
-        border-bottom: 5px solid darken($blue, 10);
+        border-bottom: 5px solid darken($primary, 5);
     }
     .container_chat header span{
         padding: 0 5px;
@@ -158,13 +159,16 @@
         
     }
     .icon_close a{
-        color: #fff;
+        color: #049a4f;
         display: table;
         float: right;
+        padding-top: 3px;
+        font-size: 20px;
         padding-right: 5px;
     }
     .icon_close a:hover{
-        font-size: 17px;
+        font-size: 20px;
+        color: $red;
     }
     .content_messages.expand{
         display: block;
@@ -225,7 +229,7 @@
 
         .btn-enviar{
             border: none;
-            background-color: darken($blue, 10);
+            background-color: $primary;
             padding: 0;
             text-transform: uppercase;
             color: #e9e9e9;
@@ -234,6 +238,10 @@
             margin: -10% -10px 0px 0px;
             text-align: center;
             width: 100px;
+
+            &:hover{
+                background-color: darken($primary, 5);
+            }
         }
 
     }
@@ -252,7 +260,7 @@
             .btn.btn-warning.nao,
             .btn.btn-success.sim{
                 &:hover{
-                    background-color: darken($blue, 10);                    
+                    background-color: $gray;                    
                     color: white;
                     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1), 0 10px 14px rgba(0, 0, 0, 0.05);
                 }
@@ -261,7 +269,7 @@
             .btn.btn-success.sim,
             .btn.btn-warning.nao{
                 border: none;
-                background-color: #397079;
+                background-color: darken($primary, 5);
                 color: white;
                 padding: 5px;
                 font-size: 15px;
