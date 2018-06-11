@@ -31,7 +31,7 @@ setInterval(function(){
 					localStorage.setItem("user", JSON.stringify(Data[0]));
 					localStorage.setItem("atendimento", JSON.stringify(Data[1]));
 					console.log(Data);
-					var msgPadrao = `Olá ${Data[0].name}! Meu nome é ${funcionario.nome}, como posso te ajudar?`;
+					var msgPadrao = `Olá ${Data[0].nome}! Meu nome é ${funcionario.nome}, como posso te ajudar?`;
 					sendMessage(msgPadrao);
 					appendPerg(msgPadrao);
 				});

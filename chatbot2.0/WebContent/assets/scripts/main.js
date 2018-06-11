@@ -1,5 +1,5 @@
 var talk = [], interaction = {};
-var notIdentified, controll = 0, cont = 1, convCompleted = false, convAttendent;
+var notIdentified, controll = 0, cont = 1, convCompleted = false, convAttendent, user, atend;
 sessionStorage.clear();
 
 console.log($("#sendMsg"));
@@ -46,7 +46,8 @@ var historyIdentify = (cpf) => {
 		var Data = JSON.parse(data.toString('utf8'));
 		console.log(Data);
 		notIdentified = Data[1];
-		if(!notIdentified){			
+		if(!notIdentified){
+			//iniciando o atendimento
 		    localStorage.setItem("data", JSON.stringify(Data));
 		    localStorage.setItem("user", JSON.stringify(Data[2]));
 		}
@@ -109,14 +110,22 @@ var feedBackResp = () => {
 					var Data = JSON.parse(data.toString('utf8'));
 					console.log(Data);
 					if(Data[0]){
-						console.log(Data);
-						localStorage.setItem("atendimento", JSON.stringify(Data));
-						OpiningAttendat();
 						clearInterval(selectAttendant);
+						console.log(Data);
+						if(Data[0].idFuncionario != '0'){
+							console.log("idFuncionario diferente de 0");
+							localStorage.setItem("atend", JSON.stringify(Data[0]));
+							OpiningAttendat();
+						}
+						
+						console.log("passou aqui ---------");
+						console.log(JSON.parse(localStorage.getItem("atend")));
+						
+						
 					}
 				});
 
-			},20000);
+			},10000);
 			
 		}
 			
@@ -134,26 +143,37 @@ var OpiningAttendat = () => {
 	//colocar aqui msg padrão para atendente
 	//tirar do hardcode as msg,
 	//chamar aqui o metodo verifyNewMessage
-	var user = JSON.parse(localStorage.getItem('user'));
-	var atend = JSON.parse(localStorage.getItem("atendimento"));
+	 user = JSON.parse(localStorage.getItem('user'));
+	 atend = JSON.parse(localStorage.getItem("atend"));
+	//localStorage.setItem("atendimento", JSON.stringify(atend));
 	console.log(atend);
 	var msg = `Atendimento iniciado`;
-	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend[0].idFuncionario}&msg=${msg}`)
+	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
 			verifyNewMessage();
 		}
+	});		
+}
+
+var finalizeService = (atendId) => {
+	$.get("controller.do", `command=finalizeService&id=${atendId}`)
+	.done(function(data){
+		console.log(data);
+		if(data[0]){
+			console.log("atendimento finalizdo com sucesso!");
+		}
 	});	
-	
 }
 
 var historyAttendat = (msg) => {
 	console.log(msg);
 	//appendPerg(msg);
 	console.log("ativou historia com atendente");	
-	var user = JSON.parse(localStorage.getItem('user'));
-	var atend = JSON.parse(localStorage.getItem("atendimento"));
+	//var user = JSON.parse(localStorage.getItem('user'));
+	//var atend = JSON.parse(localStorage.getItem("atendimento"));
+	console.log(atend);
 	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);

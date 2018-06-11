@@ -10,6 +10,7 @@ import dao.ConnectionFactory;
 import model.FilaCliente;
 import model.FilaAtendente;
 import model.Funcionario;
+import model.Mensagens;
 import model.Atendimento;
 import model.Cliente;
 
@@ -63,11 +64,11 @@ public class AtendimentoDAO {
 			
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
-					atend.setId(rs.getInt("fk_cliente"));
+					atend.setId(rs.getInt("pk_atendimento"));
 					atend.setIdFuncionario(rs.getInt("fk_funcionario"));
 					atend.setIdCliente(rs.getInt("fk_cliente"));
 					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
-					atend.setIdFuncionario(rs.getInt("status"));
+					atend.setStatus(rs.getInt("status"));
 					
 				} 
 			} catch (SQLException e) {
@@ -81,6 +82,25 @@ public class AtendimentoDAO {
 			return atend;
 		else
 			return null;
+	}
+	public boolean finalizeService(Atendimento atend) {
+		
+		atend.setStatus(1);
+		String sqlUpdate = "UPDATE atendimento SET status = ? WHERE atendimento.pk_atendimento = ?";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
+			stm.setInt(1, atend.getStatus());
+			stm.setInt(2, atend.getId());
+						
+			stm.execute();
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+					
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

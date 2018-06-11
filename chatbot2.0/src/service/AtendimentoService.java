@@ -19,5 +19,11 @@ public class AtendimentoService {
 	public Atendimento searchAtend(int idC, int idFunc){
 		return dao.searchAtend(idC, idFunc);
 	}
+	public boolean finalizeService(Atendimento atend){
+		return dao.finalizeService(atend);
+	}
+	public Atendimento startOnlineSupport(Atendimento atend) {
+		return dao.startOnlineSupport(atend);
+	}
 	
 }

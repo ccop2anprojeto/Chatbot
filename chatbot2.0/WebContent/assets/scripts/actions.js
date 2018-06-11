@@ -1,10 +1,25 @@
 $(".icon_close a").on('click', function(){
-	
-  $(".container_chat").removeClass("active");
-  $(".icon_chat").addClass("active");
+	finalizeService();
+  
 });
 
-
+var finalizeService = () => {
+	var teste = confirm("Tem certeza que deseja finalizar o atendimento?");
+	if(teste){
+	/*	var atendId = JSON.parse(localStorage.getItem("atend")).id;
+		console.log(atendId);
+		$.get("controller.do", `command=finalizeService&id=${atendId}`)
+		.done(function(data){
+			console.log(data);
+			if(data[0]){
+				console.log("atendimento finalizdo com sucesso!");
+				$(".container_chat").removeClass("active");
+				$(".icon_chat").addClass("active");
+			}
+		});	*/
+		
+	}
+}
 $(".icon_chat a").on('click', function(){
 	console.log("clicou");
   $(".wisper").addClass("active");
