@@ -1653,9 +1653,20 @@ template {
   color: #fff;
 }
 
-/* line 1, ../../resources/sass/componentes/_modal.scss */
+/* line 2, ../../resources/sass/componentes/_modal.scss */
+.overlay {
+  filter: brightness(0.2);
+  z-index: -1;
+  position: fixed;
+  overflow: hidden;
+  width: 1351px;
+  top: -1px;
+}
+
+/* line 11, ../../resources/sass/componentes/_modal.scss */
 .modal {
-  position: absolute;
+  position: fixed;
+  z-index: 1;
   top: 36%;
   right: 40%;
   background-color: #05cc68;
@@ -1664,29 +1675,29 @@ template {
   text-align: center;
   box-shadow: 0px 2px 6px 0px #020202;
 }
-/* line 11, ../../resources/sass/componentes/_modal.scss */
+/* line 22, ../../resources/sass/componentes/_modal.scss */
 .modal h2 {
   margin: 0;
   padding: 0;
   margin-top: 10px;
 }
-/* line 17, ../../resources/sass/componentes/_modal.scss */
+/* line 28, ../../resources/sass/componentes/_modal.scss */
 .modal h2:hover {
   color: white;
   cursor: default;
 }
-/* line 23, ../../resources/sass/componentes/_modal.scss */
+/* line 34, ../../resources/sass/componentes/_modal.scss */
 .modal p {
   color: #3b3a3a;
   font-size: 18px;
   margin-top: -10px;
 }
-/* line 29, ../../resources/sass/componentes/_modal.scss */
+/* line 40, ../../resources/sass/componentes/_modal.scss */
 .modal .area-botao {
   background-color: #3b3a3a;
   line-height: 80px;
 }
-/* line 33, ../../resources/sass/componentes/_modal.scss */
+/* line 44, ../../resources/sass/componentes/_modal.scss */
 .modal .area-botao button {
   border: none;
   background-color: #3b3a3a;
@@ -1696,7 +1707,7 @@ template {
   width: 60px;
   line-height: 40px;
 }
-/* line 42, ../../resources/sass/componentes/_modal.scss */
+/* line 53, ../../resources/sass/componentes/_modal.scss */
 .modal .area-botao button:hover {
   background-color: #fff;
   color: #3b3a3a;
