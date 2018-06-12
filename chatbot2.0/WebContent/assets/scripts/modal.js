@@ -7,8 +7,11 @@ $(".tooltip").on('mouseout', function(){
     $(".tooltip-text").removeClass("active");
 });
 
+
 $(".tooltip").on('click', function(){
-    $(".modal").addClass("active");
+    if(!$("body").hasClass('overlay')){
+        $("body").addClass('overlay');
+    }
 });
 
 $(".modal .yes").on('click', function(){
@@ -20,3 +23,8 @@ $(".modal .nop").on('click', function(){
     $(".modal").removeClass("active");
 });
 
+$(".mask, .modal .nop").on('click', function(){
+    if( $("body").hasClass('overlay') ){
+        $("body").removeClass('overlay');
+    }
+})
