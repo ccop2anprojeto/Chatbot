@@ -42,10 +42,57 @@ public class AtendimentoDAO {
 			return null;
 					
 	}
-	
+	public Atendimento consolidateBotI(Atendimento atend) {
+		
+		//String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`) VALUES (default, ?, ?, ?, ?, ?);";
+		String sqlUpdate = "UPDATE atendimento SET botInteraction = ? WHERE atendimento.pk_atendimento = ?;";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
+			stm.setInt(1, atend.getBotInteraction());
+			stm.setInt(2, atend.getId());			
+			//status 0 é atendimento aberto, 1 é atendimento fechado
+						
+			stm.execute();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		if(atend.getId() != 0)
+			return atend;
+		else
+			return null;
+					
+	}
+	public Atendimento consolidateHumanI(Atendimento atend) {
+		
+		//String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`) VALUES (default, ?, ?, ?, ?, ?);";
+		String sqlUpdate = "UPDATE atendimento SET humanInteraction = ? WHERE atendimento.pk_atendimento = ?;";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
+			stm.setInt(1, atend.getHumanInteraction());
+			stm.setInt(2, atend.getId());			
+			//status 0 é atendimento aberto, 1 é atendimento fechado
+						
+			stm.execute();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		if(atend.getId() != 0)
+			return atend;
+		else
+			return null;
+					
+	}
 	public Atendimento searchAtend(int idC, int idFunc) {				
 		Atendimento atend = new Atendimento();
-		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data` FROM `atendimento` where fk_funcionario = ? and fk_cliente = ? and status = ? order by pk_atendimento DESC limit 1";
+		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data`, `humanInteraction`, `botInteraction` FROM `atendimento` where fk_funcionario = ? and fk_cliente = ? and status = ? order by pk_atendimento DESC limit 1";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -61,6 +108,8 @@ public class AtendimentoDAO {
 					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
 					atend.setStatus(rs.getInt("status"));
 					atend.setData(rs.getDate("data"));
+					atend.setHumanInteraction(rs.getInt("humanInteraction"));
+					atend.setBotInteraction(rs.getInt("botInteraction"));
 					
 				} 
 			} catch (SQLException e) {
@@ -78,7 +127,7 @@ public class AtendimentoDAO {
 	public Atendimento searchAtend(int id) {				
 		Atendimento atend = new Atendimento();
 		atend.setId(id);
-		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data` FROM `atendimento` where pk_atendimento = ?;";
+		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data`, `humanInteraction`, `botInteraction` FROM `atendimento` where pk_atendimento = ?;";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -92,6 +141,8 @@ public class AtendimentoDAO {
 					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
 					atend.setStatus(rs.getInt("status"));
 					atend.setData(rs.getDate("data"));
+					atend.setHumanInteraction(rs.getInt("humanInteraction"));
+					atend.setBotInteraction(rs.getInt("botInteraction"));
 					
 				} 
 			} catch (SQLException e) {
@@ -109,12 +160,14 @@ public class AtendimentoDAO {
 	public boolean finalizeService(Atendimento atend) {
 		
 		atend.setStatus(1);
-		String sqlUpdate = "UPDATE atendimento SET status = ? WHERE atendimento.pk_atendimento = ?";
+		String sqlUpdate = "UPDATE atendimento SET status = ?, humanInteraction = ?, botInteraction = ?  WHERE atendimento.pk_atendimento = ?";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
 			stm.setInt(1, atend.getStatus());
-			stm.setInt(2, atend.getId());
+			stm.setInt(2, atend.getHumanInteraction());
+			stm.setInt(3, atend.getBotInteraction());
+			stm.setInt(4, atend.getId());
 						
 			stm.execute();
 			

@@ -11,7 +11,9 @@ public class Atendimento {
 	private int idFilaCliente;
 	private int status;
 	private Date data;
-
+	private int humanInteraction;
+	private int botInteraction;
+	
 	public Atendimento() {
 		
 	}
@@ -76,6 +78,22 @@ public class Atendimento {
 		Date date = new Date();
 		System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
 		return date;
+	}
+
+	public int getHumanInteraction() {
+		return humanInteraction;
+	}
+
+	public void setHumanInteraction(int humanInteraction) {
+		this.humanInteraction = humanInteraction;
+	}
+
+	public int getBotInteraction() {
+		return botInteraction;
+	}
+
+	public void setBotInteraction(int botInteraction) {
+		this.botInteraction = botInteraction;
 	}
 	
 		
