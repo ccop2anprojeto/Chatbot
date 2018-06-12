@@ -35,8 +35,9 @@ public class alterService implements Command {
 		
 		//buscar atendimento iniciado pelo bot
 		//Se já tiver encontrado um atendente disponivel 
-		list.add(atend);
-		if(atend != null) {
+		if(atend == null) {
+			list.add(atend);
+		}else {
 			AtendimentoService serviceAtend = new AtendimentoService();
 			//metodo retorna o atendimento iniciado pelo bot
 			Atendimento atendimento = serviceAtend.searchAtend(idAtend);

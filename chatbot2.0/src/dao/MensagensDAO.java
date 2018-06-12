@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class MensagensDAO {
 	
 	
 	public int enviar(Mensagens mensagem) {
-		String sqlInsert = "INSERT INTO `Mensagem` (`pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida`) VALUES (default, ?, ?, ?, ?, ?);";
+		String sqlInsert = "INSERT INTO `Mensagem` (`pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida`, `data`) VALUES (default, ?, ?, ?, ?, ?, ?);";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
@@ -25,6 +26,8 @@ public class MensagensDAO {
 			stm.setString(3, mensagem.getMensagem());
 			stm.setInt(4, mensagem.getTime());
 			stm.setInt(5, mensagem.getRecebida());
+			stm.setDate(6, new java.sql.Date(mensagem.getData().getTime()));
+			System.out.println("Data Message Dao---- " + mensagem.getData().getTime());
 					
 			stm.execute();
 			String sqlQuery = "SELECT LAST_INSERT_ID()";
@@ -52,7 +55,7 @@ public class MensagensDAO {
 	public ArrayList<Mensagens> searchFor(int id_para) {		
 		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
 		Mensagens msg = new Mensagens();
-		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida` FROM `mensagem` where mensagem.id_para = ? and mensagem.recebida = 0";
+		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida`, `data` FROM `mensagem` where mensagem.id_para = ? and mensagem.recebida = 0";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -66,6 +69,7 @@ public class MensagensDAO {
 					msg.setMensagem(rs.getString("mensagem"));
 					msg.setTime(rs.getInt("time"));
 					msg.setRecebida(rs.getInt("recebida"));
+					msg.setData(rs.getDate("data"));
 					msgs.add(msg);
 				} 
 			} catch (SQLException e) {
@@ -89,7 +93,7 @@ public class MensagensDAO {
 	public ArrayList<Mensagens> buscar(int id_de, int id_para) {		
 		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
 		Mensagens msg = new Mensagens();
-		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida` FROM `mensagem` where mensagem.id_de = ? and mensagem.id_para = ? and mensagem.recebida = 0";
+		String sqlSelect = "SELECT `pk_mensagem`, `id_de`, `id_para`, `mensagem`, `time`, `recebida`, `data` FROM `mensagem` where mensagem.id_de = ? and mensagem.id_para = ? and mensagem.recebida = 0";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -103,6 +107,7 @@ public class MensagensDAO {
 					msg.setMensagem(rs.getString("mensagem"));
 					msg.setTime(rs.getInt("time"));
 					msg.setRecebida(rs.getInt("recebida"));
+					msg.setData(rs.getDate("data"));
 					msgs.add(msg);
 				} 
 			} catch (SQLException e) {

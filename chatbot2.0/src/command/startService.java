@@ -34,6 +34,8 @@ public class startService implements Command {
 		atend.setIdFuncionario(1);
 		atend.setIdFilaCliente(1);
 		atend.setStatus(0);
+		atend.setData(atend.instanceData());
+		System.out.println("Data ----- " + atend.getData());
 		
 		//AtendimentoService serviceAtend = new AtendimentoService();
 		//Atendimento startAtend = serviceAtend.startOnlineSupport(atend);

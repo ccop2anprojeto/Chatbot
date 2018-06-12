@@ -1,4 +1,7 @@
 package model;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Mensagens {	
 	private int id;
@@ -7,6 +10,7 @@ public class Mensagens {
 	private String mensagem;
 	private int time;
 	private int recebida;
+	private Date data;
 	
 	public int getId_de() {
 		return id_de;
@@ -57,6 +61,20 @@ public class Mensagens {
 
 	public void setRecebida(int recebida) {
 		this.recebida = recebida;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+	public Date instanceData() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		Date date = new Date();
+		System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
+		return date;
 	}
 		
 }

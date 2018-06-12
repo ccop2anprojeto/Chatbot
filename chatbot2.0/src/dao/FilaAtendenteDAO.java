@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -69,7 +70,7 @@ public class FilaAtendenteDAO {
 	
 	public Atendimento startOnlineSupport(Atendimento atend) {
 		
-		String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`) VALUES (default, ?, ?, ?, ?, ?);";
+		String sqlUpdate = "INSERT INTO `Atendimento` (`pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data`) VALUES (default, ?, ?, ?, ?, ?, ?);";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlUpdate);) {
@@ -78,6 +79,7 @@ public class FilaAtendenteDAO {
 			stm.setInt(3, atend.getIdCliente());
 			stm.setInt(4, atend.getIdFilaCliente());
 			stm.setInt(5, atend.getStatus());
+			stm.setDate(6, new java.sql.Date(atend.getData().getTime()));
 			//status 0 é atendimento aberto, 1 é atendimento fechado
 						
 			stm.execute();

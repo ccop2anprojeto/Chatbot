@@ -45,7 +45,7 @@ public class AtendimentoDAO {
 	
 	public Atendimento searchAtend(int idC, int idFunc) {				
 		Atendimento atend = new Atendimento();
-		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status` FROM `atendimento` where fk_funcionario = ? and fk_cliente = ? and status = ? order by pk_atendimento DESC limit 1";
+		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data` FROM `atendimento` where fk_funcionario = ? and fk_cliente = ? and status = ? order by pk_atendimento DESC limit 1";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -60,6 +60,7 @@ public class AtendimentoDAO {
 					atend.setIdCliente(rs.getInt("fk_cliente"));
 					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
 					atend.setStatus(rs.getInt("status"));
+					atend.setData(rs.getDate("data"));
 					
 				} 
 			} catch (SQLException e) {
@@ -77,7 +78,7 @@ public class AtendimentoDAO {
 	public Atendimento searchAtend(int id) {				
 		Atendimento atend = new Atendimento();
 		atend.setId(id);
-		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status` FROM `atendimento` where pk_atendimento = ?;";
+		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data` FROM `atendimento` where pk_atendimento = ?;";
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
@@ -90,6 +91,7 @@ public class AtendimentoDAO {
 					atend.setIdCliente(rs.getInt("fk_cliente"));
 					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
 					atend.setStatus(rs.getInt("status"));
+					atend.setData(rs.getDate("data"));
 					
 				} 
 			} catch (SQLException e) {

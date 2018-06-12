@@ -1,4 +1,7 @@
 package model;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Atendimento {	
 	private int id;
@@ -7,6 +10,7 @@ public class Atendimento {
 	private int idCliente;
 	private int idFilaCliente;
 	private int status;
+	private Date data;
 
 	public Atendimento() {
 		
@@ -59,6 +63,20 @@ public class Atendimento {
 		this.status = status;
 	}
 
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+	
+	public Date instanceData() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		Date date = new Date();
+		System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
+		return date;
+	}
 	
 		
 }

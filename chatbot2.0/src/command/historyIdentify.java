@@ -80,7 +80,6 @@ public class historyIdentify implements Command {
 				
 				
 		}
-									
 				
 		Gson gson = new Gson();
 		String respJSONString = gson.toJson(list);

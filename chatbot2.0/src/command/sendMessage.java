@@ -2,6 +2,7 @@ package command;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,6 +36,9 @@ public class sendMessage implements Command {
 		msg.setMensagem(initAtend);
 		msg.setRecebida(0);
 		msg.setTime(0);
+		Date date = msg.instanceData();
+		msg.setData(date);
+		System.out.println("Data Message ---- " + msg.getData());
 		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
 		MensagensService service = new MensagensService();
 		
