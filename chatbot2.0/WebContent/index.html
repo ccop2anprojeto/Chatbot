@@ -1,12 +1,3 @@
-<div class="modal">
-        <h2>Kathbot</h2>
-        <p>Tem certeza que deseja sair?</p>
-        <div class="area-botao">
-            <button>Sim</button>
-            <button>Não</button>                
-        </div>
-</div>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -24,8 +15,16 @@
     <link rel="stylesheet" href="assets/styles/master.css">
 </head>
 
+<div class="modal">
+    <h2>Kathbot</h2>
+    <p>Tem certeza que deseja sair?</p>
+    <div class="area-botao">
+        <button class="yes">Sim</button>
+        <button class="nop">Não</button>                
+    </div>
+</div>
 
-<body class="overlay">
+<body class="overlay active">
     <section class="header">
         <nav class="navbar home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
             <a class="nav-logo pure-menu-heading" href="">Kathbot<small>beta</small></a>
@@ -155,11 +154,15 @@
         </div>
 
         <div class="content_area">
+            <span class="tooltip-text">Sair do Chat</span>
             <div class="box_area">
-                    <input class="input-box" id="perg" name="pergunta" placeholder="Digite aqui..."/>
-                    <div class="main_options">
-                        <button class="btn btn-primary btn-enviar" id="sendMsg">Enviar</button>				
-                    </div>
+                <div class="tooltip">
+                    <i class="btn-exit fas fa-sign-out-alt"></i>
+                </div>
+                <input class="input-box" id="perg" name="pergunta" placeholder="Digite aqui..."/>
+                <div class="main_options">
+                    <button class="btn btn-primary btn-enviar" id="sendMsg">Enviar</button>				
+                </div>
             </div>			
         </div>
     </section>
@@ -199,6 +202,7 @@
 <script type="text/javascript" src="assets/scripts/slick/slick.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <script src="assets/scripts/header-slick.js"></script>
+<script src="assets/scripts/modal.js"></script>
 <script src="assets/scripts/actions.js"></script>
 <script src="assets/scripts/main.js"></script>
 <script src="assets/scripts/navscroll.js"></script>
