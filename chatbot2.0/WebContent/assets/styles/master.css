@@ -1171,9 +1171,9 @@ template {
 /* line 52, ../../resources/sass/componentes/_funcionario.scss */
 .box_info {
   padding: 8% 8% 8% 8%;
-  background-color: #4dbfd3;
+  background-color: #2ecc71;
   overflow: hidden;
-  border-bottom: 10px solid #2fa9be;
+  border-bottom: 10px solid #25a25a;
 }
 
 /* line 59, ../../resources/sass/componentes/_funcionario.scss */
@@ -1682,46 +1682,77 @@ template {
   color: #fff;
 }
 
-/* line 22, ../../resources/sass/componentes/_modal.scss */
+/* line 2, ../../resources/sass/componentes/_modal.scss */
+.overlay .mask {
+  display: block;
+}
+/* line 5, ../../resources/sass/componentes/_modal.scss */
+.overlay .modal {
+  display: block;
+}
+/* line 8, ../../resources/sass/componentes/_modal.scss */
+.overlay .container_control {
+  -webkit-filter: blur(12px);
+  /* Safari */
+  filter: blur(12px);
+}
+
+/* line 14, ../../resources/sass/componentes/_modal.scss */
+.mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* line 24, ../../resources/sass/componentes/_modal.scss */
 .modal {
   display: none;
   position: fixed;
   z-index: 1;
-  top: 36%;
-  right: 40%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  right: 0;
+  left: 0;
   background-color: #2ecc71;
   width: 400px;
   line-height: 60px;
   text-align: center;
   box-shadow: 0px 2px 6px 0px #020202;
+  height: auto;
+  max-height: 200px;
 }
-/* line 34, ../../resources/sass/componentes/_modal.scss */
+/* line 41, ../../resources/sass/componentes/_modal.scss */
 .modal.active {
   display: block;
 }
-/* line 38, ../../resources/sass/componentes/_modal.scss */
+/* line 45, ../../resources/sass/componentes/_modal.scss */
 .modal h2 {
   margin: 0;
   padding: 0;
   margin-top: 10px;
 }
-/* line 44, ../../resources/sass/componentes/_modal.scss */
+/* line 51, ../../resources/sass/componentes/_modal.scss */
 .modal h2:hover {
   color: white;
   cursor: default;
 }
-/* line 50, ../../resources/sass/componentes/_modal.scss */
+/* line 57, ../../resources/sass/componentes/_modal.scss */
 .modal p {
   color: #3b3a3a;
   font-size: 18px;
   margin-top: -10px;
 }
-/* line 56, ../../resources/sass/componentes/_modal.scss */
+/* line 63, ../../resources/sass/componentes/_modal.scss */
 .modal .area-botao {
   background-color: #3b3a3a;
   line-height: 80px;
 }
-/* line 60, ../../resources/sass/componentes/_modal.scss */
+/* line 67, ../../resources/sass/componentes/_modal.scss */
 .modal .area-botao button {
   border: none;
   background-color: #3b3a3a;
@@ -1732,13 +1763,13 @@ template {
   line-height: 40px;
   width: 110px;
 }
-/* line 70, ../../resources/sass/componentes/_modal.scss */
+/* line 77, ../../resources/sass/componentes/_modal.scss */
 .modal .area-botao button:hover {
   background-color: #fff;
   color: #3b3a3a;
 }
 
-/* line 80, ../../resources/sass/componentes/_modal.scss */
+/* line 87, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .tooltip-text {
   position: absolute;
   bottom: 70px;
@@ -1752,11 +1783,11 @@ template {
   transition: opacity 0.3s;
   opacity: 0;
 }
-/* line 93, ../../resources/sass/componentes/_modal.scss */
+/* line 100, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .tooltip-text.active {
   opacity: 1;
 }
-/* line 97, ../../resources/sass/componentes/_modal.scss */
+/* line 104, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .tooltip-text::after {
   content: "";
   position: absolute;
@@ -1767,7 +1798,7 @@ template {
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
-/* line 110, ../../resources/sass/componentes/_modal.scss */
+/* line 117, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .box_area .btn-exit {
   display: block;
   position: absolute;
