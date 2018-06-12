@@ -1445,21 +1445,6 @@ template {
   border-radius: 10px;
   margin-left: 30%;
 }
-/* line 293, ../../resources/sass/componentes/_funcionario.scss */
-.message.received:after {
-  bottom: 88.3%;
-  left: 9%;
-  content: '';
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-width: 8px;
-  border-style: solid;
-  border-color: #fff transparent transparent transparent;
-  margin-left: -8px;
-  transform: rotate(180deg);
-}
 
 /* line 308, ../../resources/sass/componentes/_funcionario.scss */
 .message.sent {
@@ -1738,16 +1723,17 @@ template {
   border: 1px solid #fff;
   color: #fff;
   margin: 0 10px 0 10px;
-  width: 60px;
+  font-size: 22px;
   line-height: 40px;
+  width: 110px;
 }
-/* line 69, ../../resources/sass/componentes/_modal.scss */
+/* line 70, ../../resources/sass/componentes/_modal.scss */
 .modal .area-botao button:hover {
   background-color: #fff;
   color: #3b3a3a;
 }
 
-/* line 79, ../../resources/sass/componentes/_modal.scss */
+/* line 80, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .tooltip-text {
   position: absolute;
   bottom: 70px;
@@ -1761,11 +1747,11 @@ template {
   transition: opacity 0.3s;
   opacity: 0;
 }
-/* line 92, ../../resources/sass/componentes/_modal.scss */
+/* line 93, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .tooltip-text.active {
   opacity: 1;
 }
-/* line 96, ../../resources/sass/componentes/_modal.scss */
+/* line 97, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .tooltip-text::after {
   content: "";
   position: absolute;
@@ -1776,7 +1762,7 @@ template {
   border-style: solid;
   border-color: #555 transparent transparent transparent;
 }
-/* line 109, ../../resources/sass/componentes/_modal.scss */
+/* line 110, ../../resources/sass/componentes/_modal.scss */
 .content_area.expand .box_area .btn-exit {
   display: block;
   position: absolute;
