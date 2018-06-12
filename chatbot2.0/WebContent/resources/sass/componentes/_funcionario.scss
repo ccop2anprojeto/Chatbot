@@ -138,7 +138,7 @@
 }
     .container_chat header{
         padding: 2.5%;
-        background-color: $primary;
+        background-color: #2c3e50;
         font-family: $n-regular;
         color: whitesmoke;
         font-size: 20px;
@@ -172,7 +172,7 @@
         display: block;
     }
     .content_messages{
-        background-color: #f5f5f5;
+        background-color: #efefef;
         height: calc(100% - 90px);
         padding: 4%;
         display: none;
@@ -265,7 +265,7 @@
             .btn.btn-warning.nao,
             .btn.btn-success.sim{
                 &:hover{
-                    background-color: $gray;                    
+                    background-color: #2c3e50;                    
                     color: white;
                     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1), 0 10px 14px rgba(0, 0, 0, 0.05);
                 }
@@ -290,38 +290,59 @@
         border-radius: 10px;
         margin-left: 30%;
 
+        &:after {
+            bottom: 88.3%;
+            left: 9%;
+            content: '';
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-width: 8px;
+            border-style: solid;
+            border-color: #fff transparent transparent transparent;
+            margin-left: -8px;
+            transform: rotate(180deg);
+          }
+    }
+    .message.sent{
+        background-color: #fff;
+        border-radius: 0px 10px 10px 10px;
+        margin-right: 25%;
+
         // &:after {
-        //     bottom: 88%;
-        //     left: 8%;
-        //     border: solid transparent;
+        //     bottom: 74%;
+        //     left: 88%;
         //     content: '';
         //     height: 0;
         //     width: 0;
         //     position: absolute;
         //     pointer-events: none;
-        //     border-bottom-color: rgba(0, 184, 156, 0.10);
-        //     border-width: 10px;
-        //     margin-left: -10px;
-        //   }
-    }
-    .message.sent{
-        background-color: #fff;
-        border-radius: 10px;
-        margin-right: 30%;
+        //     border-width: 8px;
+        //     border-style: solid;
+        //     border-color: rgb(0, 184, 156) transparent transparent transparent;
+        //     margin-left: -8px;
+        //     transform: rotate(180deg);
+        // }
 
-        // &:after {
-        //     bottom: 88%;
-        //     left: 8%;
-        //     border: solid transparent;
-        //     content: " ";
-        //     height: 0;
-        //     width: 0;
-        //     position: absolute;
-        //     pointer-events: none;
-        //     border-bottom-color: #fff;
-        //     border-width: 10px;
-        //     margin-left: -10px;
-        //   }
+        .kathbot-msg{
+            position: absolute;
+            right: 18px;
+            top: 98px;
+            text-decoration: none;
+
+            i{
+                text-transform: uppercase;
+                color: #fff;
+                background-color: #e91e63;
+                font-size: 14px;
+                font-style: normal;
+                padding: 5px;
+                border-radius: 10px;
+                font-family: $n-regular;
+                box-shadow: 0px 2px 6px 0px #38313180;
+            }
+        }
     }
     .box_view{
         overflow-y: auto;
