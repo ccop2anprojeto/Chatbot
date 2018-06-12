@@ -37,7 +37,7 @@ public class AtendimentoDAO {
 
 		}
 		if(atend.getId() != 0)
-			return true;
+			return atend;
 		else
 			return null;
 					

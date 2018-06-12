@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 import model.Cliente;
 import service.ClienteService;
+import service.FilaAtendenteService;
 import model.Atendimento;
 import service.AtendimentoService;
 
@@ -30,17 +31,20 @@ public class startService implements Command {
 		Atendimento atend = new Atendimento();
 		atend.setIdCliente(idC);
 		atend.setIdPergunta(0);
-		atend.setIdFuncionario(0);
-		atend.setIdFilaCliente(0);
+		atend.setIdFuncionario(1);
+		atend.setIdFilaCliente(1);
 		atend.setStatus(0);
 		
-		AtendimentoService serviceAtend = new AtendimentoService();
-		Atendimento startAtend = serviceAtend.startOnlineSupport(atend);
+		//AtendimentoService serviceAtend = new AtendimentoService();
+		//Atendimento startAtend = serviceAtend.startOnlineSupport(atend);
+		
+		FilaAtendenteService serviceA = new FilaAtendenteService();		
+		Atendimento startAtend = serviceA.startOnlineSupport(atend);
 		
 		System.out.println("Atendimento iniciado --- " + startAtend.getId());
 		
 		list.add(startAtend);			
-																
+												
 		Gson gson = new Gson();
 		String respJSONString = gson.toJson(list);
 		System.out.println(respJSONString);		

@@ -39,9 +39,10 @@ public class insertRowCliente implements Command {
 			System.out.println("Insert fila cliente --- "+ fila.getId());
 			list.add(fila);
 			System.out.println(list.get(0));
-		}else {
-			fila.setId_cliente(filaCliente.getId_cliente());
 		}
+		
+		
+		list.add(filaCliente);
 		
 		
 		/*FilaAtendenteService serviceA = new FilaAtendenteService();

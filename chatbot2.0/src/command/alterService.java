@@ -16,14 +16,14 @@ import model.Atendimento;
 import service.AtendimentoService;
 import service.FilaAtendenteService;
 
-public class startService implements Command {
+public class alterService implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {		
 		
-		int idAtend = Integer.parseInt(request.getParameter("idAtend"));		
+		int idAtend = Integer.parseInt(request.getParameter("id"));		
 		
 		@SuppressWarnings("rawtypes")
 		ArrayList list = new ArrayList();		
@@ -36,21 +36,21 @@ public class startService implements Command {
 		//buscar atendimento iniciado pelo bot
 		//Se já tiver encontrado um atendente disponivel 
 		list.add(atend);
-		if(atend) {
+		if(atend != null) {
 			AtendimentoService serviceAtend = new AtendimentoService();
 			//metodo retorna o atendimento iniciado pelo bot
 			Atendimento atendimento = serviceAtend.searchAtend(idAtend);
-			if(atendimento) {
+			if(atendimento != null) {
 				atendimento.setIdFuncionario(atend.getIdFuncionario());
 				
 				//inserir o id do funcionario no atendimento iniciado pelo bot
 				//registrando o atendimento com funcionario;
 				Atendimento startAtend = serviceAtend.startOnlineSupport(atendimento);
-				if(startAtend) {
+				if(startAtend != null) {
 					list.add(atendimento);
 				}
-				System.out.println("Atendimento iniciado e inserido com sucesso: ---" + startedAtend.getId());
-				System.out.println("Id funcionario ---" + startedAtend.getIdFuncionario());
+				System.out.println("Atendimento iniciado e inserido com sucesso: ---" + atendimento.getId());
+				System.out.println("Id funcionario ---" + atendimento.getIdFuncionario());
 			}
 		}
 		

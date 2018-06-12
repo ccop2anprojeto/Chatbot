@@ -54,7 +54,8 @@ var historyIdentify = (cpf) => {
 				// console.log(data[0]);
 				var Data = JSON.parse(data.toString('utf8'));				
 				console.log(Data);		
-				atend = localStorage.setItem("atend", JSON.stringify(Data[0]));
+				atend = Data[0];
+				localStorage.setItem("atend", JSON.stringify(Data[0]));
 				
 			  });  
 		    localStorage.setItem("data", JSON.stringify(Data));

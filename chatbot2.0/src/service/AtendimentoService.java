@@ -25,5 +25,8 @@ public class AtendimentoService {
 	public Atendimento startOnlineSupport(Atendimento atend) {
 		return dao.startOnlineSupport(atend);
 	}
+	public Atendimento searchAtend(int idAtend) {
+		return dao.searchAtend(idAtend);
+	}
 	
 }
