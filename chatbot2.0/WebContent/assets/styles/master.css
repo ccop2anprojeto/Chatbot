@@ -1171,9 +1171,9 @@ template {
 /* line 52, ../../resources/sass/componentes/_funcionario.scss */
 .box_info {
   padding: 8% 8% 8% 8%;
-  background-color: #4dbfd3;
+  background-color: #2ecc71;
   overflow: hidden;
-  border-bottom: 10px solid #2fa9be;
+  border-bottom: 10px solid #25a25a;
 }
 
 /* line 59, ../../resources/sass/componentes/_funcionario.scss */
