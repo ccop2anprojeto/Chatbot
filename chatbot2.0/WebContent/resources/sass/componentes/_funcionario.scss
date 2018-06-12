@@ -24,6 +24,12 @@
     background-color: darken($blue, 40);
     color: #fff;
 
+        .logo-kathbot{
+            @extend %logo-kathbot;
+            margin: 0 70px 0 70px;
+            cursor: pointer;
+        }
+
         ul{    
             padding-top: 10px;
             width: 100%;
