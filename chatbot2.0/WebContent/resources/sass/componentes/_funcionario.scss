@@ -290,20 +290,20 @@
         border-radius: 10px;
         margin-left: 30%;
 
-        &:after {
-            bottom: 88.3%;
-            left: 9%;
-            content: '';
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-            border-width: 8px;
-            border-style: solid;
-            border-color: #fff transparent transparent transparent;
-            margin-left: -8px;
-            transform: rotate(180deg);
-          }
+        // &:after {
+        //     bottom: 88.3%;
+        //     left: 9%;
+        //     content: '';
+        //     height: 0;
+        //     width: 0;
+        //     position: absolute;
+        //     pointer-events: none;
+        //     border-width: 8px;
+        //     border-style: solid;
+        //     border-color: #fff transparent transparent transparent;
+        //     margin-left: -8px;
+        //     transform: rotate(180deg);
+        //   }
     }
     .message.sent{
         background-color: #fff;
