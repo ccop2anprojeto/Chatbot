@@ -11,6 +11,7 @@ import model.FilaCliente;
 import model.FilaAtendente;
 import model.Funcionario;
 import model.Mensagens;
+import model.PchaveHasResposta;
 import model.Atendimento;
 import model.Cliente;
 
@@ -124,6 +125,68 @@ public class AtendimentoDAO {
 		else
 			return null;
 	}
+	public ArrayList<Atendimento> searchAll() {				
+		
+		ArrayList<Atendimento> list = new ArrayList<Atendimento>();
+		
+		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data`, `humanInteraction`, `botInteraction` FROM `atendimento`;";
+		// usando o try with resources do Java 7, que fecha o que abriu
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			try (ResultSet rs = stm.executeQuery();) {
+				while (rs.next()) {
+					Atendimento atend = new Atendimento();
+					atend.setId(rs.getInt("pk_atendimento"));
+					atend.setIdFuncionario(rs.getInt("fk_funcionario"));
+					atend.setIdCliente(rs.getInt("fk_cliente"));
+					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
+					atend.setStatus(rs.getInt("status"));
+					atend.setData(rs.getDate("data"));
+					atend.setHumanInteraction(rs.getInt("humanInteraction"));
+					atend.setBotInteraction(rs.getInt("botInteraction"));			
+					list.add(atend);
+				}
+				
+									
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		
+		return list;
+
+	}
+		
+		//---------------------------------------------------
+		
+	/*	String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data`, `humanInteraction`, `botInteraction` FROM `atendimento`";
+		
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			try (ResultSet rs = stm.executeQuery();) {
+				while (rs.next()) {
+					atend.setId(rs.getInt("pk_atendimento"));
+					atend.setIdFuncionario(rs.getInt("fk_funcionario"));
+					atend.setIdCliente(rs.getInt("fk_cliente"));
+					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
+					atend.setStatus(rs.getInt("status"));
+					atend.setData(rs.getDate("data"));
+					atend.setHumanInteraction(rs.getInt("humanInteraction"));
+					atend.setBotInteraction(rs.getInt("botInteraction"));
+					list.add(atend);
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		
+		return list;
+	}*/
 	public Atendimento searchAtend(int id) {				
 		Atendimento atend = new Atendimento();
 		atend.setId(id);

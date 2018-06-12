@@ -1,5 +1,7 @@
 var talk = [], interaction = {};
-var notIdentified, controll = 0, cont = 1, convCompleted = false, convAttendent, user, atend;
+var notIdentified, controll = 0, cont = 1, convCompleted = false, convAttendent, 
+	user, atend, countInterectionBot = 0, countInterectionH = 0;
+
 sessionStorage.clear();
 
 console.log($("#sendMsg"));
@@ -97,13 +99,14 @@ var feedBackResp = () => {
 		templateSend = `<div class="message sent"><span>Fico feliz por ter tirado sua dúvida :)</span></div> <div class="message sent"><span>Posso te ajudar em mais alguma coisa?</span></div>`;
 		$(".content_messages").append(templateSend);
 		convCompleted = true;
+		countInterectionBot = countInterectionBot +1;
 		
 	});
 	
 	$(".nao").on('click', function(){			
 		console.log("clicou");
 		let data = JSON.parse(localStorage.getItem("respostas"));
-		
+		countInterectionBot = countInterectionBot +1;
 		if(cont > 2){
 			templateSend = `<div class="message sent">O atendimento será transferido para um atendente humano.<br/> Aguarde alguns instantes você será atendido.<span></span></div> `;
 			$(".content_messages").append(templateSend);
@@ -178,11 +181,22 @@ var OpiningAttendat = () => {
 }
 
 var finalizeService = (atendId) => {
-	$.get("controller.do", `command=finalizeService&id=${atendId}`)
+	$.get("controller.do", `command=finalizeService&id=${atendId}&cBot=${countInterectionBot}&cHuman=${countInterectionH}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
 			console.log("atendimento finalizdo com sucesso!");
+			var user = JSON.parse(localStorage.getItem('user'));
+			var atend = JSON.parse(localStorage.getItem('atend'));
+			var msg = `Atendimento finalizado pelo Cliente`;
+			$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
+			.done(function(data){
+				console.log(data);
+				if(data[0]){
+					appendPerg(`Atendimento finalizado pelo Cliente`);
+					//verifyNewMessage();
+				}
+			});		
 		}
 	});	
 }
@@ -198,6 +212,7 @@ var historyAttendat = (msg) => {
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
+			countInterectionH = countInterectionH + 1;
 			// verifyNewMessage();
 		}
 	});	
@@ -247,6 +262,9 @@ $("#sendMsg").on('click', function(){
 				if(convCompleted){
 					var notQuestion = pergunta.includes("não") || pergunta.includes("somente isso");
 					if(notQuestion){
+						countInterectionBot = 0;
+						countInterectionH = 0
+						finalizeService(atend.id);
 						controll = -1;
 						appendResp("Foi um prazer conversar com você, até mais! :)");
 						var templateFinished = `<div class="message sent"><div class="content_buttons"><button type="button" class="btn btn-success init">Iniciar nova conversa</button></div></div> `;						

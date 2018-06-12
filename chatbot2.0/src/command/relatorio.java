@@ -15,35 +15,32 @@ import service.ClienteService;
 import model.Atendimento;
 import service.AtendimentoService;
 
-public class finalizeService implements Command {
+public class relatorio implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {		
+			HttpServletResponse response) throws ServletException, IOException {
 		
-		int idAtendimento = Integer.parseInt(request.getParameter("id"));
-		int countBot = Integer.parseInt(request.getParameter("cBot"));
-		int countHuman = Integer.parseInt(request.getParameter("cHuman"));
+		
+		int data = Integer.parseInt(request.getParameter("data"));				
 		
 		@SuppressWarnings("rawtypes")
 		ArrayList list = new ArrayList();
 		
 		
-		Atendimento atend = new Atendimento();
-		atend.setId(idAtendimento);
-		atend.setBotInteraction(countBot);
-		atend.setHumanInteraction(countHuman);
 		AtendimentoService serviceAtend = new AtendimentoService();
-		boolean finalized = serviceAtend.finalizeService(atend);
 		
-		System.out.println("Service finalizado --- " + finalized);
-		
-		list.add(finalized);			
+		System.out.println("Search all atendimento --- " + serviceAtend.searchAll().get(0));
 												
-				
+		String respJSONString = null;
 		Gson gson = new Gson();
-		String respJSONString = gson.toJson(list);
+		if(data != 0) {
+			
+		}else {
+			respJSONString = gson.toJson(serviceAtend.searchAll());
+		}
+		
 		System.out.println(respJSONString);		
 		
 				

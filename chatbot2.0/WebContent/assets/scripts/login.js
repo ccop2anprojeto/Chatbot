@@ -15,8 +15,12 @@ $("#entrar").on('click', function(){
 						
 					}
 				});
+			}if(Data[1].nome != "Nicolas"){
+				window.location.href = "http://localhost:8080/chatbot2.0/funcionario.html";
+			}else{
+				window.location.href = "http://localhost:8080/chatbot2.0/pagina-relatorio.html";
 			}
-			window.location.href = "http://localhost:8080/chatbot2.0/funcionario.html";
+			
 			sessionStorage.setItem('user', JSON.stringify(Data[1]));
 		}else
 			alert("login invalido");

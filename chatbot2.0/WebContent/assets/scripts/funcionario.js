@@ -4,13 +4,27 @@ console.log(funcionario);
 if(!funcionario){
 	// window.location.href = "http://localhost:8080/chatbot2.0/index.jsp";
 }
+countInterectionBot = 3, countInterectionH = 0;
 
 $("#funcId").text(funcionario.id);
 $("#funcName").text(funcionario.nome);
 
 if(funcionario.cargo == "atendente"){
 	$(".gerenciamento").css("display", "none");	
+	$(".atendente").css("display", "none");
 }
+var finalizeService = (atendId) => {
+	$.get("controller.do", `command=finalizeService&id=${atendId}&cBot=${countInterectionBot}&cHuman=${countInterectionH}`)
+	.done(function(data){
+		console.log(data);
+		sendMessage(`Atendimento foi finalizado pelo atendente`);
+		if(data[0]){
+			console.log("atendimento finalizdo com sucesso!");
+			sendMessage(`Atendimento foi finalizado pelo atendente`);
+		}
+	});	
+}
+
 setInterval(function(){
 	$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
 	.done(function( data ) {
@@ -59,6 +73,7 @@ var sendMessage = (msg) => {
 	$.get("controller.do", `command=sendMessage&id_de=${funcionario.id}&id_para=${user.id}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
+		countInterectionH = countInterectionH + 1;
 		
 	});
 	
@@ -70,7 +85,7 @@ $("#sendMsg").on('click', function(){
 	if( pergunta != ""){		
 		appendPerg(pergunta);
 						
-			sendMessage(pergunta);							
+		sendMessage(pergunta);							
 	}
 	
 	$("#perg").val(" ");

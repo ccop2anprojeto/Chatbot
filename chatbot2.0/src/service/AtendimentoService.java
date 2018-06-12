@@ -28,5 +28,8 @@ public class AtendimentoService {
 	public Atendimento searchAtend(int idAtend) {
 		return dao.searchAtend(idAtend);
 	}
+	public ArrayList searchAll() {
+		return dao.searchAll();
+	}
 	
 }

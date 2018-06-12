@@ -13,7 +13,10 @@ $(".tooltip").on('click', function(){
 
 $(".modal .yes").on('click', function(){
     $(".modal").removeClass("active");
-    location.reload();
+    finalizeService(JSON.parse(localStorage.getItem("atend")).id);
+    
+    //location.reload();
+    
 });
 
 $(".modal .nop").on('click', function(){

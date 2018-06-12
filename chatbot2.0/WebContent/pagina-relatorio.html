@@ -25,8 +25,8 @@
 						<div class="image_fun">
 							<img src="assets/images/img_avatar.png" alt="">
 						</div>
-						<span><b>Identificação:</b> 3456710<br/></span>
-						<span><b>Nome:</b> Kathlyn </span>
+						<span><b>Identificação:</b> <span id="funcId"></span><br/></span>
+					<span><b>Nome:</b> <span id="funcName"></span></span>
 					</div>
 					<ul>
 						<li><a href="pagina-relatorio.html">Relatório</a></li>
@@ -81,25 +81,22 @@
 						<tr>
 							<th>ID Atendimento</th>
 							<th>Data</th>
-							<th>Hora</th>
-							<th>Tempo de Atendimento</th>
-							<th>Total de Iterações</th>
 							<th>Resolvido</th>
-							<th>Tentativas do Bot</th>
+							<th>Iterações Bot</th>
+							<th>Iterações Humana</th>													
+							<th>Total de Iterações</th>
 						</tr>
 						<tr>
 							<td>1 x 4</td>
 							<td>06/03/2018</td>
-							<td>14:47</td>
-							<td>5 minutos</td>
-							<td>10 iterações</td>
 							<td>Bot</td>
 							<td>3 tentativas</td>
+							<td>3 tentativas</td>
+							<td>10 iterações</td>
 						</tr>
 						<tr>
 							<td>1 x 5</td>
 							<td>06/03/2018</td>
-							<td>16:01</td>
 							<td>10 minutos</td>
 							<td>10 iterações</td>
 							<td>Humano</td>
@@ -110,8 +107,13 @@
 			</section>
 
 	</body>
-	<script src="assets/scripts/datepicker.js"></script>
-	<script src="assets/scripts/funcionario.js"></script>
-	<script src="assets/lib/jquery-3.3.1.min.js"></script>
+	<script src="assets/lib/jquery-3.3.1.min.js"></script>  
+	<script type="text/javascript" src="assets/scripts/slick/slick.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>	
+	<script src="assets/scripts/datepicker.js"></script>
+	
+	<script src="assets/scripts/relatorio.js"></script>
+	<script src="assets/lib/jquery-3.3.1.min.js"></script>
+	
 </html>
