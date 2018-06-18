@@ -1327,7 +1327,7 @@ template {
 /* line 180, ../../resources/sass/componentes/_funcionario.scss */
 .content_messages {
   background-color: #efefef;
-  height: calc(100% - 90px);
+  height: calc(100% - 110px);
   padding: 4%;
   display: none;
   overflow-y: auto;
@@ -1424,14 +1424,19 @@ template {
   display: block;
   margin: 5px;
 }
-/* line 273, ../../resources/sass/componentes/_funcionario.scss */
+/* line 271, ../../resources/sass/componentes/_funcionario.scss */
+.message .content_buttons .btn.btn-warning.nao,
+.message .content_buttons .btn.btn-success.sim {
+  outline: none;
+}
+/* line 274, ../../resources/sass/componentes/_funcionario.scss */
 .message .content_buttons .btn.btn-warning.nao:hover,
 .message .content_buttons .btn.btn-success.sim:hover {
   background-color: #2c3e50;
   color: white;
   box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1), 0 10px 14px rgba(0, 0, 0, 0.05);
 }
-/* line 280, ../../resources/sass/componentes/_funcionario.scss */
+/* line 282, ../../resources/sass/componentes/_funcionario.scss */
 .message .content_buttons .btn.btn-success.sim,
 .message .content_buttons .btn.btn-warning.nao {
   border: none;
@@ -1442,29 +1447,30 @@ template {
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin: 0 10px 0 0;
 }
 
-/* line 294, ../../resources/sass/componentes/_funcionario.scss */
+/* line 297, ../../resources/sass/componentes/_funcionario.scss */
 .message.received {
   background-color: rgba(0, 184, 156, 0.1);
   border-radius: 10px;
   margin-left: 30%;
 }
 
-/* line 314, ../../resources/sass/componentes/_funcionario.scss */
+/* line 317, ../../resources/sass/componentes/_funcionario.scss */
 .message.sent {
   background-color: #fff;
   border-radius: 0px 10px 10px 10px;
   margin-right: 25%;
 }
-/* line 334, ../../resources/sass/componentes/_funcionario.scss */
+/* line 337, ../../resources/sass/componentes/_funcionario.scss */
 .message.sent .kathbot-msg {
   position: absolute;
   right: 18px;
   top: 98px;
   text-decoration: none;
 }
-/* line 340, ../../resources/sass/componentes/_funcionario.scss */
+/* line 343, ../../resources/sass/componentes/_funcionario.scss */
 .message.sent .kathbot-msg i {
   text-transform: uppercase;
   color: #fff;
@@ -1476,13 +1482,18 @@ template {
   font-family: "Montserrat";
   box-shadow: 0px 2px 6px 0px #38313180;
 }
+/* line 355, ../../resources/sass/componentes/_funcionario.scss */
+.message.sent .disable {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
-/* line 353, ../../resources/sass/componentes/_funcionario.scss */
+/* line 360, ../../resources/sass/componentes/_funcionario.scss */
 .box_view {
   overflow-y: auto;
 }
 
-/* line 356, ../../resources/sass/componentes/_funcionario.scss */
+/* line 363, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat {
   position: fixed;
   display: none;
@@ -1491,33 +1502,33 @@ template {
   bottom: 20px;
 }
 
-/* line 364, ../../resources/sass/componentes/_funcionario.scss */
+/* line 371, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat a {
   color: #2ecc71;
 }
 
-/* line 367, ../../resources/sass/componentes/_funcionario.scss */
+/* line 374, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat a:hover {
   color: #25a25a;
 }
 
-/* line 371, ../../resources/sass/componentes/_funcionario.scss */
+/* line 378, ../../resources/sass/componentes/_funcionario.scss */
 .icon_chat.active {
   display: block;
 }
 
-/* line 374, ../../resources/sass/componentes/_funcionario.scss */
+/* line 381, ../../resources/sass/componentes/_funcionario.scss */
 .icon_main {
   display: none;
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 378, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 385, ../../resources/sass/componentes/_funcionario.scss */
   .column_main {
     margin-left: -300px;
   }
 
-  /* line 381, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 388, ../../resources/sass/componentes/_funcionario.scss */
   .column_main.active {
     margin-left: 0px;
     position: fixed;
@@ -1527,31 +1538,31 @@ template {
     z-index: 9;
   }
 
-  /* line 389, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 396, ../../resources/sass/componentes/_funcionario.scss */
   .column_principal {
     width: 100%;
   }
 
-  /* line 392, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 399, ../../resources/sass/componentes/_funcionario.scss */
   .icon_main {
     display: block;
     background-color: #2c3e50;
     padding: 2.5% 5%;
   }
 
-  /* line 397, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 404, ../../resources/sass/componentes/_funcionario.scss */
   .icon_main a {
     font-size: 25px;
     color: #fff;
   }
 
-  /* line 401, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 408, ../../resources/sass/componentes/_funcionario.scss */
   .icon_main a:hover {
     font-size: 26px;
     color: #25a25a;
   }
 
-  /* line 405, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 412, ../../resources/sass/componentes/_funcionario.scss */
   .overlay.active {
     position: absolute;
     top: 0;
@@ -1563,26 +1574,26 @@ template {
     cursor: pointer;
   }
 
-  /* line 415, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 422, ../../resources/sass/componentes/_funcionario.scss */
   .icon_closeMain {
     display: block;
   }
 
-  /* line 419, ../../resources/sass/componentes/_funcionario.scss */
+  /* line 426, ../../resources/sass/componentes/_funcionario.scss */
   .container_chat.expand {
     height: calc(100vh - 56px);
     max-width: initial;
     border-top: 1px solid #fff;
   }
 }
-/* line 427, ../../resources/sass/componentes/_funcionario.scss */
+/* line 434, ../../resources/sass/componentes/_funcionario.scss */
 .box_title {
   position: relative;
   display: table;
   margin: 0 auto;
 }
 
-/* line 433, ../../resources/sass/componentes/_funcionario.scss */
+/* line 440, ../../resources/sass/componentes/_funcionario.scss */
 .box_title h1 {
   font-size: 1.5rem;
   text-align: center;
@@ -1590,7 +1601,7 @@ template {
   color: #113c43;
 }
 
-/* line 439, ../../resources/sass/componentes/_funcionario.scss */
+/* line 446, ../../resources/sass/componentes/_funcionario.scss */
 #line::before {
   content: '';
   position: absolute;
@@ -1603,7 +1614,7 @@ template {
   z-index: 4;
 }
 
-/* line 451, ../../resources/sass/componentes/_funcionario.scss */
+/* line 458, ../../resources/sass/componentes/_funcionario.scss */
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -1611,23 +1622,23 @@ template {
   margin-top: 20px;
 }
 
-/* line 458, ../../resources/sass/componentes/_funcionario.scss */
+/* line 465, ../../resources/sass/componentes/_funcionario.scss */
 #customers td, #customers th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-/* line 463, ../../resources/sass/componentes/_funcionario.scss */
+/* line 470, ../../resources/sass/componentes/_funcionario.scss */
 #customers tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* line 465, ../../resources/sass/componentes/_funcionario.scss */
+/* line 472, ../../resources/sass/componentes/_funcionario.scss */
 #customers tr:hover {
   background-color: #ddd;
 }
 
-/* line 467, ../../resources/sass/componentes/_funcionario.scss */
+/* line 474, ../../resources/sass/componentes/_funcionario.scss */
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;

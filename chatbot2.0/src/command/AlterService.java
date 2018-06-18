@@ -16,10 +16,11 @@ import model.Atendimento;
 import service.AtendimentoService;
 import service.FilaAtendenteService;
 
-public class alterService implements Command {
+public class AlterService implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
+	
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {		
 		

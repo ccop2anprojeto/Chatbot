@@ -1,6 +1,7 @@
 var talk = [], interaction = {};
 var notIdentified, controll = 0, cont = 1, convCompleted = false, convAttendent, 
 	user, atend, countInterectionBot = 0, countInterectionH = 0;
+var $input = $("#perg");
 
 sessionStorage.clear();
 
@@ -32,18 +33,24 @@ $(".btn-comecar").on('click', function(){
 });
 
 var startTalk = (init) => {
-	$.get("controller.do", `command=historyIdentify&init=${init}`)
+	$.get("controller.do", `command=HistoryIdentify&init=${init}`)
 	.done(function( data ) {
 		console.log(data[0]);
 		var Data = JSON.parse(data.toString('utf8'));
 		console.log(Data);
 		
 		appendResp(Data[0].resp);
+		$input.attr('placeholder','Digite seu cpf: 000.000.000-00');
+		$input.attr('maxlength','14');
+		$input.mask('000.000.000-00', {reverse: true});
 	  });  
 }
 var historyIdentify = (cpf) => {
-  	
-  $.get("controller.do", `command=historyIdentify&init=${cpf}`)
+  	cpf = cpf.replace('.', "");
+  	cpf = cpf.replace('.', "");
+  	var cpfNumbers = cpf.replace(/-/g, "");
+  	console.log(cpfNumbers);
+  $.get("controller.do", `command=HistoryIdentify&init=${cpfNumbers}`)
 	.done(function( data ) {
 		var Data = JSON.parse(data.toString('utf8'));
 		console.log(Data);
@@ -51,7 +58,7 @@ var historyIdentify = (cpf) => {
 		if(!notIdentified){
 			// Registrando o atendimento com o bot
 			console.log("Registrando o atendimento com o bot-------");
-			$.get("controller.do", `command=startService&idC=${Data[2].id}`)
+			$.get("controller.do", `command=StartService&idC=${Data[2].id}`)
 			.done(function( data ) {
 				// console.log(data[0]);
 				var Data = JSON.parse(data.toString('utf8'));				
@@ -60,18 +67,23 @@ var historyIdentify = (cpf) => {
 				localStorage.setItem("atend", JSON.stringify(Data[0]));
 				
 			  });  
-		    localStorage.setItem("data", JSON.stringify(Data));
-		    localStorage.setItem("user", JSON.stringify(Data[2]));
+			
 		    
 		}
+		 localStorage.setItem("data", JSON.stringify(Data));
+		    localStorage.setItem("user", JSON.stringify(Data[2]));
 		appendResp(Data[0].resp);				
 		
 	  });	
+  	$input.attr('placeholder','Digite aqui...');
+	$input.attr('maxlength','255');
+	$input.unmask();
+	
 }
 
 var historyQuestions = (pergunta) => {
 	cont = 1;
-	$.get("controller.do", `command=newChatBot&perg=${pergunta}`)
+	$.get("controller.do", `command=NewChatBot&perg=${pergunta}`)
 	.done(function( data ) {
 		console.log(data);
 		var Data = JSON.parse(data);
@@ -100,14 +112,22 @@ var feedBackResp = () => {
 		$(".content_messages").append(templateSend);
 		convCompleted = true;
 		countInterectionBot = countInterectionBot +1;
+		$(this).addClass("disable");
+		$("#nao:last-child").addClass("disable");
+		console.log($("#sim"));
 		
 	});
 	
-	$(".nao").on('click', function(){			
-		console.log("clicou");
+	$(".nao").on('click', function(){		
+		$(this).addClass("disable");
+		$(".sim").addClass("disable");
+		console.log($(".sim"));
+		console.log($("#nao:last-child"));
 		let data = JSON.parse(localStorage.getItem("respostas"));
+		let maxCont = data.length;
 		countInterectionBot = countInterectionBot +1;
-		if(cont > 2){
+		
+		if(cont == maxCont){
 			templateSend = `<div class="message sent">O atendimento será transferido para um atendente humano.<br/> Aguarde alguns instantes você será atendido.<span></span></div> `;
 			$(".content_messages").append(templateSend);
 			
@@ -115,11 +135,12 @@ var feedBackResp = () => {
 			convAttendent = true;						
 			var user = JSON.parse(localStorage.getItem('user'));
 			
+			
 			console.log(user);
 			
 		// ----- inserindo cliente na fila de atendimento
 			
-			$.get("controller.do", `command=insertRowCliente&id=${user.id}`)
+			$.get("controller.do", `command=InsertRowCliente&id=${user.id}`)
 			.done(function(data){
 				console.log(data);
 				var Data = JSON.parse(data.toString('utf8'));
@@ -130,7 +151,7 @@ var feedBackResp = () => {
 					var selectAttendant = setInterval(function(){
 						console.log("na filaa----");
 						// busca atendente disponivel
-						$.get("controller.do", `command=alterService&id=${atend.id}`)
+						$.get("controller.do", `command=AlterService&id=${atend.id}`)
 						.done(function(data){
 							var Data = JSON.parse(data.toString('utf8'));
 							console.log(Data);
@@ -159,8 +180,11 @@ var feedBackResp = () => {
 			
 		// $(".content_messages").append(templateSend);
 		cont++;
+		
 	});		
 }
+
+
 var OpiningAttendat = () => {
 	console.log("opining attendat");
 	// colocar aqui msg padrão para atendente
@@ -171,7 +195,7 @@ var OpiningAttendat = () => {
 	// localStorage.setItem("atendimento", JSON.stringify(atend));
 	console.log(atend);
 	var msg = `Atendimento iniciado`;
-	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
+	$.get("controller.do", `command=SendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
@@ -181,7 +205,7 @@ var OpiningAttendat = () => {
 }
 
 var finalizeService = (atendId) => {
-	$.get("controller.do", `command=finalizeService&id=${atendId}&cBot=${countInterectionBot}&cHuman=${countInterectionH}`)
+	$.get("controller.do", `command=FinalizeService&id=${atendId}&cBot=${countInterectionBot}&cHuman=${countInterectionH}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
@@ -189,7 +213,7 @@ var finalizeService = (atendId) => {
 			var user = JSON.parse(localStorage.getItem('user'));
 			var atend = JSON.parse(localStorage.getItem('atend'));
 			var msg = `Atendimento finalizado pelo Cliente`;
-			$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
+			$.get("controller.do", `command=SendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
 			.done(function(data){
 				console.log(data);
 				if(data[0]){
@@ -208,7 +232,7 @@ var historyAttendat = (msg) => {
 	// var user = JSON.parse(localStorage.getItem('user'));
 	// var atend = JSON.parse(localStorage.getItem("atendimento"));
 	console.log(atend);
-	$.get("controller.do", `command=sendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
+	$.get("controller.do", `command=SendMessage&id_de=${user.id}&id_para=${atend.idFuncionario}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		if(data[0]){
@@ -221,12 +245,12 @@ var historyAttendat = (msg) => {
 var verifyNewMessage = () => {
 	console.log("verifyMessage");
 	setInterval(function(){
-		$.get("controller.do", `command=searchMessage&id_para=2`)
+		$.get("controller.do", `command=SearchMessage&id_para=2`)
 		.done(function( data ) {
 			var Data = JSON.parse(data);
 			var _thisData = Data;
 			if(Data){		
-				$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+				$.get("controller.do", `command=AlterStateMessage&idMsg=${Data[0].id}`)
 				.done(function( data ) {
 					console.log(data);
 				});
@@ -249,11 +273,15 @@ $("#sendMsg").on('click', function(){
 	console.log("clicou?");
 	var pergunta = $("#perg").val();
 	
+	
 	console.log(pergunta);
 	if( pergunta != ""){		
 		appendPerg(pergunta);
 		if(controll == 0){
-			register.push(pergunta);
+			pergunta = pergunta.replace('.', "");
+			pergunta = pergunta.replace('.', "");
+		  	var cpfNumbers = pergunta.replace(/-/g, "");
+			register.push(cpfNumbers);
 			historyIdentify(pergunta);
 			console.log("entroii aquiii");
 			
@@ -293,6 +321,20 @@ $("#sendMsg").on('click', function(){
 			
 			else{			
 				if(counter < Data.length){
+					if(counter == 2){
+						$input.attr('placeholder','DDD-00000-0000');
+						$input.attr('maxlength','13');
+						$input.mask('00-00000-0000', {reverse: true});
+						
+						
+						
+					}else{
+						$input.attr('placeholder','Digite aqui...');
+						$input.attr('maxlength','255');
+						$input.unmask();
+					}
+					pergunta = pergunta.replace(/-/g, "");
+					console.log(pergunta);
 					register.push(pergunta);
 					if(counter < Data.length -1)
 						appendResp(Data[counter].resp);
@@ -300,17 +342,17 @@ $("#sendMsg").on('click', function(){
 					counter++;
 				}						
 				if(counter >= Data.length){
-					$.get("controller.do", `command=historyRegister&Cpf=${register[0]}&Nome=${register[2]}&Telefone=${register[3]}&Email=${register[4]}`)
+					$.get("controller.do", `command=HistoryRegister&Cpf=${register[0]}&Nome=${register[2]}&Telefone=${register[3]}&Email=${register[4]}`)
 					.done(function( data ) {
 						var Data = JSON.parse(data.toString('utf8'));
 						console.log(Data);
 								
 						localStorage.setItem("user", JSON.stringify(Data[0]));
-						if(Data.length > 1){
+						if(Data.length > 2){
 							appendResp(Data[1].resp);
 							appendResp(Data[2].resp);
 						}else{
-							appendResp(Data[1].resp);
+							appendResp(Data[0].resp);
 						}
 							
 						

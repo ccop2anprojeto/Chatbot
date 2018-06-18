@@ -79,7 +79,10 @@ public class FilaAtendenteDAO {
 			stm.setInt(3, atend.getIdCliente());
 			stm.setInt(4, atend.getIdFilaCliente());
 			stm.setInt(5, atend.getStatus());
-			stm.setDate(6, new java.sql.Date(atend.getData().getTime()));
+			
+			stm.setDate(6, atend.getData());
+			
+			System.out.println("DAO --------->"+ atend.getData().toString());
 			//status 0 é atendimento aberto, 1 é atendimento fechado
 						
 			stm.execute();

@@ -15,9 +15,10 @@ import model.ChatBot;
 //import service.OrganizacaoSocialService;
 import model.Resposta;
 
-public class newChatBot implements Command {
+public class NewChatBot implements Command {
 
 	@Override
+	
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

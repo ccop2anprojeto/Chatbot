@@ -10,35 +10,36 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import model.Mensagens;
+import service.MensagensService;
 
-import service.FilaClienteService;
-import model.FilaCliente;
-
-public class searchAttendat implements Command {
+public class SearchMessage implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		FilaCliente filaCliente = new FilaCliente();
-		filaCliente.setId_cliente(Integer.parseInt(request.getParameter("id"))); 		
 		
-//	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
 		
-		ArrayList list = new ArrayList();
-	
-		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
-		FilaClienteService service = new FilaClienteService();
+		int id_para = Integer.parseInt(request.getParameter("id_para"));
 		
-		list.add(service.insertInRow(filaCliente));
-		System.out.println(list.get(0));
+		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
+		MensagensService service = new MensagensService();
 		
+		msgs = service.searchFor(id_para);
+		//System.out.println(msgs.get(0).getMensagem());
+		
+		
+		//@SuppressWarnings("rawtypes")
+		//ArrayList list = new ArrayList();
+												
 				
 		Gson gson = new Gson();
-		String respJSONString = gson.toJson(list);
+		String respJSONString = gson.toJson(msgs);
 		System.out.println(respJSONString);		
-						
+		
+				
 		response.getWriter().print(respJSONString);
 	
 

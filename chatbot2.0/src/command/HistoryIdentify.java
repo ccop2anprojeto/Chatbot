@@ -17,7 +17,7 @@ import service.ClienteService;
 import model.Resposta;
 import model.Cliente;
 
-public class historyIdentify implements Command {
+public class HistoryIdentify implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -26,6 +26,15 @@ public class historyIdentify implements Command {
 		
 		String init = request.getParameter("init");			
 		System.out.println("init: --- " + init);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		Resposta resp = new Resposta();
 		
 		@SuppressWarnings("rawtypes")

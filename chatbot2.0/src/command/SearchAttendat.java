@@ -10,40 +10,36 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
-import model.Cliente;
-import service.ClienteService;
-import model.Atendimento;
-import service.AtendimentoService;
 
-public class relatorio implements Command {
+import service.FilaClienteService;
+import model.FilaCliente;
+
+public class SearchAttendat implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
+	
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
+		FilaCliente filaCliente = new FilaCliente();
+		filaCliente.setId_cliente(Integer.parseInt(request.getParameter("id"))); 		
 		
-		int data = Integer.parseInt(request.getParameter("data"));				
+//	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
 		
-		@SuppressWarnings("rawtypes")
 		ArrayList list = new ArrayList();
+	
+		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
+		FilaClienteService service = new FilaClienteService();
 		
-		
-		AtendimentoService serviceAtend = new AtendimentoService();
-		
-		System.out.println("Search all atendimento --- " + serviceAtend.searchAll().get(0));
-												
-		String respJSONString = null;
-		Gson gson = new Gson();
-		if(data != 0) {
-			
-		}else {
-			respJSONString = gson.toJson(serviceAtend.searchAll());
-		}
-		
-		System.out.println(respJSONString);		
+		list.add(service.insertInRow(filaCliente));
+		System.out.println(list.get(0));
 		
 				
+		Gson gson = new Gson();
+		String respJSONString = gson.toJson(list);
+		System.out.println(respJSONString);		
+						
 		response.getWriter().print(respJSONString);
 	
 

@@ -179,7 +179,7 @@
     }
     .content_messages{
         background-color: #efefef;
-        height: calc(100% - 90px);
+        height: calc(100% - 110px);
         padding: 4%;
         display: none;
         overflow-y: auto;
@@ -270,11 +270,13 @@
 
             .btn.btn-warning.nao,
             .btn.btn-success.sim{
+                outline: none;
                 &:hover{
                     background-color: #2c3e50;                    
                     color: white;
                     box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1), 0 10px 14px rgba(0, 0, 0, 0.05);
                 }
+
             }
 
             .btn.btn-success.sim,
@@ -287,6 +289,7 @@
                 border-radius: 6px;
                 box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2);
                 transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                margin: 0 10px 0 0;
             }
         }
 
@@ -348,6 +351,10 @@
                 font-family: $n-regular;
                 box-shadow: 0px 2px 6px 0px #38313180;
             }
+        }
+        .disable{
+            opacity: 0.5;
+            pointer-events: none; 
         }
     }
     .box_view{

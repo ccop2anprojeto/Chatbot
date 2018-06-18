@@ -12,45 +12,43 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 import model.Cliente;
 import service.ClienteService;
-import service.FilaAtendenteService;
 import model.Atendimento;
 import service.AtendimentoService;
 
-public class startService implements Command {
+public class FinalizeService implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {		
 		
-		int idC = Integer.parseInt(request.getParameter("idC"));
+		int idAtendimento = Integer.parseInt(request.getParameter("id"));
+		int countBot = Integer.parseInt(request.getParameter("cBot"));
+		int countHuman = Integer.parseInt(request.getParameter("cHuman"));
+		
 		
 		@SuppressWarnings("rawtypes")
-		ArrayList list = new ArrayList();		
+		ArrayList list = new ArrayList();
+		//ArrayList list = new ArrayList();
+		
 		
 		Atendimento atend = new Atendimento();
-		atend.setIdCliente(idC);
-		atend.setIdPergunta(0);
-		atend.setIdFuncionario(1);
-		atend.setIdFilaCliente(1);
-		atend.setStatus(0);
-		atend.setData(atend.instanceData());
-		System.out.println("Data ----- " + atend.getData());
+		atend.setId(idAtendimento);
+		atend.setBotInteraction(countBot);
+		atend.setHumanInteraction(countHuman);
+		AtendimentoService serviceAtend = new AtendimentoService();
+		boolean finalized = serviceAtend.finalizeService(atend);
 		
-		//AtendimentoService serviceAtend = new AtendimentoService();
-		//Atendimento startAtend = serviceAtend.startOnlineSupport(atend);
+		System.out.println("Service finalizado --- " + finalized);
 		
-		FilaAtendenteService serviceA = new FilaAtendenteService();		
-		Atendimento startAtend = serviceA.startOnlineSupport(atend);
-		
-		System.out.println("Atendimento iniciado --- " + startAtend.getId());
-		
-		list.add(startAtend);			
+		list.add(finalized);			
 												
+				
 		Gson gson = new Gson();
 		String respJSONString = gson.toJson(list);
 		System.out.println(respJSONString);		
-						
+		
+				
 		response.getWriter().print(respJSONString);
 	
 

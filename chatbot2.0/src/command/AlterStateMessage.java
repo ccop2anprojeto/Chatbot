@@ -10,36 +10,37 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
+import model.Mensagens;
+import service.MensagensService;
 
-import service.FilaAtendenteService;
-import model.FilaAtendente;
-
-public class insertRowAtendente implements Command {
+public class AlterStateMessage implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		FilaAtendente filaAtend = new FilaAtendente();
-		filaAtend.setId_atendente(Integer.parseInt(request.getParameter("id"))); 
-		System.out.println(filaAtend.getId_atendente());
 		
-//	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
-		
+		int idMsg = Integer.parseInt(request.getParameter("idMsg"));		
 		ArrayList list = new ArrayList();
-	
+		Mensagens msg = new Mensagens();
+		msg.setId(idMsg);
 		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
-		FilaAtendenteService service = new FilaAtendenteService();
+		MensagensService service = new MensagensService();
 		
-		list.add(service.insertInRow(filaAtend));
-		System.out.println(list.get(0));
+		list.add(service.alterState(msg));
+		//System.out.println(msgs.get(0).getMensagem());
 		
+		
+		//@SuppressWarnings("rawtypes")
+		
+												
 				
 		Gson gson = new Gson();
 		String respJSONString = gson.toJson(list);
 		System.out.println(respJSONString);		
-						
+		
+				
 		response.getWriter().print(respJSONString);
 	
 

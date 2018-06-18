@@ -2,6 +2,7 @@ package command;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,29 +14,46 @@ import com.google.gson.Gson;
 import model.Mensagens;
 import service.MensagensService;
 
-public class searchMessage implements Command {
+public class SendMessage implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		int id_de = Integer.parseInt(request.getParameter("id_de"));
 		int id_para = Integer.parseInt(request.getParameter("id_para"));
+		String initAtend = request.getParameter("msg");
 		
-		ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
+		
+	
+//	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
+//	    Mensagens objMsg = gson.fromJson(jsonMsg, Mensagens.class);
+		
+		ArrayList list = new ArrayList();
+		Mensagens msg = new Mensagens();
+		
+		msg.setId_de(id_de);
+		msg.setId_para(id_para);
+		msg.setMensagem(initAtend);
+		msg.setRecebida(0);
+		msg.setTime(0);
+		Date date = msg.instanceData();
+		msg.setData(date);
+		System.out.println("Data Message ---- " + msg.getData());
+		//ArrayList<Mensagens> msgs = new ArrayList<Mensagens>();
 		MensagensService service = new MensagensService();
 		
-		msgs = service.searchFor(id_para);
-		//System.out.println(msgs.get(0).getMensagem());
+		list.add(service.sendMessage(msg));
+		System.out.println(list.get(0));
 		
 		
 		//@SuppressWarnings("rawtypes")
-		//ArrayList list = new ArrayList();
+		
 												
 				
 		Gson gson = new Gson();
-		String respJSONString = gson.toJson(msgs);
+		String respJSONString = gson.toJson(list);
 		System.out.println(respJSONString);		
 		
 				

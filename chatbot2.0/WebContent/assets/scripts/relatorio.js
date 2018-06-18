@@ -1,5 +1,5 @@
 var data = 0, Atends;
-$.get("controller.do", `command=relatorio&data=${data}`)
+$.get("controller.do", `command=Relatorio&data=${data}`)
 	.done(function(data){
 		console.log(data);
 		localStorage.setItem("relatorio", data);

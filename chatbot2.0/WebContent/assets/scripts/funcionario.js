@@ -14,7 +14,7 @@ if(funcionario.cargo == "atendente"){
 	$(".atendente").css("display", "none");
 }
 var finalizeService = (atendId) => {
-	$.get("controller.do", `command=finalizeService&id=${atendId}&cBot=${countInterectionBot}&cHuman=${countInterectionH}`)
+	$.get("controller.do", `command=FinalizeService&id=${atendId}&cBot=${countInterectionBot}&cHuman=${countInterectionH}`)
 	.done(function(data){
 		console.log(data);
 		sendMessage(`Atendimento foi finalizado pelo atendente`);
@@ -26,20 +26,20 @@ var finalizeService = (atendId) => {
 }
 
 setInterval(function(){
-	$.get("controller.do", `command=searchMessage&id_para=${funcionario.id}`)
+	$.get("controller.do", `command=SearchMessage&id_para=${funcionario.id}`)
 	.done(function( data ) {
 		var Data = JSON.parse(data);
 		var _thisData = Data;
 		console.log(Data);
 		if(Data){		
-			$.get("controller.do", `command=alterStateMessage&idMsg=${Data[0].id}`)
+			$.get("controller.do", `command=AlterStateMessage&idMsg=${Data[0].id}`)
 			.done(function( data ) {
 				console.log(data);
 			});
 			appendResp(Data[0].mensagem);
 			if(Data[0].mensagem == "Atendimento iniciado"){
 				console.log("Atendimento iniciado");
-				$.get("controller.do", `command=searchData&idC=${Data[0].id_de}&idA=${funcionario.id}`)
+				$.get("controller.do", `command=SearchData&idC=${Data[0].id_de}&idA=${funcionario.id}`)
 				.done(function( data ) {
 					var Data = JSON.parse(data);
 					localStorage.setItem("user", JSON.stringify(Data[0]));
@@ -70,7 +70,7 @@ var sendMessage = (msg) => {
 	console.log(msg);
 	// appendPerg(msg);
 	console.log("ativou historia com atendente");
-	$.get("controller.do", `command=sendMessage&id_de=${funcionario.id}&id_para=${user.id}&msg=${msg}`)
+	$.get("controller.do", `command=SendMessage&id_de=${funcionario.id}&id_para=${user.id}&msg=${msg}`)
 	.done(function(data){
 		console.log(data);
 		countInterectionH = countInterectionH + 1;

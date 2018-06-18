@@ -125,6 +125,32 @@ public class AtendimentoDAO {
 		else
 			return null;
 	}
+	public Object WeekConsolidator(String today, String sunday) {				
+		
+		String sqlSelect = "SELECT count(pk_atendimento) dailyTotal FROM `atendimento` where data BETWEEN ? and ? having count(pk_atendimento);";
+		Object dailyTotal = null;
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			stm.setString(1, sunday);
+			stm.setString(2, today);
+			
+			
+			try (ResultSet rs = stm.executeQuery();) {
+				if (rs.next()) {
+					
+					 dailyTotal = rs.getInt("dailyTotal");
+					
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		
+		
+		return dailyTotal;
+	}
 	public ArrayList<Atendimento> searchAll() {				
 		
 		ArrayList<Atendimento> list = new ArrayList<Atendimento>();

@@ -17,7 +17,7 @@ import service.ClienteService;
 import model.Resposta;
 import model.Cliente;
 
-public class historyRegister implements Command {
+public class HistoryRegister implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -28,6 +28,7 @@ public class historyRegister implements Command {
 		cliente.setCpf(request.getParameter("Cpf"));
 		cliente.setNome(request.getParameter("Nome"));
 		cliente.setSobrenome(request.getParameter("Nome"));
+		
 		cliente.setTelefone(request.getParameter("Telefone"));
 		cliente.setEmail(request.getParameter("Email"));
 		

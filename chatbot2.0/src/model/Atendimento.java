@@ -1,7 +1,8 @@
 package model;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.util.Date;
 
 public class Atendimento {	
 	private int id;
@@ -74,12 +75,14 @@ public class Atendimento {
 	}
 	
 	public Date instanceData() {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-		Date date = new Date();
-		System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
-		return date;
+		 java.util.Date data = new java.util.Date();
+		 java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
+		return dataSql;
 	}
 
+	  java.util.Date dataUtil = new java.util.Date();
+	  java.sql.Date dataSql = new java.sql.Date(dataUtil.getTime());
+	  
 	public int getHumanInteraction() {
 		return humanInteraction;
 	}

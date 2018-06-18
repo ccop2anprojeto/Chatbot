@@ -17,8 +17,9 @@ import service.FuncionarioService;
 import model.Resposta;
 import model.Funcionario;
 
-public class login implements Command {
+public class Login implements Command {
 
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,

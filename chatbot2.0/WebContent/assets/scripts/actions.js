@@ -8,7 +8,7 @@ var finalizeService = () => {
 	if(teste){
 	/*	var atendId = JSON.parse(localStorage.getItem("atend")).id;
 		console.log(atendId);
-		$.get("controller.do", `command=finalizeService&id=${atendId}`)
+		$.get("controller.do", `command=FinalizeService&id=${atendId}`)
 		.done(function(data){
 			console.log(data);
 			if(data[0]){

@@ -15,12 +15,14 @@ import service.ClienteService;
 import model.Atendimento;
 import service.AtendimentoService;
 
-public class searchData implements Command {
+public class SearchData implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		
 		
 		int idCliente = Integer.parseInt(request.getParameter("idC"));

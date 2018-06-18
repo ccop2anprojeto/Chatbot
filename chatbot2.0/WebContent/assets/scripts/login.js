@@ -2,13 +2,13 @@
 $("#entrar").on('click', function(){	
 	var login = $("#login").val();
 	var senha = $("#senha").val();
-	$.get("controller.do", `command=login&login=${login}&senha=${senha}`)
+	$.get("controller.do", `command=Login&login=${login}&senha=${senha}`)
 	.done(function( data ) {
 		var Data = JSON.parse(data.toString('utf8'));
 		console.log(Data);
 		if(Data[0]){
 			if(Data[1].cargo == "atendente"){
-				$.get("controller.do", `command=insertRowAtendente&id=${Data[1].id}`)
+				$.get("controller.do", `command=InsertRowAtendente&id=${Data[1].id}`)
 				.done(function(data){
 					console.log(data);
 					if(data[0]){

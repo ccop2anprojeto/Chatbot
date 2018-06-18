@@ -17,12 +17,13 @@ import service.FilaAtendenteService;
 import model.Atendimento;
 import model.FilaAtendente;
 
-public class insertRowCliente implements Command {
+public class InsertRowCliente implements Command {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void executar(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
 		
 		FilaCliente filaCliente = new FilaCliente();		
 		filaCliente.setId_cliente(Integer.parseInt(request.getParameter("id"))); 		
