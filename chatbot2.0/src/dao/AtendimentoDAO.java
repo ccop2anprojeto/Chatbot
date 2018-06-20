@@ -127,8 +127,8 @@ public class AtendimentoDAO {
 	}
 	public Object WeekConsolidator(String today, String sunday) {				
 		
-		String sqlSelect = "SELECT count(pk_atendimento) dailyTotal FROM `atendimento` where data BETWEEN ? and ? having count(pk_atendimento);";
-		Object dailyTotal = null;
+		String sqlSelect = "SELECT count(pk_atendimento) weekTotal FROM `atendimento` where data BETWEEN ? and ? having count(pk_atendimento);";
+		Object weekTotal = null;
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			stm.setString(1, sunday);
@@ -138,7 +138,10 @@ public class AtendimentoDAO {
 			try (ResultSet rs = stm.executeQuery();) {
 				if (rs.next()) {
 					
-					 dailyTotal = rs.getInt("dailyTotal");
+					weekTotal = rs.getInt("weekTotal");
+					if(weekTotal != null) {
+						 weekTotal = 0; 
+					 }
 					
 				} 
 			} catch (SQLException e) {
@@ -149,7 +152,69 @@ public class AtendimentoDAO {
 		}
 		
 		
-		return dailyTotal;
+		return weekTotal;
+	}
+	public Object DailyConsolidator(String today) {				
+		
+		String sqlSelect = "SELECT count(pk_atendimento) dailyTotal FROM `atendimento` where data = ? having count(pk_atendimento);";
+		Object dailyTotal = null;
+		Object dayTotal = null;
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			stm.setString(1, today);
+			
+			
+			try (ResultSet rs = stm.executeQuery();) {
+				if (rs.next()) {
+					
+					 dailyTotal = rs.getInt("dailyTotal");
+					 
+					 if(dailyTotal != null) {
+						 dayTotal = dailyTotal; 
+					 }else {
+						 dayTotal = 0; 
+					 }
+					
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		
+		
+		return dayTotal;
+	}
+public Object MonthConsolidator(String firstDay, String currentDay) {				
+		
+		String sqlSelect = "SELECT count(pk_atendimento) monthTotal FROM `atendimento` where data BETWEEN ? and ? having count(pk_atendimento);";
+		Object monthTotal = null;
+		try (Connection conn = ConnectionFactory.obtemConexao();
+				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
+			stm.setString(1, firstDay);
+			stm.setString(2, currentDay);
+			
+			
+			try (ResultSet rs = stm.executeQuery();) {
+				if (rs.next()) {
+					
+					 monthTotal = rs.getInt("monthTotal");
+					 
+					 if(monthTotal != null) {
+						 monthTotal = 0; 
+					 }
+					
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} catch (SQLException e1) {
+			System.out.print(e1.getStackTrace());
+		}
+		
+		
+		return monthTotal;
 	}
 	public ArrayList<Atendimento> searchAll() {				
 		

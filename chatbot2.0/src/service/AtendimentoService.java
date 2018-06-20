@@ -31,5 +31,14 @@ public class AtendimentoService {
 	public ArrayList searchAll() {
 		return dao.searchAll();
 	}
+	public Object WeekConsolidator(String todayFormat, String sundayFormat) {
+		return dao.WeekConsolidator(todayFormat, sundayFormat);
+	}
+	public Object DailyConsolidator(String todayFormat) {
+		return dao.DailyConsolidator(todayFormat);
+	}
+	public Object MonthConsolidator(String firstDay, String currentDay) {
+		return dao.WeekConsolidator(firstDay, currentDay);
+	}
 	
 }
