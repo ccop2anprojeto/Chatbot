@@ -4,9 +4,8 @@ $(".icon_close a").on('click', function(){
 });
 
 var finalizeService = () => {
-	var teste = confirm("Tem certeza que deseja finalizar o atendimento?");
-	if(teste){
-	/*	var atendId = JSON.parse(localStorage.getItem("atend")).id;
+//	var teste = confirm("Tem certeza que deseja finalizar o atendimento?");
+		var atendId = JSON.parse(localStorage.getItem("atend")).id;
 		console.log(atendId);
 		$.get("controller.do", `command=FinalizeService&id=${atendId}`)
 		.done(function(data){
@@ -16,9 +15,9 @@ var finalizeService = () => {
 				$(".container_chat").removeClass("active");
 				$(".icon_chat").addClass("active");
 			}
-		});	*/
+		});	
 		
-	}
+
 }
 $(".icon_chat a").on('click', function(){
 	console.log("clicou");

@@ -38,7 +38,7 @@ public class AtendimentoService {
 		return dao.DailyConsolidator(todayFormat);
 	}
 	public Object MonthConsolidator(String firstDay, String currentDay) {
-		return dao.WeekConsolidator(firstDay, currentDay);
+		return dao.MonthConsolidator(firstDay, currentDay);
 	}
 	
 }

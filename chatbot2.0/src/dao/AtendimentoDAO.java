@@ -139,9 +139,7 @@ public class AtendimentoDAO {
 				if (rs.next()) {
 					
 					weekTotal = rs.getInt("weekTotal");
-					if(weekTotal != null) {
-						 weekTotal = 0; 
-					 }
+					
 					
 				} 
 			} catch (SQLException e) {
@@ -151,14 +149,16 @@ public class AtendimentoDAO {
 			System.out.print(e1.getStackTrace());
 		}
 		
+		if(weekTotal != null) 
+			return weekTotal;
+		else
+			return weekTotal = 0;
 		
-		return weekTotal;
 	}
 	public Object DailyConsolidator(String today) {				
 		
 		String sqlSelect = "SELECT count(pk_atendimento) dailyTotal FROM `atendimento` where data = ? having count(pk_atendimento);";
 		Object dailyTotal = null;
-		Object dayTotal = null;
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlSelect);) {
 			stm.setString(1, today);
@@ -169,11 +169,7 @@ public class AtendimentoDAO {
 					
 					 dailyTotal = rs.getInt("dailyTotal");
 					 
-					 if(dailyTotal != null) {
-						 dayTotal = dailyTotal; 
-					 }else {
-						 dayTotal = 0; 
-					 }
+					 
 					
 				} 
 			} catch (SQLException e) {
@@ -183,10 +179,15 @@ public class AtendimentoDAO {
 			System.out.print(e1.getStackTrace());
 		}
 		
+		if(dailyTotal != null) {
+			 return dailyTotal; 
+		 }else {
+			return dailyTotal = 0; 
+		 }
 		
-		return dayTotal;
+
 	}
-public Object MonthConsolidator(String firstDay, String currentDay) {				
+	public Object MonthConsolidator(String firstDay, String currentDay) {				
 		
 		String sqlSelect = "SELECT count(pk_atendimento) monthTotal FROM `atendimento` where data BETWEEN ? and ? having count(pk_atendimento);";
 		Object monthTotal = null;
@@ -200,10 +201,7 @@ public Object MonthConsolidator(String firstDay, String currentDay) {
 				if (rs.next()) {
 					
 					 monthTotal = rs.getInt("monthTotal");
-					 
-					 if(monthTotal != null) {
-						 monthTotal = 0; 
-					 }
+					 System.out.println("Month Total ------------------> "+ monthTotal);		 
 					
 				} 
 			} catch (SQLException e) {
@@ -213,14 +211,18 @@ public Object MonthConsolidator(String firstDay, String currentDay) {
 			System.out.print(e1.getStackTrace());
 		}
 		
+		if(monthTotal != null) 
+			return monthTotal; 
+		else
+			return monthTotal = 0;
 		
-		return monthTotal;
 	}
-	public ArrayList<Atendimento> searchAll() {				
+	public ArrayList searchAll() {				
 		
-		ArrayList<Atendimento> list = new ArrayList<Atendimento>();
+		@SuppressWarnings("rawtypes")
+		ArrayList list = new ArrayList();
 		
-		String sqlSelect = "SELECT `pk_atendimento`, `fk_pergunta`, `fk_funcionario`, `fk_cliente`, `fk_filaCliente`, `status`, `data`, `humanInteraction`, `botInteraction` FROM `atendimento`;";
+		String sqlSelect = "SELECT  pk_atendimento, DATE_FORMAT(data, \"%d/%m/%Y\") data, botInteraction, humanInteraction, (humanInteraction + botInteraction) totalInteraction FROM `atendimento` group BY pk_atendimento;";
 		// usando o try with resources do Java 7, que fecha o que abriu
 		
 		try (Connection conn = ConnectionFactory.obtemConexao();
@@ -228,15 +230,14 @@ public Object MonthConsolidator(String firstDay, String currentDay) {
 			try (ResultSet rs = stm.executeQuery();) {
 				while (rs.next()) {
 					Atendimento atend = new Atendimento();
-					atend.setId(rs.getInt("pk_atendimento"));
-					atend.setIdFuncionario(rs.getInt("fk_funcionario"));
-					atend.setIdCliente(rs.getInt("fk_cliente"));
-					atend.setIdFilaCliente(rs.getInt("fk_filaCliente"));
-					atend.setStatus(rs.getInt("status"));
-					atend.setData(rs.getDate("data"));
-					atend.setHumanInteraction(rs.getInt("humanInteraction"));
-					atend.setBotInteraction(rs.getInt("botInteraction"));			
-					list.add(atend);
+					
+					String jsonAtend = "{\"idAtend\":"+ rs.getInt("pk_atendimento")+"," +
+							   "\"data\":"+ "\""+rs.getString("data")+"\"," +
+							   "\"botInteraction\":"+ rs.getInt("botInteraction")+"," +
+							   "\"humanInteraction\":"+ rs.getInt("humanInteraction")+"," +
+							   "\"totalInteraction\":"+ rs.getInt("totalInteraction")+"}";	
+					
+					list.add(jsonAtend);
 				}
 				
 									

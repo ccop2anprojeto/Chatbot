@@ -37,7 +37,7 @@ public class Relatorio implements Command {
 		
 		AtendimentoService serviceAtend = new AtendimentoService();
 		
-		System.out.println("Search all atendimento --- " + serviceAtend.searchAll().get(0));
+		System.out.println("Search all atendimento --- " + serviceAtend.searchAll());
 												
 		String respJSONString = null;
 		Gson gson = new Gson();
@@ -74,20 +74,20 @@ public class Relatorio implements Command {
 			//configuração para mostrar total de acessos por mês
 			//-----------------------------------------------
 			
-			
+			DateFormat formatoM = new SimpleDateFormat("yyyy/MM/dd");
 			Calendar calMonth = Calendar.getInstance();
 			Calendar calMonthFormat = Calendar.getInstance();
 			Calendar currentDay = new GregorianCalendar();
-			
-			currentDay.setTime(date);
-			int dayOfMonth = todayC.get(Calendar.DAY_OF_MONTH);
+			Date dateM = new Date();
+			currentDay.setTime(dateM);
+			int dayOfMonth = currentDay.get(Calendar.DAY_OF_MONTH);
 			int firstDayOfMonth = 1;
 			int teste = (dayOfMonth - firstDayOfMonth);
-			calMonth.add(currentDay.DATE, -5);
-			calMonthFormat = cal;
+			calMonth.add(currentDay.DATE, -teste);
+			calMonthFormat = calMonth;
 			
 			//formatando today e sunday para requisitar ao banco
-			String firstDay = formato.format(calMonthFormat.getTime());
+			String firstDay = formatoM.format(calMonthFormat.getTime());
 
 			System.out.println("FirstDayOfMonth -------->"+ firstDay);
 			System.out.println("dayOfMonth -------->"+ dayOfMonth);			
@@ -95,10 +95,23 @@ public class Relatorio implements Command {
 			System.out.println("Primeiro dia do mês -------->"+ calMonthFormat.getTime());
 			System.out.println("--------------------------------------");
 			
+			//---------------------------------------------------------
+			//Criando json com String para mandar pro front somente dados que serão utilizados
+			//-----------------------------------------------------------
 			
-			list.add(serviceAtend.DailyConsolidator(todayFormat));
-			list.add(serviceAtend.WeekConsolidator(todayFormat, sundayFormat));
-			list.add(serviceAtend.MonthConsolidator(firstDay, todayFormat));
+			//ArrayList<Atendimento> atendsAll = serviceAtend.searchAll();
+			
+			
+			
+			
+			
+			
+			String jsonTotals = "{\"daily\":"+ serviceAtend.DailyConsolidator(todayFormat)+","+ "\"week\":"+ serviceAtend.WeekConsolidator(todayFormat, sundayFormat)+"," + "\"month\":"+ serviceAtend.MonthConsolidator(firstDay, todayFormat)+"}";
+			//String jsonWeek = "{\"week\":"+ serviceAtend.WeekConsolidator(todayFormat, sundayFormat)+"}";
+			//String jsonMonth = "{\"month\":"+ serviceAtend.MonthConsolidator(firstDay, todayFormat)+"}";
+			
+			
+			list.add(jsonTotals);			
 			list.add(serviceAtend.searchAll());
 		}
 		respJSONString = gson.toJson(list);
